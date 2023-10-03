@@ -1,0 +1,12 @@
+version: '3,8'
+services:
+  digiwise-fe:
+    build: ./source
+    container_name: digiwise_c
+    ports:
+      - 8000:8000
+    volumes:
+      - ./source:/app/digiwise
+      - /app/digiwise/node_modules
+    stdin_open: true
+    tty: true
