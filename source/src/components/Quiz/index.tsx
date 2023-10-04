@@ -13,8 +13,8 @@ const Quiz = () => {
         staying hoax-resistant. Are you up for the challenge? Let's kickstart this learning journey together. Happy learning!
       </p>
       <div className="flex flex-col gap-[20px] w-full">
-        <LevelOptions onClick={() => openModal()} active={true} text={'#1 - Be a Good Reader'} />
-        <LevelOptions active={false} text={'Level 2'} />
+        <LevelOptions onClick={() => openModal(1)} active={true} text={'#1 - Be a Good Reader'} />
+        <LevelOptions onClick={() => openModal(2)} active={true} text={'Level 2'} />
         <LevelOptions active={false} text={'Level 3'} />
         <LevelOptions active={false} text={'Level 4'} />
         <LevelOptions active={false} text={'Level 5'} />

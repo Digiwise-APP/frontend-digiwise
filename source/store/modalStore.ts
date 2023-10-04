@@ -3,7 +3,8 @@ import { persist } from 'zustand/middleware';
 
 type Store = {
   isOpened: boolean;
-  openModal: () => void;
+  level: number;
+  openModal: (receivedLevel: number) => void;
   closeModal: () => void;
 };
 
@@ -11,7 +12,8 @@ const modalStore = create<Store>()(
   persist(
     (set) => ({
       isOpened: false,
-      openModal: () => set({ isOpened: true }),
+      level: 1,
+      openModal: (receivedLevel) => set({ isOpened: true, level: receivedLevel }),
       closeModal: () => set({ isOpened: false }),
     }),
     {
