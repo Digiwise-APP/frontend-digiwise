@@ -13,14 +13,14 @@ const Modal: React.FC<Props> = () => {
       <div className="fixed h-screen w-screen bg-black z-10 top-0 opacity-75"></div>
 
       <div className="fixed inset-0 z-20 flex items-center justify-center">
-        <div className="bg-[#D9D9D9] max-w-[1000px]">
+        <div className="bg-[#D9D9D9] max-w-[1000px] rounded-[20px]">
           <div className="flex justify-end">
             <button className="w-[30px] h-[30px] flex items-center justify-center m-[17px] bg-white rounded-full drop-shadow-xl" onClick={() => closeModal()}>
               <span className="font-bold text-black">X</span>
             </button>
           </div>
           {/* content */}
-          <div className="bg-[#D9D9D9] px-[99px] py-[96px] ">
+          <div className="bg-[#D9D9D9] px-[99px] py-[96px] rounded-[20px]">
             <p className="text-[20px] font-poppins font-bold text-black text-center">#1 - BBB: Bukan Baca Biasa</p>
             <p className="font-poppins text-[12px] leading-[30px] text-black mt-[46px]">
               Selamat datang di level 'BBB: Bukan Baca Biasa!', Zie! <br></br> Apakah kamu siap menjadi pembaca yang tajam dan kritis? 📚 Level ini berkaitan dengan pengembangan keterampilanmu untuk bijak menanggapi serta membedakan antara
