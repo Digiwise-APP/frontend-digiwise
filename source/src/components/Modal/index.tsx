@@ -1,10 +1,13 @@
 import React from 'react';
 
+import modalStore from '../../../store/modalStore';
+
 type Props = {
   children?: JSX.Element | JSX.Element[];
 };
 
 const Modal: React.FC<Props> = () => {
+  const { closeModal } = modalStore();
   return (
     <div className="static">
       <div className="fixed h-screen w-screen bg-black z-10 top-0 opacity-75"></div>
@@ -12,7 +15,7 @@ const Modal: React.FC<Props> = () => {
       <div className="fixed inset-0 z-20 flex items-center justify-center">
         <div className="bg-[#D9D9D9] max-w-[1000px]">
           <div className="flex justify-end">
-            <button className="w-[30px] h-[30px] flex items-center justify-center m-[17px] bg-white rounded-full drop-shadow-xl">
+            <button className="w-[30px] h-[30px] flex items-center justify-center m-[17px] bg-white rounded-full drop-shadow-xl" onClick={() => closeModal()}>
               <span className="font-bold text-black">X</span>
             </button>
           </div>
