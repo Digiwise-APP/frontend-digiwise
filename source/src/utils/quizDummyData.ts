@@ -17,3 +17,5 @@ const questions = [
     options: { a: "Components", b: "Blocks", c: "Elements", d: "Effects" },
   },
 ];
+
+export default questions;
