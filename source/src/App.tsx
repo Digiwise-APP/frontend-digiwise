@@ -1,10 +1,10 @@
-import Quiz from './components/Quiz';
-import Modal from './components/Modal';
+import Quiz from "./components/Quiz";
+import Modal from "./components/Modal";
 
 // modalstore
-import modalStore from '../store/modalStore';
-import Level1 from './components/Level/Level1';
-import Level2 from './components/Level/Level2';
+import modalStore from "../store/modalStore";
+import LevelOne from "./components/Level/LevelOne";
+import LevelTwo from "./components/Level/LevelTwo";
 
 function App() {
   const { isOpened, level } = modalStore();
@@ -14,20 +14,23 @@ function App() {
   if (level === 1) {
     content = (
       <Modal>
-        <Level1 />
+        <LevelOne />
       </Modal>
     );
   } else if (level === 2) {
     content = (
       <Modal>
-        <Level2 />
+        <LevelTwo />
       </Modal>
     );
   }
 
   return (
     <>
-      <div data-theme="light" className="flex items-center justify-center h-full py-[54px]">
+      <div
+        data-theme="light"
+        className="flex items-center justify-center h-full py-[54px]"
+      >
         <Quiz />
       </div>
       {isOpened && content}
