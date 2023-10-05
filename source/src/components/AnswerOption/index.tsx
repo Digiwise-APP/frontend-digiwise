@@ -1,18 +1,16 @@
-import React from "react";
+import React from 'react';
 
 type Option = {
-  key: string;
-  value: string;
+  choice: string;
+  choiceValue: string;
   userAnswer: string;
 };
 
-const AnswerOption: React.FC<Option> = ({ key, value, userAnswer }) => {
-  console.log(key);
-  console.log(value);
+const AnswerOption: React.FC<Option> = ({ choice, choiceValue, userAnswer }) => {
   return (
-    <button className="bg-transparent flex justify-center items-center rounded-[20px] px-[20px] py-[17px]">
+    <button className="bg-transparent border-dashed border-2 border-[#232686] flex justify-center items-center rounded-[20px] w-[443px] h-[65px]">
       <p className="font-inter text-black">
-        {key}. {value}
+        {choice}. {choiceValue}
       </p>
     </button>
   );
