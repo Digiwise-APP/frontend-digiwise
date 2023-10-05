@@ -1,33 +1,39 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import Quiz from "./components/Quiz";
+import Modal from "./components/Modal";
+
+// modalstore
+import modalStore from "../store/modalStore";
+import LevelOne from "./components/Level/LevelOne";
+import LevelTwo from "./components/Level/LevelTwo";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const { isOpened, level } = modalStore();
+
+  let content;
+
+  if (level === 1) {
+    content = (
+      <Modal>
+        <LevelOne />
+      </Modal>
+    );
+  } else if (level === 2) {
+    content = (
+      <Modal>
+        <LevelTwo />
+      </Modal>
+    );
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div
+        data-theme="light"
+        className="flex items-center justify-center h-full py-[54px]"
+      >
+        <Quiz />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {isOpened && content}
     </>
   );
 }
