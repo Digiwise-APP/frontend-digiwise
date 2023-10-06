@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-
-import quizStore from '../../../store/quizStore';
+import React from 'react';
 
 type Option = {
   choice: string;
