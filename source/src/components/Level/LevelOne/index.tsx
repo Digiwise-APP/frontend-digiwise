@@ -1,12 +1,21 @@
+import React, { useEffect } from "react";
+
 import quizStore from "../../../../store/quizStore";
 import modalStore from "../../../../store/modalStore";
 
 import Question from "./Question";
-import questions from "../../../utils/quizDummyData";
+import Result from "../../Result";
+
+import questions from "../../../../data/quizDummyData";
+import results from "../../../../data/quizResultData";
 
 const LevelOne = () => {
   const { closeModal } = modalStore();
-  const { status, startQuiz, index } = quizStore();
+  const { addQuiz, status, startQuiz, index, quiz } = quizStore();
+
+  useEffect(() => {
+    addQuiz(questions);
+  }, []);
 
   if (status === "steady") {
     return (
@@ -15,7 +24,7 @@ const LevelOne = () => {
           #1 - BBB: Bukan Baca Biasa
         </p>
         <p className="font-poppins text-[12px] leading-[30px] text-black mt-[46px]">
-          Selamat datang di level 'BBB: Bukan Baca Biasa!', Zie! <br></br>{" "}
+          Selamat datang di level 'BBB: Bukan Baca Biasa!', Zie! <br></br>
           Apakah kamu siap menjadi pembaca yang tajam dan kritis? 📚 Level ini
           berkaitan dengan pengembangan keterampilanmu untuk bijak menanggapi
           serta membedakan antara berita palsu dan berita yang benar. Misimu
@@ -44,14 +53,16 @@ const LevelOne = () => {
         </div>
       </div>
     );
-  } else {
+  } else if (status === "start") {
     return (
       <Question
-        question={questions[index].question}
-        image={questions[index].image}
-        options={questions[index].options}
+        question={quiz[index].question}
+        image={quiz[index].image}
+        options={quiz[index].options}
       />
     );
+  } else if (status === "finished") {
+    return <Result />;
   }
 };
 
