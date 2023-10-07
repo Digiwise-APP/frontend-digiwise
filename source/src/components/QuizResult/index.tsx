@@ -10,7 +10,7 @@ type ResultProps = {
   secondParagraph?: string;
 };
 
-const Result: React.FC<ResultProps> = ({
+const QuizResult: React.FC<ResultProps> = ({
   title,
   salutation,
   firstParagraph,
@@ -56,4 +56,4 @@ const Result: React.FC<ResultProps> = ({
   );
 };
 
-export default Result;
+export default QuizResult;
