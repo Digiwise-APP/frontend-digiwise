@@ -6,6 +6,7 @@ import modalStore from "../store/modalStore";
 import LevelOne from "./components/Level/LevelOne";
 import LevelTwo from "./components/Level/LevelTwo";
 import SidebarMenu from "./components/Sidebar/SidebarMenu";
+import SidebarProfile from "./components/Sidebar/SidebarProfile";
 
 function App() {
   const { isOpened, level } = modalStore();
@@ -29,6 +30,7 @@ function App() {
   return (
     <>
       <SidebarMenu />
+      <SidebarProfile />
       <div
         data-theme="light"
         className="flex h-full items-center justify-center py-[54px]"
