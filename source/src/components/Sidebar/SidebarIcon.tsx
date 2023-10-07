@@ -16,7 +16,7 @@ const SidebarIcon: React.FC<SidebarIconProps> = ({ icon, text, position }) => {
         className={` min-2-max absolute m-2 
                  w-auto origin-left scale-0 rounded-md bg-gray-800 p-2 
                  text-xs font-bold text-white shadow-md transition-all duration-100 group-hover:scale-100 ${
-                   position === "right" ? "right-14" : "left-14"
+                   position === "right" ? "left-14" : "right-14"
                  }`}
       >
         {text}

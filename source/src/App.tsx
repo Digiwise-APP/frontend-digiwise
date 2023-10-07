@@ -5,7 +5,7 @@ import Modal from "./components/Modal";
 import modalStore from "../store/modalStore";
 import LevelOne from "./components/Level/LevelOne";
 import LevelTwo from "./components/Level/LevelTwo";
-import Sidebar from "./components/Sidebar";
+import SidebarMenu from "./components/Sidebar/SidebarMenu";
 
 function App() {
   const { isOpened, level } = modalStore();
@@ -28,14 +28,14 @@ function App() {
 
   return (
     <>
-      <Sidebar />
+      <SidebarMenu />
       <div
         data-theme="light"
         className="flex h-full items-center justify-center py-[54px]"
       >
         <Quiz />
       </div>
-      {/* {isOpened && content} */}
+      {isOpened && content}
     </>
   );
 }
