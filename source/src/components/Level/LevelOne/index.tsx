@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 // store
-import quizStore from "../../../../store/quizStore";
+import {quizStore} from "../../../../store/quizStore";
 import modalStore from "../../../../store/modalStore";
 
 // components
@@ -12,6 +12,9 @@ import QuizPreparation from "../../QuizPreparation";
 // data
 import questions from "../../../../data/dummy/levelOne";
 import text from "../../../../data/quizText";
+
+
+
 
 const LevelOne = () => {
   const { closeModal } = modalStore();
