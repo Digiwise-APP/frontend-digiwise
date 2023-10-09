@@ -1,24 +1,24 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-export type Question = {
-  id?: string;
-  level?: number;
-  image: string;
-  question: string;
-  options: {
-    [key: string]: string;
-  };
-  question_type?: string;
-};
+// export type Question = {
+//   id?: string;
+//   level?: number;
+//   image: string;
+//   question: string;
+//   options: {
+//     [key: string]: string;
+//   };
+//   question_type?: string;
+// };
 
-type Store = {
-  quiz: Question[] | [];
+type Store<T> = {
+  quiz: T[] | [];
   status: string;
   index: number;
   passed: boolean | null;
   answers: string[] | [];
-  addQuiz: (quiz: Question[]) => void;
+  addQuiz: (quiz: T[]) => void;
   startQuiz: () => void;
   setPassedResult: (result: boolean) => void;
   nextQuestion: () => void;
