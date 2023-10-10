@@ -18,15 +18,15 @@ type QuestionLevelTwo = {
   imageOptionTwo:string
 }
 
-type Quiz = QuestionLevelOne[] | QuestionLevelTwo[] | []
+type Quiz = QuestionLevelOne | QuestionLevelTwo
 
 type Store = {
-  quiz: Quiz
+  quiz: Quiz[] | [] 
   status: string;
   index: number;
   passed: boolean | null;
   answers: string[] | [];
-  addQuiz: (quiz) => void;
+  addQuiz: (quiz: Quiz[]) => void;
   startQuiz: () => void;
   setPassedResult: (result: boolean) => void;
   nextQuestion: () => void;

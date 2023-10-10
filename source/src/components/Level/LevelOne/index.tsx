@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 // store
-import {quizStore} from "../../../../store/quizStore";
+import quizStore from "../../../../store/quizStore";
 import modalStore from "../../../../store/modalStore";
 
 // components
