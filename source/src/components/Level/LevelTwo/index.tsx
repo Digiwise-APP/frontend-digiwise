@@ -17,7 +17,7 @@ const LevelTwo = () => {
   const { closeModal } = modalStore();
   const { addQuiz, status, startQuiz, index, quiz, passed } = quizStore();
 
-  const quizText = text[0].first_level;
+  const quizText = text[0].second_level;
   let resultText;
 
   if (passed) {
@@ -42,8 +42,8 @@ const LevelTwo = () => {
     return (
       <Question
         question={quiz[index].question}
-        image={quiz[index].image}
-        options={quiz[index].options}
+        imageOptionOne={quiz[index].imageOptionOne}
+        imageOptionTwo={quiz[index].imageOptionTwo}
       />
     );
   } else if (status === "finished") {

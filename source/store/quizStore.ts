@@ -1,19 +1,23 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
- type QuestionLevelOne = {
+
+type Question = {
   id?: string;
   level?: number;
-  image: string;
   question: string;
+  question_type?: string;
+}
+
+interface QuestionLevelOne extends Question  {
+  image: string;
   options: {
     [key: string]: string;
   };
-  question_type?: string;
+
 };
 
-type QuestionLevelTwo = {
-  question: string,
+interface QuestionLevelTwo extends Question  {
   imageOptionOne:string,
   imageOptionTwo:string
 }
@@ -21,12 +25,12 @@ type QuestionLevelTwo = {
 type Quiz = QuestionLevelOne | QuestionLevelTwo
 
 type Store = {
-  quiz: Quiz[] | [] 
+  quiz: Quiz[]
   status: string;
   index: number;
   passed: boolean | null;
   answers: string[] | [];
-  addQuiz: (quiz: Quiz[]) => void;
+  addQuiz: (quiz : Quiz[] ) => void;
   startQuiz: () => void;
   setPassedResult: (result: boolean) => void;
   nextQuestion: () => void;
@@ -37,7 +41,7 @@ type Store = {
 
 const quizStore = create<Store>()(
   persist(
-    (set) => ({
+    (set,get) => ({
       quiz: [],
       status: 'steady',
       index: 0,
@@ -50,10 +54,12 @@ const quizStore = create<Store>()(
         set((state) => ({
           index: state.index + 1,
         })),
-      setAnswer: (answerChoosen: string) =>
-        set((state) => ({
-          answers: [...state.answers, answerChoosen],
-        })),
+      setAnswer: (answerChoosen: string) => { 
+        const oldAnswer = get().answers
+        const currentIndex = get().index
+        oldAnswer[currentIndex] = answerChoosen
+        set({answers: oldAnswer})
+      },
       submitQuiz: () => set({ status: 'finished' }),
       restartQuiz: () => set({ index: 0, status: 'steady', answers: [] }),
     }),
