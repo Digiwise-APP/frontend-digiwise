@@ -10,8 +10,11 @@ import QuizResult from "../../QuizResult";
 import QuizPreparation from "../../QuizPreparation";
 
 // data
-import questions from "../../../../data/quizDummyData";
+import questions from "../../../../data/dummy/levelOne";
 import text from "../../../../data/quizText";
+
+
+
 
 const LevelOne = () => {
   const { closeModal } = modalStore();

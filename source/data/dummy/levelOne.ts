@@ -1,4 +1,4 @@
-import imgQuiz from "../src/assets/img_quiz.jpg";
+import imgQuiz from "../../src/assets/img_quiz.jpg"
 
 const questions = [
   {
