@@ -5,6 +5,7 @@ import Modal from "./components/Modal";
 import modalStore from "../store/modalStore";
 import LevelOne from "./components/Level/LevelOne";
 import LevelTwo from "./components/Level/LevelTwo";
+import LevelThree from "./components/Level/LevelThree";
 import SidebarMenu from "./components/Sidebar/SidebarMenu";
 import SidebarProfile from "./components/Sidebar/SidebarProfile";
 
@@ -26,6 +27,14 @@ function App() {
       </Modal>
     );
   }
+   else if (level === 3) {
+    content = (
+      <Modal>
+        <LevelThree />
+      </Modal>
+    );
+  }
+  
 
   return (
     <>
