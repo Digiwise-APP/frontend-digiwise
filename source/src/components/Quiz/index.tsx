@@ -28,14 +28,14 @@ const Quiz = () => {
         <LevelOption
           onClick={() => openModal(1)}
           active={true}
-          text={"#1 - Be a Good Reader"}
+          text={"Level 1"}
         />
         <LevelOption
           onClick={() => openModal(2)}
           active={true}
           text={"Level 2"}
         />
-        <LevelOption active={false} text={"Level 3"} />
+        <LevelOption onClick={() => openModal(3)} active={true} text={"Level 3"} />
         <LevelOption active={false} text={"Level 4"} />
         <LevelOption active={false} text={"Level 5"} />
       </div>
