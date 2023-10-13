@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 type Option = {
   choice: string;
@@ -8,11 +8,19 @@ type Option = {
   userAnswer: string;
 };
 
-const AnswerOption: React.FC<Option> = ({ choice, choiceValue, hasAnswered, onClick, userAnswer }) => {
+const AnswerOption: React.FC<Option> = ({
+  choice,
+  choiceValue,
+  hasAnswered,
+  onClick,
+  userAnswer,
+}) => {
   return (
     <button
       disabled={hasAnswered}
-      className={`bg-transparent border-dashed border-2 border-[#232686] flex justify-center items-center rounded-[20px] w-[443px] h-[65px] ${choice === userAnswer ? 'disabled:bg-red-400' : 'disabled:bg-gray-400'}`}
+      className={`flex h-[38px] w-full max-w-[443px] items-center justify-center rounded-[20px] border-2 border-dashed border-[#232686] bg-transparent md:h-[65px] ${
+        choice === userAnswer ? "disabled:bg-red-400" : "disabled:bg-gray-400"
+      }`}
       onClick={() => onClick(choice)}
     >
       <p className="font-inter text-black">

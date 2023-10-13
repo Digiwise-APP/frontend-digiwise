@@ -1,19 +1,18 @@
-import React from 'react'
+import React from "react";
 
-import quizStore from '../../../../store/quizStore'
-import Option from './Option'
+import quizStore from "../../../../store/quizStore";
+import Option from "./Option";
 
 type Option = {
   [key: string]: string;
-}
+};
 
-type QuestionProps =  {
-    question: string
-    options: Option[]
-}
+type QuestionProps = {
+  question: string;
+  options: Option[];
+};
 
-
-const Question: React.FC<QuestionProps> = ({question, options}) => {
+const Question: React.FC<QuestionProps> = ({ question, options }) => {
   const {
     nextQuestion,
     quiz,
@@ -28,7 +27,6 @@ const Question: React.FC<QuestionProps> = ({question, options}) => {
 
   const onChooseAnswer = (choice: string) => {
     setAnswer(choice);
-   
   };
 
   const onSubmitAnswer = () => {
@@ -46,7 +44,7 @@ const Question: React.FC<QuestionProps> = ({question, options}) => {
   if (index === quiz.length - 1) {
     button = (
       <button
-        className="bg-[#C0EEF2] drop-shadow-xl flex justify-center items-center rounded-full w-[150px] h-[40px]"
+        className="flex h-[40px] w-[150px] items-center justify-center rounded-full bg-[#C0EEF2] drop-shadow-xl"
         onClick={onSubmitAnswer}
       >
         <p className="font-inter text-black">Selesai</p>
@@ -55,7 +53,7 @@ const Question: React.FC<QuestionProps> = ({question, options}) => {
   } else {
     button = (
       <button
-        className="bg-[#C0EEF2] drop-shadow-xl flex justify-center items-center rounded-full w-[150px] h-[40px]"
+        className="flex h-[40px] w-[150px] items-center justify-center rounded-full bg-[#C0EEF2] drop-shadow-xl"
         onClick={onClickNext}
       >
         <p className="font-inter text-black">Selanjutnya</p>
@@ -63,26 +61,23 @@ const Question: React.FC<QuestionProps> = ({question, options}) => {
     );
   }
 
-  const questionOptions = (
-      options.map((option) => (
-        <Option optionText={option.text} />
-      ))
-    
-  )
+  const questionOptions = options.map((option) => (
+    <Option optionText={option.text} />
+  ));
 
   return (
-    <div className="bg-[#D9D9D9] px-[55px] py-[53px] rounded-[20px]">
+    <div className="rounded-[20px]  bg-[#D9D9D9]">
       <div className="flex flex-col items-center gap-14">
-        <p className="text-[20px] font-poppins font-bold text-black text-center">
+        <p className="text-center font-poppins text-[20px] font-bold text-black">
           {question}
         </p>
-        <div className='flex flex-col gap-[18px] items-center'>
+        <div className="flex flex-col items-center gap-[18px]">
           {questionOptions}
         </div>
       </div>
-      <div className="flex justify-end items-center mt-[19px]">{button}</div>
+      <div className="mt-[19px] flex items-center justify-end">{button}</div>
     </div>
-  )
-}
+  );
+};
 
-export default Question
+export default Question;
