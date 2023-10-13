@@ -8,7 +8,7 @@ type Option = {
   userAnswer: string;
 };
 
-const AnswerOption: React.FC<Option> = ({
+const Option: React.FC<Option> = ({
   choice,
   choiceValue,
   hasAnswered,
@@ -30,4 +30,4 @@ const AnswerOption: React.FC<Option> = ({
   );
 };
 
-export default AnswerOption;
+export default Option;

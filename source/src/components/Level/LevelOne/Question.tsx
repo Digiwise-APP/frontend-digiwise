@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-import AnswerOption from "../../AnswerOption";
+import Option from "./Option";
 
 import quizStore from "../../../../store/quizStore";
-
-interface Option {
-  [key: string]: string;
-}
 
 export type Question = {
   question: string;
   image: string;
-  options: Option;
+  options: { [key: string]: string };
 };
 
 const Question: React.FC<Question> = ({ image, question, options }) => {
@@ -74,7 +70,7 @@ const Question: React.FC<Question> = ({ image, question, options }) => {
       </div>
       <div className="mt-[35px] grid grid-cols-1 justify-items-center gap-4 md:grid-cols-2">
         {Object.entries(options).map((value) => (
-          <AnswerOption
+          <Option
             userAnswer={answers[index]}
             hasAnswered={hasAnswered}
             choice={value[0]}
