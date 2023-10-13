@@ -8,6 +8,7 @@ import LevelTwo from "./components/Level/LevelTwo";
 import LevelThree from "./components/Level/LevelThree";
 import SidebarMenu from "./components/Sidebar/SidebarMenu";
 import SidebarProfile from "./components/Sidebar/SidebarProfile";
+import TextArea from "./components/FakeNews/TextArea";
 
 function App() {
   const { isOpened, level } = modalStore();
@@ -26,15 +27,13 @@ function App() {
         <LevelTwo />
       </Modal>
     );
-  }
-   else if (level === 3) {
+  } else if (level === 3) {
     content = (
       <Modal>
         <LevelThree />
       </Modal>
     );
   }
-  
 
   return (
     <>
