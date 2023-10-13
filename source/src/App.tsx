@@ -10,31 +10,17 @@ import SidebarMenu from "./components/Sidebar/SidebarMenu";
 import SidebarProfile from "./components/Sidebar/SidebarProfile";
 
 function App() {
-  const { isOpened, level } = modalStore();
+  const { level } = modalStore();
 
-  let content;
+  let modalContent;
 
   if (level === 1) {
-    content = (
-      <Modal>
-        <LevelOne />
-      </Modal>
-    );
+    modalContent = <LevelOne />;
   } else if (level === 2) {
-    content = (
-      <Modal>
-        <LevelTwo />
-      </Modal>
-    );
+    modalContent = <LevelTwo />;
+  } else if (level === 3) {
+    modalContent = <LevelThree />;
   }
-   else if (level === 3) {
-    content = (
-      <Modal>
-        <LevelThree />
-      </Modal>
-    );
-  }
-  
 
   return (
     <>
@@ -46,7 +32,7 @@ function App() {
       >
         <Quiz />
       </div>
-      {isOpened && content}
+      <Modal>{modalContent}</Modal>
     </>
   );
 }
