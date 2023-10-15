@@ -11,28 +11,16 @@ import SidebarProfile from "./components/Sidebar/SidebarProfile";
 import TextArea from "./components/FakeNews/TextArea";
 
 function App() {
-  const { isOpened, level } = modalStore();
+  const { level } = modalStore();
 
-  let content;
+  let modalContent;
 
   if (level === 1) {
-    content = (
-      <Modal>
-        <LevelOne />
-      </Modal>
-    );
+    modalContent = <LevelOne />;
   } else if (level === 2) {
-    content = (
-      <Modal>
-        <LevelTwo />
-      </Modal>
-    );
+    modalContent = <LevelTwo />;
   } else if (level === 3) {
-    content = (
-      <Modal>
-        <LevelThree />
-      </Modal>
-    );
+    modalContent = <LevelThree />;
   }
 
   return (
@@ -45,7 +33,7 @@ function App() {
       >
         <Quiz />
       </div>
-      {isOpened && content}
+      <Modal>{modalContent}</Modal>
     </>
   );
 }

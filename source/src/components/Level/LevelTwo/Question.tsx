@@ -1,16 +1,18 @@
-import React from 'react'
+import React from "react";
 
-import quizStore from '../../../../store/quizStore'
+import quizStore from "../../../../store/quizStore";
 
-type QuestionProps =  {
-    question: string
-    imageOptionOne: string,
-    imageOptionTwo : string
+type QuestionProps = {
+  question: string;
+  imageOptionOne: string;
+  imageOptionTwo: string;
+};
 
-}
-
-
-const Question: React.FC<QuestionProps> = ({question, imageOptionOne, imageOptionTwo}) => {
+const Question: React.FC<QuestionProps> = ({
+  question,
+  imageOptionOne,
+  imageOptionTwo,
+}) => {
   const {
     nextQuestion,
     quiz,
@@ -25,7 +27,6 @@ const Question: React.FC<QuestionProps> = ({question, imageOptionOne, imageOptio
 
   const onChooseAnswer = (choice: string) => {
     setAnswer(choice);
-   
   };
 
   const onSubmitAnswer = () => {
@@ -43,7 +44,7 @@ const Question: React.FC<QuestionProps> = ({question, imageOptionOne, imageOptio
   if (index === quiz.length - 1) {
     button = (
       <button
-        className="bg-[#C0EEF2] drop-shadow-xl flex justify-center items-center rounded-full w-[150px] h-[40px]"
+        className="flex h-[40px] w-[150px] items-center justify-center rounded-full bg-[#C0EEF2] drop-shadow-xl"
         onClick={onSubmitAnswer}
       >
         <p className="font-inter text-black">Selesai</p>
@@ -52,7 +53,7 @@ const Question: React.FC<QuestionProps> = ({question, imageOptionOne, imageOptio
   } else {
     button = (
       <button
-        className="bg-[#C0EEF2] drop-shadow-xl flex justify-center items-center rounded-full w-[150px] h-[40px]"
+        className="flex h-[40px] w-[150px] items-center justify-center rounded-full bg-[#C0EEF2] drop-shadow-xl"
         onClick={onClickNext}
       >
         <p className="font-inter text-black">Selanjutnya</p>
@@ -61,23 +62,39 @@ const Question: React.FC<QuestionProps> = ({question, imageOptionOne, imageOptio
   }
 
   return (
-    <div className="bg-[#D9D9D9] px-[55px] py-[53px] rounded-[20px]">
+    <div className="rounded-[20px] bg-[#D9D9D9]">
       <div className="flex flex-col items-center gap-14">
-        <p className="text-[20px] font-poppins font-bold text-black">
+        <p className="font-poppins text-[20px] font-bold text-black">
           {question}
         </p>
-        <div className='flex gap-[40px]'>
-          <div className={`p-2 cursor-pointer ${answers[index] === 'a' ? 'bg-red-400 rounded-xl' : ''} `} onClick={() => setAnswer('a')}>
-            <img src={imageOptionOne} className="w-[359px] h-[400px]" />
+        <div className="flex gap-[40px]">
+          <div
+            className={`cursor-pointer p-2 ${
+              answers[index] === "a" ? "rounded-xl bg-red-400" : ""
+            } `}
+            onClick={() => setAnswer("a")}
+          >
+            <img
+              src={imageOptionOne}
+              className="h-[200px] w-[178px] md:h-[400px] md:w-[359px]"
+            />
           </div>
-          <div className={`p-2 cursor-pointer  ${answers[index] === 'b' ? 'bg-red-400 rounded-xl' : ''} `} onClick={() => setAnswer('b')}>
-            <img src={imageOptionTwo} className="w-[359px] h-[400px]" />
+          <div
+            className={`cursor-pointer p-2  ${
+              answers[index] === "b" ? "rounded-xl bg-red-400" : ""
+            } `}
+            onClick={() => setAnswer("b")}
+          >
+            <img
+              src={imageOptionTwo}
+              className="h-[200px] w-[178px] md:h-[400px] md:w-[359px]"
+            />
           </div>
         </div>
       </div>
-      <div className="flex justify-end items-center mt-[19px]">{button}</div>
+      <div className="mt-[19px] flex items-center justify-end">{button}</div>
     </div>
-  )
-}
+  );
+};
 
-export default Question
+export default Question;

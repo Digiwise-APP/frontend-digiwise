@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-import AnswerOption from "../../AnswerOption";
+import Option from "./Option";
 
 import quizStore from "../../../../store/quizStore";
-
-interface Option {
-  [key: string]: string;
-}
 
 export type Question = {
   question: string;
   image: string;
-  options: Option;
+  options: { [key: string]: string };
 };
 
 const Question: React.FC<Question> = ({ image, question, options }) => {
@@ -48,7 +44,7 @@ const Question: React.FC<Question> = ({ image, question, options }) => {
   if (index === quiz.length - 1) {
     button = (
       <button
-        className="bg-[#C0EEF2] drop-shadow-xl flex justify-center items-center rounded-full w-[150px] h-[40px]"
+        className="flex h-[40px] w-[150px] items-center justify-center rounded-full bg-[#C0EEF2] drop-shadow-xl"
         onClick={onSubmitAnswer}
       >
         <p className="font-inter text-black">Selesai</p>
@@ -57,7 +53,7 @@ const Question: React.FC<Question> = ({ image, question, options }) => {
   } else {
     button = (
       <button
-        className="bg-[#C0EEF2] drop-shadow-xl flex justify-center items-center rounded-full w-[150px] h-[40px]"
+        className="flex h-[40px] w-[150px] items-center justify-center rounded-full bg-[#C0EEF2] drop-shadow-xl"
         onClick={onClickNext}
       >
         <p className="font-inter text-black">Selanjutnya</p>
@@ -65,16 +61,16 @@ const Question: React.FC<Question> = ({ image, question, options }) => {
     );
   }
   return (
-    <div className="bg-[#D9D9D9] px-[55px] py-[53px] rounded-[20px]">
+    <div className="rounded-[20px] bg-[#D9D9D9]">
       <div className="flex flex-col items-center gap-14">
-        <p className="text-[12px] font-poppins font-bold text-black">
+        <p className="font-poppins text-[12px] font-bold text-black">
           {question}
         </p>
-        <img src={image} className="w-[416px] h-[232px]" />
+        <img src={image} className="h-[232px] w-[416px]" />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center mt-[35px]">
+      <div className="mt-[35px] grid grid-cols-1 justify-items-center gap-4 md:grid-cols-2">
         {Object.entries(options).map((value) => (
-          <AnswerOption
+          <Option
             userAnswer={answers[index]}
             hasAnswered={hasAnswered}
             choice={value[0]}
@@ -84,7 +80,7 @@ const Question: React.FC<Question> = ({ image, question, options }) => {
           />
         ))}
       </div>
-      <div className="flex justify-end items-center mt-[19px]">{button}</div>
+      <div className="mt-[19px] flex items-center justify-end">{button}</div>
     </div>
   );
 };
