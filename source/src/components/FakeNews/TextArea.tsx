@@ -43,11 +43,8 @@ const TextArea = () => {
     console.log(`Fetch ${inputMode}`);
   };
   return (
-    <form className="w-2/3" data-theme="light">
-      <div
-        data-theme="light"
-        className="mb-4 w-full rounded-lg border bg-gray-50 dark:border-gray-600 dark:bg-gray-700"
-      >
+    <form className="w-2/3">
+      <div className="mb-4 w-full rounded-lg border bg-gray-50 dark:border-gray-600 dark:bg-gray-700">
         <div className="flex items-center justify-between border-b px-3 py-2 dark:border-gray-600">
           <div className="flex flex-wrap items-center divide-gray-200 dark:divide-gray-600 sm:divide-x">
             <div className="flex items-center space-x-1 sm:pr-4">

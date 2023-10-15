@@ -7,7 +7,7 @@ type ValidTextProps = {
 const ValidText: React.FC<ValidTextProps> = ({ validity = false }) => {
   return (
     <div
-      className={`rounded-xl px-10 py-5 text-xl text-black ${
+      className={`w-full rounded-xl px-10 py-5 text-xl text-black ${
         validity ? "bg-green-500" : "bg-red-500"
       }`}
     >
