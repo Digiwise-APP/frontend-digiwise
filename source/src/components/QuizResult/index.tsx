@@ -24,11 +24,11 @@ const QuizResult: React.FC<ResultProps> = ({
     closeModal();
   };
   return (
-    <div className="bg-[#D9D9D9] px-[99px] py-[96px] rounded-[20px]">
-      <p className="text-[20px] font-poppins font-bold text-black text-center">
+    <div className="rounded-[20px]  bg-[#D9D9D9]">
+      <p className="text-center font-poppins text-[20px] font-bold text-black">
         {title}
       </p>
-      <p className="font-poppins text-[12px] leading-[30px] text-black mt-[46px]">
+      <p className="mt-[20px] text-left font-poppins text-[12px] leading-[30px] text-black md:mt-[46px]">
         {salutation} <br></br>
         {firstParagraph}
         {secondParagraph && (
@@ -38,15 +38,15 @@ const QuizResult: React.FC<ResultProps> = ({
           </>
         )}
       </p>
-      <div className="flex justify-between items-center mt-[93px]">
+      <div className="mt-[40px] flex items-center justify-between md:mt-[93px]">
         <button
-          className="bg-white drop-shadow-xl flex justify-center items-center rounded-full w-[150px] h-[40px]"
+          className="flex h-[40px] w-[150px] items-center justify-center rounded-full bg-white drop-shadow-xl"
           onClick={() => restartQuiz()}
         >
           <p className="font-inter text-black">Ulangi Quiz</p>
         </button>
         <button
-          className="bg-[#C0EEF2] drop-shadow-xl flex justify-center items-center rounded-full w-[150px] h-[40px]"
+          className="flex h-[40px] w-[150px] items-center justify-center rounded-full bg-[#C0EEF2] drop-shadow-xl"
           onClick={onCloseModal}
         >
           <p className="font-inter text-black">Tutup</p>
