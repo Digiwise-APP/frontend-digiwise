@@ -8,6 +8,7 @@ import LevelTwo from "./components/Level/LevelTwo";
 import LevelThree from "./components/Level/LevelThree";
 import SidebarMenu from "./components/Sidebar/SidebarMenu";
 import SidebarProfile from "./components/Sidebar/SidebarProfile";
+import TextArea from "./components/FakeNews/TextArea";
 
 function App() {
   const { level } = modalStore();
