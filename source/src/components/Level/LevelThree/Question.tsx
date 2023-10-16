@@ -13,21 +13,10 @@ type QuestionProps = {
 };
 
 const Question: React.FC<QuestionProps> = ({ question, options }) => {
-  const {
-    nextQuestion,
-    quiz,
-    index,
-    setPassedResult,
-    submitQuiz,
-    setAnswer,
-    answers,
-  } = quizStore();
+  const { nextQuestion, quiz, index, setPassedResult, submitQuiz } =
+    quizStore();
 
   let button;
-
-  const onChooseAnswer = (choice: string) => {
-    setAnswer(choice);
-  };
 
   const onSubmitAnswer = () => {
     // call post request to backend, to submit answer and retrive result
@@ -61,8 +50,8 @@ const Question: React.FC<QuestionProps> = ({ question, options }) => {
     );
   }
 
-  const questionOptions = options.map((option) => (
-    <Option optionText={option.text} />
+  const questionOptions = options.map((option, index) => (
+    <Option optionText={option.text} key={index} />
   ));
 
   return (
