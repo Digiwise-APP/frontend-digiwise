@@ -8,6 +8,7 @@ import modalStore from "../../store/modalStore";
 import LevelOne from "../components/Level/LevelOne";
 import LevelTwo from "../components/Level/LevelTwo";
 import LevelThree from "../components/Level/LevelThree";
+import LevelFour from "../components/Level/LevelFour";
 // import SidebarMenu from "../components/Sidebar/SidebarMenu";
 // import SidebarProfile from "../components/Sidebar/SidebarProfile";
 
@@ -22,6 +23,8 @@ const QuizPage = () => {
     modalContent = <LevelTwo />;
   } else if (level === 3) {
     modalContent = <LevelThree />;
+  } else if (level === 4) {
+    modalContent = <LevelFour />;
   }
 
   return (
