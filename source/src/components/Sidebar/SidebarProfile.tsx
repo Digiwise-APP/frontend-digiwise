@@ -33,7 +33,7 @@ const menus = [
 
 const SidebarProfile = () => {
   return (
-    <SidebarContainer className="right-10 top-5">
+    <SidebarContainer className="right-10 top-5 hidden md:inline">
       {menus.map((menu) => {
         return (
           <SidebarIcon

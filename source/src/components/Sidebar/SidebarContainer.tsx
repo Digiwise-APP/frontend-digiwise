@@ -11,7 +11,7 @@ const SidebarContainer: React.FC<SidebarContainerProps> = ({
 }) => {
   return (
     <div
-      className={`${className} bg-bgSidebar fixed m-0 flex h-64 w-16 flex-col justify-evenly rounded-full text-white shadow-lg`}
+      className={`${className} fixed z-10 my-4 h-20 w-[90%] max-w-lg rounded-full bg-bgSidebar text-white shadow-lg md:m-0 md:flex md:h-64 md:w-16 md:flex-col md:justify-evenly`}
     >
       <div>{children}</div>
     </div>

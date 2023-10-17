@@ -12,22 +12,24 @@ type menuOptions = "home" | "games" | "about" | "fake-news";
 
 const menus = [
   {
-    iconComponent: <IoHomeSharp size={20} />,
+    iconComponent: <IoHomeSharp className="text-[25px] md:text-[20px]" />,
     text: "Home",
     position: "right",
   },
   {
-    iconComponent: <IoGameControllerSharp size={20} />,
+    iconComponent: (
+      <IoGameControllerSharp className="text-[25px] md:text-[20px]" />
+    ),
     text: "Games",
     position: "right",
   },
   {
-    iconComponent: <IoGlasses size={20} />,
+    iconComponent: <IoGlasses className="text-[25px] md:text-[20px]" />,
     text: "About",
     position: "right",
   },
   {
-    iconComponent: <IoNewspaper size={20} />,
+    iconComponent: <IoNewspaper className="text-[25px] md:text-[20px]" />,
     text: "Fake News Detection",
     position: "right",
   },
@@ -35,16 +37,20 @@ const menus = [
 
 const SidebarMenu = () => {
   return (
-    <SidebarContainer className="bottom-5 left-10">
-      {menus.map((menu) => {
-        return (
-          <SidebarIcon
-            icon={menu.iconComponent}
-            text={menu.text}
-            position="right"
-          />
-        );
-      })}
+    <SidebarContainer className="bottom-0 left-1/2 -translate-x-1/2  md:bottom-5 md:left-10 md:translate-x-0">
+      <ul className="flex justify-evenly md:inline ">
+        {menus.map((menu) => {
+          return (
+            <li className="">
+              <SidebarIcon
+                icon={menu.iconComponent}
+                text={menu.text}
+                position="right"
+              />
+            </li>
+          );
+        })}
+      </ul>
     </SidebarContainer>
   );
 };
