@@ -10,23 +10,10 @@ export type Question = {
 };
 
 const Question: React.FC<Question> = ({ image, question, options }) => {
-  const [hasAnswered, sethasAnswered] = useState<boolean>(false);
-  const {
-    nextQuestion,
-    quiz,
-    index,
-    setPassedResult,
-    submitQuiz,
-    setAnswer,
-    answers,
-  } = quizStore();
+  const { nextQuestion, quiz, index, setPassedResult, submitQuiz } =
+    quizStore();
 
   let button;
-
-  const onChooseAnswer = (choice: string) => {
-    setAnswer(choice);
-    sethasAnswered(true);
-  };
 
   const onSubmitAnswer = () => {
     // call post request to backend, to submit answer and retrive result
@@ -37,7 +24,6 @@ const Question: React.FC<Question> = ({ image, question, options }) => {
   };
 
   const onClickNext = () => {
-    sethasAnswered(false);
     nextQuestion();
   };
 
@@ -70,14 +56,7 @@ const Question: React.FC<Question> = ({ image, question, options }) => {
       </div>
       <div className="mt-[35px] grid grid-cols-1 justify-items-center gap-4 md:grid-cols-2">
         {Object.entries(options).map((value) => (
-          <Option
-            userAnswer={answers[index]}
-            hasAnswered={hasAnswered}
-            choice={value[0]}
-            choiceValue={value[1]}
-            key={value[1]}
-            onClick={onChooseAnswer}
-          />
+          <Option choice={value[0]} choiceValue={value[1]} key={value[1]} />
         ))}
       </div>
       <div className="mt-[19px] flex items-center justify-end">{button}</div>
