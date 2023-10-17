@@ -31,7 +31,7 @@ const articles = [
 const RelatedArticles = () => {
   const [open, setOpen] = useState<boolean>(false);
   return (
-    <div className="w-1/2">
+    <div className="md:w-1/ w-2/3">
       <div className="collapse collapse-plus bg-base-200">
         <input
           type="radio"
