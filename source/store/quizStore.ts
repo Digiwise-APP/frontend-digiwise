@@ -6,7 +6,7 @@ type Question = {
   type: string;
   level: number;
   question: string;
-  option: string[];
+  options: string[];
   image?: string;
 };
 

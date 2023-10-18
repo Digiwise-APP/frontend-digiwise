@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 
 // store
 import quizStore from "../../../../store/quizStore";
-import modalStore from "../../../../store/modalStore";
 
 // components
 import Question from "./Question";
@@ -10,12 +9,11 @@ import QuizResult from "../../QuizResult";
 import QuizPreparation from "../../QuizPreparation";
 
 // data
-import questions from "../../../../data/dummy/levelThree";
+import questions from "../../../../data/dummy/levelFour";
 import text from "../../../../data/quizText";
 
 const LevelFour = () => {
-  const { closeModal } = modalStore();
-  const { addQuiz, status, startQuiz, index, quiz, passed } = quizStore();
+  const { addQuiz, status, index, quiz, passed } = quizStore();
 
   const quizText = text[0].fourth_level;
   let resultText;

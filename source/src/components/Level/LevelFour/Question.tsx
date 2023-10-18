@@ -3,20 +3,14 @@ import React from "react";
 import quizStore from "../../../../store/quizStore";
 import Option from "./Option";
 
-type Option = {
-  [key: string]: string;
-};
-
 type QuestionProps = {
   question: string;
-  options: Option[];
+  options: string[];
 };
 
 const Question: React.FC<QuestionProps> = ({ question, options }) => {
   const { nextQuestion, quiz, index, setPassedResult, submitQuiz } =
     quizStore();
-
-  let button;
 
   const onSubmitAnswer = () => {
     // call post request to backend, to submit answer and retrive result
@@ -30,6 +24,8 @@ const Question: React.FC<QuestionProps> = ({ question, options }) => {
     nextQuestion();
   };
 
+  const alphabets = ["A", "B", "C", "D", "E", "F"];
+  let button;
   if (index === quiz.length - 1) {
     button = (
       <button
@@ -51,7 +47,7 @@ const Question: React.FC<QuestionProps> = ({ question, options }) => {
   }
 
   const questionOptions = options.map((option, index) => (
-    <Option optionText={option.text} key={index} />
+    <Option optionText={option} alphabet={alphabets[index]} key={index} />
   ));
 
   return (
@@ -60,9 +56,7 @@ const Question: React.FC<QuestionProps> = ({ question, options }) => {
         <p className="text-center font-poppins text-[20px] font-bold text-black">
           {question}
         </p>
-        <div className="flex flex-col items-center gap-[18px]">
-          {questionOptions}
-        </div>
+        <div className="flex w-full flex-wrap gap-[8px]">{questionOptions}</div>
       </div>
       <div className="mt-[19px] flex items-center justify-end">{button}</div>
     </div>
