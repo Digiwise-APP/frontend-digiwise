@@ -4,8 +4,8 @@ import modalStore from "../../../store/modalStore";
 const Quiz = () => {
   const { openModal } = modalStore();
   return (
-    <div className="w-[846px] flex flex-col items-center gap-10">
-      <h1 className="text-[50px] font-rowdies font-bold text-black">
+    <div className="flex w-[846px] flex-col items-center gap-10">
+      <h1 className="font-rowdies text-[50px] font-bold text-black">
         Hoax Quizzes
       </h1>
       <progress
@@ -24,7 +24,7 @@ const Quiz = () => {
         up for the challenge? Let's kickstart this learning journey together.
         Happy learning!
       </p>
-      <div className="flex flex-col gap-[20px] w-full">
+      <div className="flex w-full flex-col gap-[20px]">
         <LevelOption
           onClick={() => openModal(1)}
           active={true}
@@ -35,8 +35,16 @@ const Quiz = () => {
           active={true}
           text={"Level 2"}
         />
-        <LevelOption onClick={() => openModal(3)} active={true} text={"Level 3"} />
-        <LevelOption active={false} text={"Level 4"} />
+        <LevelOption
+          onClick={() => openModal(3)}
+          active={true}
+          text={"Level 3"}
+        />
+        <LevelOption
+          onClick={() => openModal(4)}
+          active={true}
+          text={"Level 4"}
+        />
         <LevelOption active={false} text={"Level 5"} />
       </div>
     </div>
