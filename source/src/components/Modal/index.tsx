@@ -4,6 +4,8 @@ import { Dialog, Transition } from "@headlessui/react";
 import modalStore from "../../../store/modalStore";
 import quizStore from "../../../store/quizStore";
 
+import Loading from "../Loading";
+
 type Props = {
   children?: JSX.Element | JSX.Element[];
 };
@@ -52,7 +54,9 @@ const Modal: React.FC<Props> = ({ children }) => {
                   </button>
                 </div>
 
-                <div className="mt-8 px-4 md:px-12">{children}</div>
+                <div className="mt-8 px-4 md:px-12">
+                  <Loading />
+                </div>
               </Dialog.Panel>
             </Transition.Child>
           </div>
