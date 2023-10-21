@@ -36,11 +36,13 @@ const SidebarProfile = () => {
     <SidebarContainer className="right-10 top-5 hidden md:inline">
       {menus.map((menu) => {
         return (
-          <SidebarIcon
-            icon={menu.iconComponent}
-            text={menu.text}
-            position="left"
-          />
+          <div className="my-2">
+            <SidebarIcon
+              icon={menu.iconComponent}
+              text={menu.text}
+              position="left"
+            />
+          </div>
         );
       })}
     </SidebarContainer>
