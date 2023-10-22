@@ -49,7 +49,7 @@ const Question: React.FC<Question> = ({ image, question, options }) => {
   return (
     <div className="rounded-[20px] bg-[#D9D9D9]">
       <div className="flex flex-col items-center gap-14">
-        <p className="font-poppins text-[12px] font-bold text-black">
+        <p className="font-poppins text-[12px] font-bold text-black md:text-[20px]">
           {question}
         </p>
         <img src={image} className="h-[232px] w-[416px]" />

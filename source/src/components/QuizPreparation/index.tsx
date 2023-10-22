@@ -21,10 +21,10 @@ const QuizPreparation: React.FC<ResultProps> = ({
 
   return (
     <div className="rounded-[20px] bg-[#D9D9D9]">
-      <p className="text-center font-poppins text-[20px] font-bold text-black">
+      <p className="text-center font-poppins text-[17px] font-bold text-black md:text-[20px]">
         {title}
       </p>
-      <p className="mt-[20px] text-left font-poppins text-[12px] leading-[30px] text-black md:mt-[46px]">
+      <p className="mt-[20px] text-justify font-poppins text-[12px] leading-[30px] text-black md:mt-[46px] md:text-left">
         {salutation} <br></br>
         {firstParagraph}
         {secondParagraph && (

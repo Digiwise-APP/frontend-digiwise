@@ -63,8 +63,8 @@ const Question: React.FC<QuestionProps> = ({
 
   return (
     <div className="rounded-[20px] bg-[#D9D9D9]">
-      <div className="flex flex-col items-center gap-14">
-        <p className="font-poppins text-[20px] font-bold text-black">
+      <div className="flex flex-col items-center gap-8 md:gap-14">
+        <p className="font-poppins text-[12px] font-bold text-black md:text-[20px]">
           {question}
         </p>
         <div className="flex gap-[40px]">
