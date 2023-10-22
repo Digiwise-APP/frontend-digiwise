@@ -4,8 +4,8 @@ import modalStore from "../../../store/modalStore";
 const Quiz = () => {
   const { openModal } = modalStore();
   return (
-    <div className="flex w-[846px] flex-col items-center gap-10">
-      <h1 className="font-rowdies text-[50px] font-bold text-black">
+    <div className="mb-20 flex w-[846px] flex-col items-center gap-5 px-4 text-justify md:mb-0 md:gap-10 md:px-7 md:text-left">
+      <h1 className="font-rowdies text-[40px] font-bold text-black md:text-[50px]">
         Hoax Quizzes
       </h1>
       <progress
