@@ -9,6 +9,7 @@ import LevelOne from "../components/Level/LevelOne";
 import LevelTwo from "../components/Level/LevelTwo";
 import LevelThree from "../components/Level/LevelThree";
 import LevelFour from "../components/Level/LevelFour";
+import LevelFive from "../components/Level/LevelFive";
 // import SidebarMenu from "../components/Sidebar/SidebarMenu";
 // import SidebarProfile from "../components/Sidebar/SidebarProfile";
 
@@ -25,6 +26,8 @@ const QuizPage = () => {
     modalContent = <LevelThree />;
   } else if (level === 4) {
     modalContent = <LevelFour />;
+  } else if (level === 5) {
+    modalContent = <LevelFive />;
   }
 
   return (

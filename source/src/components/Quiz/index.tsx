@@ -5,7 +5,7 @@ import levelOptionText from "../../../data/levelOptionText";
 
 const Quiz = () => {
   const { openModal } = modalStore();
-  const userLevel = 3;
+  const userLevel = 5;
 
   return (
     <div className="mb-20 flex w-[846px] flex-col items-center gap-5 px-4 text-justify md:mb-0 md:gap-10 md:px-7 md:text-left">
@@ -32,7 +32,7 @@ const Quiz = () => {
         {levelOptionText.map((item) => (
           <LevelOption
             level={item.level}
-            onClick={() => openModal(1)}
+            onClick={() => openModal(item.level)}
             active={userLevel >= item.level}
             text={item.text}
           />
