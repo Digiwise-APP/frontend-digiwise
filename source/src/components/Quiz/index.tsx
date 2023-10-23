@@ -1,8 +1,12 @@
 import LevelOption from "../LevelOption";
 import modalStore from "../../../store/modalStore";
 
+import levelOptionText from "../../../data/levelOptionText";
+
 const Quiz = () => {
   const { openModal } = modalStore();
+  const userLevel = 3;
+
   return (
     <div className="mb-20 flex w-[846px] flex-col items-center gap-5 px-4 text-justify md:mb-0 md:gap-10 md:px-7 md:text-left">
       <h1 className="font-rowdies text-[40px] font-bold text-black md:text-[50px]">
@@ -25,27 +29,14 @@ const Quiz = () => {
         Happy learning!
       </p>
       <div className="flex w-full flex-col gap-[20px]">
-        <LevelOption
-          onClick={() => openModal(1)}
-          active={true}
-          text={"Level 1"}
-        />
-        <LevelOption
-          onClick={() => openModal(2)}
-          active={true}
-          text={"Level 2"}
-        />
-        <LevelOption
-          onClick={() => openModal(3)}
-          active={true}
-          text={"Level 3"}
-        />
-        <LevelOption
-          onClick={() => openModal(4)}
-          active={true}
-          text={"Level 4"}
-        />
-        <LevelOption active={false} text={"Level 5"} />
+        {levelOptionText.map((item) => (
+          <LevelOption
+            level={item.level}
+            onClick={() => openModal(1)}
+            active={userLevel >= item.level}
+            text={item.text}
+          />
+        ))}
       </div>
     </div>
   );

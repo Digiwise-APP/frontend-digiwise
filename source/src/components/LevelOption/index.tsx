@@ -1,12 +1,13 @@
 import React from "react";
 
 type props = {
+  level: number;
   active: boolean;
   text: string;
   onClick?: () => void;
 };
 
-const LevelOption: React.FC<props> = ({ active, text, onClick }) => {
+const LevelOption: React.FC<props> = ({ level, active, text, onClick }) => {
   return (
     <button
       disabled={!active}
@@ -20,7 +21,7 @@ const LevelOption: React.FC<props> = ({ active, text, onClick }) => {
           active ? "text-black" : "text-[#9D9D9D]"
         }`}
       >
-        {text}
+        {active ? text : `Level ${level}`}
       </p>
     </button>
   );
