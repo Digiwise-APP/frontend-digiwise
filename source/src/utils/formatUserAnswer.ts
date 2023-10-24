@@ -2,8 +2,9 @@ type Question = {
   id: number;
   type: string;
   level: number;
-  question: string;
-  option: string[];
+  question_type: string;
+  option: string;
+  url_image?: string;
 };
 
 type Answers = string[] | [string[]];
@@ -21,9 +22,9 @@ const formatUserAnswer = (
   questions: Question[],
   answers: Answers,
 ): FinalData => {
-  const data = {
+  const data: FinalData = {
     level: questions[0].level,
-    type: questions[0].type,
+    type: questions[0].question_type,
     answers: [],
   };
 
