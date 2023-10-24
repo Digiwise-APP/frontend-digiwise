@@ -1,5 +1,5 @@
 export type QuestionData = {
-  id: number;
+  id: string;
   question: string;
   level: number;
   question_type: string;

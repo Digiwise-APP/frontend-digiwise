@@ -40,8 +40,7 @@ const LevelTwo = () => {
     return (
       <Question
         question={quiz[index].question}
-        imageOptionOne={quiz[index].imageOptionOne}
-        imageOptionTwo={quiz[index].imageOptionTwo}
+        option_answer={quiz[index].option_answer}
       />
     );
   } else if (status === "finished") {
