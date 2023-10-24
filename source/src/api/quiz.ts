@@ -1,23 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import { BASE_URL } from "./config";
 
-type QuestionProps = {
-  id: number;
-  type: string;
-  level: number;
-  question_type: string;
-  option: string;
-  url_image?: string;
-};
-
-type UserAnswerProps = {
-  level: number;
-  type: string;
-  answers: Array<{
-    question_id: number;
-    answer: string | string[];
-  }>;
-};
+import { QuestionData, FormattedAnswer } from "../types/quiz";
 
 type QuizResultResponse = {
   score: number;
@@ -28,8 +12,8 @@ const TEMP_TOKEN =
 
 export const getQuizByLevel = async (
   level: number,
-): Promise<QuestionProps[]> => {
-  const { data } = await axios.get<QuestionProps[]>(
+): Promise<QuestionData[]> => {
+  const { data } = await axios.get<QuestionData[]>(
     `${BASE_URL}users/questions`,
     {
       params: {
@@ -45,10 +29,10 @@ export const getQuizByLevel = async (
 };
 
 export const sentUserAnswer = async (
-  userAnswer: UserAnswerProps,
+  userAnswer: FormattedAnswer,
 ): Promise<number> => {
   const { data } = await axios.post<
-    UserAnswerProps,
+    FormattedAnswer,
     AxiosResponse<QuizResultResponse>
   >(`${BASE_URL}/users/answers`, userAnswer, {
     headers: {

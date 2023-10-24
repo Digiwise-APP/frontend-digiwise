@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 // store
 import quizStore from "../../../../store/quizStore";
 
 // components
-import Question from "./Question";
-import QuizResult from "../../QuizResult";
 import QuizPreparation from "../../QuizPreparation";
+import QuizResult from "../../QuizResult";
+import Question from "./Question";
 
 // data
 import questions from "../../../../data/dummy/levelFour";

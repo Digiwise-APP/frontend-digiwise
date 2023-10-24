@@ -1,28 +1,12 @@
-type Question = {
-  id: number;
-  type: string;
-  level: number;
-  question_type: string;
-  option: string;
-  url_image?: string;
-};
+import { QuestionData, FormattedAnswer } from "../types/quiz";
 
 type Answers = string[] | [string[]];
 
-type FinalData = {
-  level: number;
-  type: string;
-  answers: Array<{
-    question_id: number;
-    answer: string | string[];
-  }>;
-};
-
 const formatUserAnswer = (
-  questions: Question[],
+  questions: QuestionData[],
   answers: Answers,
-): FinalData => {
-  const data: FinalData = {
+): FormattedAnswer => {
+  const data: FormattedAnswer = {
     level: questions[0].level,
     type: questions[0].question_type,
     answers: [],

@@ -1,24 +1,19 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 // store
 import quizStore from "../../../../store/quizStore";
-import modalStore from "../../../../store/modalStore";
 
 // components
-import Question from "./Question";
-import QuizResult from "../../QuizResult";
 import QuizPreparation from "../../QuizPreparation";
+import QuizResult from "../../QuizResult";
+import Question from "./Question";
 
 // data
 import questions from "../../../../data/dummy/levelOne";
 import text from "../../../../data/quizText";
 
-
-
-
 const LevelOne = () => {
-  const { closeModal } = modalStore();
-  const { addQuiz, status, startQuiz, index, quiz, passed } = quizStore();
+  const { addQuiz, status, index, quiz, passed } = quizStore();
 
   const quizText = text[0].first_level;
   let resultText;
@@ -59,7 +54,7 @@ const LevelOne = () => {
     );
   } else {
     return (
-      <div className="flex justify-center items-center">
+      <div className="flex items-center justify-center">
         <p className="font-poppins text-lg">something wrong</p>
       </div>
     );

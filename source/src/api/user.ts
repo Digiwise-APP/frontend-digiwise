@@ -1,22 +1,10 @@
 import axios, { AxiosResponse } from "axios";
 import { BASE_URL } from "./config";
 
-type LoginProps = {
-  email: string;
-  password: string;
-};
+import { LoginData, RegisterData, AuthResponse } from "../types/User";
 
-type RegisterProps = LoginProps & {
-  username: string;
-  img_profile: string;
-};
-
-type AuthResponse = {
-  token: string;
-};
-
-export const signIn = async (loginData: LoginProps): Promise<string> => {
-  const { data } = await axios.post<LoginProps, AxiosResponse<AuthResponse>>(
+export const signIn = async (loginData: LoginData): Promise<string> => {
+  const { data } = await axios.post<LoginData, AxiosResponse<AuthResponse>>(
     `${BASE_URL}/users/register`,
     loginData,
   );
@@ -26,8 +14,8 @@ export const signIn = async (loginData: LoginProps): Promise<string> => {
   return token;
 };
 
-export const signUp = async (registerData: RegisterProps): Promise<string> => {
-  const { data } = await axios.post<RegisterProps, AxiosResponse<AuthResponse>>(
+export const signUp = async (registerData: RegisterData): Promise<string> => {
+  const { data } = await axios.post<RegisterData, AxiosResponse<AuthResponse>>(
     `${BASE_URL}/users/register`,
     registerData,
   );

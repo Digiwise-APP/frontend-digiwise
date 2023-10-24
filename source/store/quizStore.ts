@@ -1,22 +1,15 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-type Question = {
-  id: number;
-  type: string;
-  level: number;
-  question: string;
-  options: string[];
-  image?: string;
-};
+import { QuestionData } from "../src/types/quiz";
 
 type Store = {
-  quiz: Question[];
+  quiz: QuestionData[];
   status: string;
   index: number;
   passed: boolean | null;
   answers: string[] | Array<string[]>;
-  addQuiz: (quiz: Question[]) => void;
+  addQuiz: (quiz: QuestionData[]) => void;
   startQuiz: () => void;
   setPassedResult: (result: boolean) => void;
   nextQuestion: () => void;
