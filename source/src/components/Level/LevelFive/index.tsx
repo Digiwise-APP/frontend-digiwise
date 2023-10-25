@@ -1,19 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // store
 import quizStore from "../../../../store/quizStore";
+import modalStore from "../../../../store/modalStore";
 
 // components
 import Question from "./Question";
 import QuizPreparation from "../../QuizPreparation";
 import QuizResult from "../../QuizResult";
+import Loading from "../../Loading";
 
 // data
 import questions from "../../../../data/dummy/levelOne";
 import text from "../../../../data/quizText";
 
+// api function
+import { getQuizByLevel } from "../../../api/quiz";
+
 const LevelFive = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { addQuiz, status, index, quiz, passed } = quizStore();
+  const { level } = modalStore();
 
   const quizText = text[0].fifth_level;
   let resultText;
@@ -23,8 +30,16 @@ const LevelFive = () => {
   } else {
     resultText = quizText.failed;
   }
+
+  const getQuizData = async () => {
+    setIsLoading(true);
+    const data = await getQuizByLevel(level);
+    console.log(data);
+    addQuiz(data);
+    setIsLoading(false);
+  };
   useEffect(() => {
-    addQuiz(questions);
+    getQuizData();
   }, []);
 
   if (status === "steady") {
@@ -52,6 +67,8 @@ const LevelFive = () => {
         firstParagraph={resultText.first_paragraph}
       />
     );
+  } else if (isLoading) {
+    return <Loading />;
   } else {
     return (
       <div className="flex items-center justify-center">

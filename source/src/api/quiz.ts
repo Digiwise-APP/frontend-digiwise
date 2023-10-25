@@ -8,18 +8,19 @@ type QuizResultResponse = {
 };
 
 const TEMP_TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUyOTA1M2IzMjIzODJiM2VhMDEwNWYxIiwiZW1haWwiOiJjb250b2hAZ21haWwuY29tIiwidXNlcm5hbWUiOiJuaXNhIiwiaWF0IjoxNjk4MTU4NjI3LCJleHAiOjE2OTgxNjIyMjd9.cB6o-Fg0nWm_zVPgvRr5EmWa60kR6Lol6zqafrgDMbU";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUyOTA1M2IzMjIzODJiM2VhMDEwNWYxIiwiZW1haWwiOiJjb250b2hAZ21haWwuY29tIiwidXNlcm5hbWUiOiJuaXNhIiwiaWF0IjoxNjk4MjQzODY0LCJleHAiOjE2OTgyNDc0NjR9.kzR12dGokqXZYEZtk4M3JVEg69isJTqamPZH-Z6zRTc";
 
 export const getQuizByLevel = async (
   level: number,
 ): Promise<QuestionData[]> => {
   const { data } = await axios.get<QuestionData[]>(
-    `${BASE_URL}users/questions`,
+    `${BASE_URL}/users/questions`,
     {
       params: {
         level: level,
       },
       headers: {
+        "Content-Type": "application/json",
         Authorization: TEMP_TOKEN,
       },
     },
