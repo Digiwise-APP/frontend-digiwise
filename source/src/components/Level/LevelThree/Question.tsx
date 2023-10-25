@@ -1,6 +1,7 @@
 import React from "react";
 
 import quizStore from "../../../../store/quizStore";
+import formatOptionResponse from "../../../utils/formatOptionResponse";
 import Option from "./Option";
 
 type QuestionProps = {
@@ -46,9 +47,8 @@ const Question: React.FC<QuestionProps> = ({ question, option_answer }) => {
     );
   }
 
-  const questionOptions = options.map((option, index) => (
-    <Option optionText={option.text} key={index} />
-  ));
+  // format answer
+  const options = formatOptionResponse(option_answer);
 
   return (
     <div className="rounded-[20px]  bg-[#D9D9D9]">
@@ -56,9 +56,7 @@ const Question: React.FC<QuestionProps> = ({ question, option_answer }) => {
         <p className="text-center font-poppins text-[12px] font-bold text-black md:text-[20px]">
           {question}
         </p>
-        <div className="flex flex-col items-center gap-[18px]">
-          {questionOptions}
-        </div>
+        <Option options={options} />
       </div>
       <div className="mt-[19px] flex items-center justify-end">{button}</div>
     </div>

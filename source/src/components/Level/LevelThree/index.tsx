@@ -40,7 +40,7 @@ const LevelThree = () => {
     return (
       <Question
         question={quiz[index].question}
-        options={quiz[index].option_answer}
+        option_answer={quiz[index].option_answer}
       />
     );
   } else if (status === "finished") {
