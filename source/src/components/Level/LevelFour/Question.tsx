@@ -1,14 +1,15 @@
 import React from "react";
 
 import quizStore from "../../../../store/quizStore";
+import formatOptionResponse from "../../../utils/formatOptionResponse";
 import Option from "./Option";
 
 type QuestionProps = {
   question: string;
-  options: string[];
+  option_answer: string;
 };
 
-const Question: React.FC<QuestionProps> = ({ question, options }) => {
+const Question: React.FC<QuestionProps> = ({ question, option_answer }) => {
   const { nextQuestion, quiz, index, setPassedResult, submitQuiz } =
     quizStore();
 
@@ -24,7 +25,6 @@ const Question: React.FC<QuestionProps> = ({ question, options }) => {
     nextQuestion();
   };
 
-  const alphabets = ["A", "B", "C", "D", "E", "F"];
   let button;
   if (index === quiz.length - 1) {
     button = (
@@ -46,9 +46,7 @@ const Question: React.FC<QuestionProps> = ({ question, options }) => {
     );
   }
 
-  const questionOptions = options.map((option, index) => (
-    <Option optionText={option} alphabet={alphabets[index]} key={index} />
-  ));
+  const options = formatOptionResponse(option_answer);
 
   return (
     <div className="rounded-[20px]  bg-[#D9D9D9]">
@@ -56,7 +54,7 @@ const Question: React.FC<QuestionProps> = ({ question, options }) => {
         <p className="text-center font-poppins text-[12px] font-bold text-black md:text-[20px]">
           {question}
         </p>
-        <div className="flex w-full flex-wrap gap-[8px]">{questionOptions}</div>
+        <Option options={options} />
       </div>
       <div className="mt-[19px] flex items-center justify-end">{button}</div>
     </div>

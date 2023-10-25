@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import Option from "./Option";
 
 import quizStore from "../../../../store/quizStore";
+import formatOptionResponse from "../../../utils/formatOptionResponse";
 
 export type Question = {
   question: string;
-  image: string;
-  options: { [key: string]: string };
+  url_image: string | undefined;
+  option_answer: string;
 };
 
-const Question: React.FC<Question> = ({ image, question, options }) => {
+const Question: React.FC<Question> = ({
+  url_image,
+  question,
+  option_answer,
+}) => {
   const { nextQuestion, quiz, index, setPassedResult, submitQuiz } =
     quizStore();
 
@@ -46,18 +51,19 @@ const Question: React.FC<Question> = ({ image, question, options }) => {
       </button>
     );
   }
+
+  // format answer
+  const options = formatOptionResponse(option_answer);
+
   return (
     <div className="rounded-[20px] bg-[#D9D9D9]">
-      <div className="flex flex-col items-center gap-14">
+      <div className="flex justify-center">
         <p className="font-poppins text-[12px] font-bold text-black md:text-[20px]">
           {question}
         </p>
-        <img src={image} className="h-[232px] w-[416px]" />
       </div>
-      <div className="mt-[35px] grid grid-cols-1 justify-items-center gap-4 md:grid-cols-2">
-        {Object.entries(options).map((value) => (
-          <Option choice={value[0]} choiceValue={value[1]} key={value[1]} />
-        ))}
+      <div className="mt-[15px] md:mt-[20px]">
+        <Option url_image={url_image} options={options} />
       </div>
       <div className="mt-[19px] flex items-center justify-end">{button}</div>
     </div>

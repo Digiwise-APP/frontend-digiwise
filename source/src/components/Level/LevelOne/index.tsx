@@ -40,8 +40,8 @@ const LevelOne = () => {
     return (
       <Question
         question={quiz[index].question}
-        image={quiz[index].image}
-        options={quiz[index].options}
+        url_image={quiz[index].url_image}
+        option_answer={quiz[index].option_answer}
       />
     );
   } else if (status === "finished") {

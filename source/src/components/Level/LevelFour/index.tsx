@@ -38,7 +38,10 @@ const LevelFour = () => {
     );
   } else if (status === "start") {
     return (
-      <Question question={quiz[index].question} options={quiz[index].options} />
+      <Question
+        question={quiz[index].question}
+        option_answer={quiz[index].option_answer}
+      />
     );
   } else if (status === "finished") {
     return (
