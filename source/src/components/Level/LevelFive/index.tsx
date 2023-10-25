@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import quizStore from "../../../../store/quizStore";
 
 // components
-// import Question from "./Question";
+import Question from "./Question";
 import QuizPreparation from "../../QuizPreparation";
 import QuizResult from "../../QuizResult";
 
@@ -36,18 +36,15 @@ const LevelFive = () => {
         secondParagraph={quizText.preparation.second_paragraph}
       />
     );
-  }
-
-  // else if (status === "start") {
-  //   return (
-  //     <Question
-  //       question={quiz[index].question}
-  //       image={quiz[index].image}
-  //       options={quiz[index].options}
-  //     />
-  //   );
-  // }
-  else if (status === "finished") {
+  } else if (status === "start") {
+    return (
+      <Question
+        question={quiz[index].question}
+        url_image={quiz[index].url_image}
+        option_answer={quiz[index].option_answer}
+      />
+    );
+  } else if (status === "finished") {
     return (
       <QuizResult
         title={quizText.title}

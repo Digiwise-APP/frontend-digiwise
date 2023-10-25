@@ -5,19 +5,23 @@ import formatOptionResponse from "../../../utils/formatOptionResponse";
 
 // options
 import {
-  OptionNumberFive,
-  OptionNumberFour,
-  OptionNumberOne,
-  OptionNumberThree,
-  OptionNumberTwo,
+  OptionTypeFour,
+  OptionTypeOne,
+  OptionTypeThree,
+  OptionTypeTwo,
 } from "./Options";
 
 type QuestionProps = {
   question: string;
   option_answer: string;
+  url_image?: string;
 };
 
-const Question: React.FC<QuestionProps> = ({ question, option_answer }) => {
+const Question: React.FC<QuestionProps> = ({
+  question,
+  option_answer,
+  url_image,
+}) => {
   const { nextQuestion, quiz, index, setPassedResult, submitQuiz } =
     quizStore();
 
@@ -38,24 +42,24 @@ const Question: React.FC<QuestionProps> = ({ question, option_answer }) => {
 
   let optionContent;
   // render different options based on option_answer props
-  if (question.includes("Kamu menerima email yang mengklaim bahwa ")) {
-    optionContent = <OptionNumberOne />;
-  } else if (question.includes("Mengonsumsi dua gelas air ")) {
-    optionContent = <OptionNumberTwo />;
+  if (question.includes("Kamu menerima email yang mengklaim bahwa")) {
+    optionContent = <OptionTypeOne url_image={url_image} options={options} />;
+  } else if (question.includes("Mengonsumsi dua gelas air")) {
+    optionContent = <OptionTypeTwo options={options} />;
   } else if (
     question.includes(
-      "apakah kamu dapat mengidentifikasi tanda-tanda manipulasi ",
+      "apakah kamu dapat mengidentifikasi tanda-tanda manipulasi",
     )
   ) {
-    optionContent = <OptionNumberThree />;
+    optionContent = <OptionTypeOne url_image={url_image} options={options} />;
   } else if (
     question.includes(
       "Penelitian terbaru menunjukkan bahwa minum setidaknya satu",
     )
   ) {
-    optionContent = <OptionNumberFour />;
+    optionContent = <OptionTypeThree options={options} />;
   } else {
-    optionContent = <OptionNumberFive />;
+    optionContent = <OptionTypeFour options={options} />;
   }
 
   let button;
