@@ -3,16 +3,12 @@ import React from "react";
 import quizStore from "../../../../store/quizStore";
 import Option from "./Option";
 
-type Option = {
-  [key: string]: string;
-};
-
 type QuestionProps = {
   question: string;
-  options: Option[];
+  option_answer: string;
 };
 
-const Question: React.FC<QuestionProps> = ({ question, options }) => {
+const Question: React.FC<QuestionProps> = ({ question, option_answer }) => {
   const { nextQuestion, quiz, index, setPassedResult, submitQuiz } =
     quizStore();
 

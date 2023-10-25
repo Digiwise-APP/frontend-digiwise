@@ -1,48 +1,45 @@
-import imgQuiz from "../../src/assets/img_quiz.jpg";
+import imgQuiz from "../../src/assets/img_quiz_second.jpg";
 
 const questions = [
   {
+    id: "0as8df0asdf0sajfj23",
+    level: 3,
+    question_type: "truefalse",
     question: "Which is the most popular JavaScript framework?",
-    options: [
-      {
-        text: "Scam seringkali melibatkan pesan atau tawaran palsu yang tampak menguntungkan untuk menarik perhatian korban.",
-      },
-      {
-        text: "Scam seringkali melibatkan pesan atau tawaran palsu yang tampak menguntungkan untuk menarik perhatian bapak lu.",
-      },
-      {
-        text: "Scam seringkali melibatkan pesan atau tawaran palsu yang tampak menguntungkan untuk menarik perhatian ibu lu.",
-      },
-    ],
+    url_image: "",
+    option_answer: "Scam seringkali melibatkan pesan atau tawaran palsu yang tampak menguntungkan untuk menarik perhatian korban | Phishing selalu melibatkan tindakan mencuri uang secara langsung dari akun bank korban | Scam selalu menggunakan teknik pemalsuan email untuk menghubungi korban | Phishing seringkali meminta korban untuk membagikan informasi sensitif seperti kata sandi atau nomor kartu kredit",
   },
   {
-    question:
-      "Pilih satu atau lebih pernyataan yang benar mengenai karakteristik scam dan phishing!",
-    options: [
-      {
-        text: "Scam seringkali melibatkan pesan atau tawaran palsu yang tampak menguntungkan untuk menarik perhatian nenek lu.",
-      },
-      {
-        text: "Scam seringkali melibatkan pesan atau tawaran palsu yang tampak menguntungkan untuk menarik perhatian kakek lu.",
-      },
-      {
-        text: "Scam seringkali melibatkan pesan atau tawaran palsu yang tampak menguntungkan untuk menarik perhatian eang lu.",
-      },
-    ],
+    id: "0as8df0asdf0sajfj23",
+    level: 3,
+    question_type: "truefalse",
+    question: "Which is the most popular JavaScript framework?",
+    url_image: "",
+    option_answer: "Scam seringkali melibatkan pesan atau tawaran palsu yang tampak menguntungkan untuk menarik perhatian korban | Phishing selalu melibatkan tindakan mencuri uang secara langsung dari akun bank korban | Scam selalu menggunakan teknik pemalsuan email untuk menghubungi korban | Phishing seringkali meminta korban untuk membagikan informasi sensitif seperti kata sandi atau nomor kartu kredit",
   },
   {
-    question: "Pertanyaan ketiga",
-    options: [
-      {
-        text: "Scam seringkali melibatkan pesan atau tawaran palsu yang tampak menguntungkan untuk menarik perhatian saudara lu.",
-      },
-      {
-        text: "Scam seringkali melibatkan pesan atau tawaran palsu yang tampak menguntungkan untuk menarik perhatian sepupu lu.",
-      },
-      {
-        text: "Scam seringkali melibatkan pesan atau tawaran palsu yang tampak menguntungkan untuk menarik perhatian ibu gw.",
-      },
-    ],
+    id: "0as8df0asdf0sajfj23",
+    level: 3,
+    question_type: "truefalse",
+    question: "Which is the most popular JavaScript framework?",
+    url_image: "",
+    option_answer: "Scam seringkali melibatkan pesan atau tawaran palsu yang tampak menguntungkan untuk menarik perhatian korban | Phishing selalu melibatkan tindakan mencuri uang secara langsung dari akun bank korban | Scam selalu menggunakan teknik pemalsuan email untuk menghubungi korban | Phishing seringkali meminta korban untuk membagikan informasi sensitif seperti kata sandi atau nomor kartu kredit",
+  },
+  {
+    id: "0as8df0asdf0sajfj23",
+    level: 3,
+    question_type: "truefalse",
+    question: "Which is the most popular JavaScript framework?",
+    url_image: "",
+    option_answer: "Scam seringkali melibatkan pesan atau tawaran palsu yang tampak menguntungkan untuk menarik perhatian korban | Phishing selalu melibatkan tindakan mencuri uang secara langsung dari akun bank korban | Scam selalu menggunakan teknik pemalsuan email untuk menghubungi korban | Phishing seringkali meminta korban untuk membagikan informasi sensitif seperti kata sandi atau nomor kartu kredit",
+  },
+  {
+    id: "0as8df0asdf0sajfj23",
+    level: 3,
+    question_type: "truefalse",
+    question: "Which is the most popular JavaScript framework?",
+    url_image: "",
+    option_answer: "Scam seringkali melibatkan pesan atau tawaran palsu yang tampak menguntungkan untuk menarik perhatian korban | Phishing selalu melibatkan tindakan mencuri uang secara langsung dari akun bank korban | Scam selalu menggunakan teknik pemalsuan email untuk menghubungi korban | Phishing seringkali meminta korban untuk membagikan informasi sensitif seperti kata sandi atau nomor kartu kredit",
   },
 ];
 

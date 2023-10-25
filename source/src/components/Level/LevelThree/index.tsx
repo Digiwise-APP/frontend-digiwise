@@ -38,7 +38,10 @@ const LevelThree = () => {
     );
   } else if (status === "start") {
     return (
-      <Question question={quiz[index].question} options={quiz[index].options} />
+      <Question
+        question={quiz[index].question}
+        options={quiz[index].option_answer}
+      />
     );
   } else if (status === "finished") {
     return (
