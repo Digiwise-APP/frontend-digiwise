@@ -32,9 +32,13 @@ const LevelFive = () => {
 
   const getQuizData = async () => {
     setStatus("loading");
-    const data = await getQuizByLevel(level);
-    console.log(data);
-    addQuiz(data);
+    const response = await getQuizByLevel(level);
+    if (response.code === 401) {
+      setStatus("error");
+      return;
+    }
+    // console.log(data);
+    addQuiz(response.data);
     setStatus("steady");
   };
   useEffect(() => {

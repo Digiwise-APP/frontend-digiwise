@@ -4,6 +4,7 @@ import { BASE_URL } from "./config";
 import { QuestionData, FormattedAnswer } from "../types/quiz";
 
 type GetQuizResponse = {
+  code: number;
   data: QuestionData[];
 };
 
@@ -16,7 +17,7 @@ const TEMP_TOKEN =
 
 export const getQuizByLevel = async (
   level: number,
-): Promise<QuestionData[]> => {
+): Promise<GetQuizResponse> => {
   const { data } = await axios.get<GetQuizResponse>(
     `${BASE_URL}/users/questions`,
     {
@@ -30,7 +31,7 @@ export const getQuizByLevel = async (
     },
   );
 
-  return data.data;
+  return data;
 };
 
 export const sentUserAnswer = async (
