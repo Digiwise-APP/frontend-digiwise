@@ -11,7 +11,7 @@ const OptionTypeThree: React.FC<OptionProps> = ({ options }) => {
 
   const indexNumber = index;
   return (
-    <div className="flex flex-col items-center gap-[18px]">
+    <div className="flex w-full flex-col justify-center gap-[18px]">
       {options.map((option, index) => (
         <button
           key={index}

@@ -9,6 +9,7 @@ type Store = {
   index: number;
   passed: boolean | null;
   answers: string[] | Array<string[]>;
+  setStatus: (status: string) => void;
   addQuiz: (quiz: QuestionData[]) => void;
   startQuiz: () => void;
   setPassedResult: (result: boolean) => void;
@@ -27,6 +28,7 @@ const quizStore = create<Store>()(
       index: 0,
       passed: null,
       answers: [],
+      setStatus: (status) => set({ status: status }),
       addQuiz: (quiz) => set({ quiz: quiz }),
       startQuiz: () => set({ status: "start" }),
       setPassedResult: (result: boolean) => set({ passed: result }),

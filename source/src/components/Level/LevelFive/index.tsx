@@ -18,8 +18,7 @@ import text from "../../../../data/quizText";
 import { getQuizByLevel } from "../../../api/quiz";
 
 const LevelFive = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { addQuiz, status, index, quiz, passed } = quizStore();
+  const { addQuiz, status, index, quiz, passed, setStatus } = quizStore();
   const { level } = modalStore();
 
   const quizText = text[0].fifth_level;
@@ -32,17 +31,19 @@ const LevelFive = () => {
   }
 
   const getQuizData = async () => {
-    setIsLoading(true);
+    setStatus("loading");
     const data = await getQuizByLevel(level);
     console.log(data);
     addQuiz(data);
-    setIsLoading(false);
+    setStatus("steady");
   };
   useEffect(() => {
     getQuizData();
   }, []);
 
-  if (status === "steady") {
+  if (status === "loading") {
+    return <Loading />;
+  } else if (status === "steady") {
     return (
       <QuizPreparation
         title={quizText.title}
@@ -67,8 +68,6 @@ const LevelFive = () => {
         firstParagraph={resultText.first_paragraph}
       />
     );
-  } else if (isLoading) {
-    return <Loading />;
   } else {
     return (
       <div className="flex items-center justify-center">

@@ -3,17 +3,21 @@ import { BASE_URL } from "./config";
 
 import { QuestionData, FormattedAnswer } from "../types/quiz";
 
-type QuizResultResponse = {
+type GetQuizResponse = {
+  data: QuestionData[];
+};
+
+type SubmitQuizResponse = {
   score: number;
 };
 
 const TEMP_TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUyOTA1M2IzMjIzODJiM2VhMDEwNWYxIiwiZW1haWwiOiJjb250b2hAZ21haWwuY29tIiwidXNlcm5hbWUiOiJuaXNhIiwiaWF0IjoxNjk4MjQzODY0LCJleHAiOjE2OTgyNDc0NjR9.kzR12dGokqXZYEZtk4M3JVEg69isJTqamPZH-Z6zRTc";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUyOTA1M2IzMjIzODJiM2VhMDEwNWYxIiwiZW1haWwiOiJjb250b2hAZ21haWwuY29tIiwidXNlcm5hbWUiOiJuaXNhIiwiaWF0IjoxNjk4MjQ4OTAxLCJleHAiOjE2OTgyNTI1MDF9.r-N-ISCrQHvl-EK4wpwXejrwZ9ZyNUfLNM8-sjq8qaQ";
 
 export const getQuizByLevel = async (
   level: number,
 ): Promise<QuestionData[]> => {
-  const { data } = await axios.get<QuestionData[]>(
+  const { data } = await axios.get<GetQuizResponse>(
     `${BASE_URL}/users/questions`,
     {
       params: {
@@ -26,7 +30,7 @@ export const getQuizByLevel = async (
     },
   );
 
-  return data;
+  return data.data;
 };
 
 export const sentUserAnswer = async (
@@ -34,7 +38,7 @@ export const sentUserAnswer = async (
 ): Promise<number> => {
   const { data } = await axios.post<
     FormattedAnswer,
-    AxiosResponse<QuizResultResponse>
+    AxiosResponse<SubmitQuizResponse>
   >(`${BASE_URL}/users/answers`, userAnswer, {
     headers: {
       Authorization: TEMP_TOKEN,
