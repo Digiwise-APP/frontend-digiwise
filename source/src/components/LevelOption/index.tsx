@@ -1,26 +1,27 @@
 import React from "react";
 
 type props = {
+  level: number;
   active: boolean;
   text: string;
   onClick?: () => void;
 };
 
-const LevelOption: React.FC<props> = ({ active, text, onClick }) => {
+const LevelOption: React.FC<props> = ({ level, active, text, onClick }) => {
   return (
     <button
       disabled={!active}
       className={`${
-        active ? "bg-[#C0EEF2]" : "bg-[#D9D9D9] border-[3px] border-[#9D9D9D]"
-      } px-[36px] py-[18px] w-full rounded-[20px]`}
+        active ? "bg-[#C0EEF2]" : "border-[3px] border-[#9D9D9D] bg-[#D9D9D9]"
+      } w-full rounded-[20px] px-[20px] py-[15px] md:px-[36px] md:py-[18px]`}
       onClick={onClick}
     >
       <p
-        className={`font-poppins text-[20px] text-left font-bold ${
+        className={`text-left font-poppins text-[15px] font-bold md:text-[20px] ${
           active ? "text-black" : "text-[#9D9D9D]"
         }`}
       >
-        {text}
+        {active ? text : `Level ${level}`}
       </p>
     </button>
   );

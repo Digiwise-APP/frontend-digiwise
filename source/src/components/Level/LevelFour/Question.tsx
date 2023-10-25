@@ -1,19 +1,16 @@
-import React, { useState } from "react";
-import Option from "./Option";
+import React from "react";
 
 import quizStore from "../../../../store/quizStore";
+import Option from "./Option";
 
-export type Question = {
+type QuestionProps = {
   question: string;
-  image: string;
-  options: { [key: string]: string };
+  options: string[];
 };
 
-const Question: React.FC<Question> = ({ image, question, options }) => {
+const Question: React.FC<QuestionProps> = ({ question, options }) => {
   const { nextQuestion, quiz, index, setPassedResult, submitQuiz } =
     quizStore();
-
-  let button;
 
   const onSubmitAnswer = () => {
     // call post request to backend, to submit answer and retrive result
@@ -27,6 +24,8 @@ const Question: React.FC<Question> = ({ image, question, options }) => {
     nextQuestion();
   };
 
+  const alphabets = ["A", "B", "C", "D", "E", "F"];
+  let button;
   if (index === quiz.length - 1) {
     button = (
       <button
@@ -46,18 +45,18 @@ const Question: React.FC<Question> = ({ image, question, options }) => {
       </button>
     );
   }
+
+  const questionOptions = options.map((option, index) => (
+    <Option optionText={option} alphabet={alphabets[index]} key={index} />
+  ));
+
   return (
-    <div className="rounded-[20px] bg-[#D9D9D9]">
-      <div className="flex flex-col items-center gap-14">
-        <p className="font-poppins text-[12px] font-bold text-black md:text-[20px]">
+    <div className="rounded-[20px]  bg-[#D9D9D9]">
+      <div className="flex flex-col items-center gap-8 md:gap-14">
+        <p className="text-center font-poppins text-[12px] font-bold text-black md:text-[20px]">
           {question}
         </p>
-        <img src={image} className="h-[232px] w-[416px]" />
-      </div>
-      <div className="mt-[35px] grid grid-cols-1 justify-items-center gap-4 md:grid-cols-2">
-        {Object.entries(options).map((value) => (
-          <Option choice={value[0]} choiceValue={value[1]} key={value[1]} />
-        ))}
+        <div className="flex w-full flex-wrap gap-[8px]">{questionOptions}</div>
       </div>
       <div className="mt-[19px] flex items-center justify-end">{button}</div>
     </div>

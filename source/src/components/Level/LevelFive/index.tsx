@@ -4,18 +4,18 @@ import { useEffect } from "react";
 import quizStore from "../../../../store/quizStore";
 
 // components
+// import Question from "./Question";
 import QuizPreparation from "../../QuizPreparation";
 import QuizResult from "../../QuizResult";
-import Question from "./Question";
 
 // data
 import questions from "../../../../data/dummy/levelOne";
 import text from "../../../../data/quizText";
 
-const LevelOne = () => {
+const LevelFive = () => {
   const { addQuiz, status, index, quiz, passed } = quizStore();
 
-  const quizText = text[0].first_level;
+  const quizText = text[0].fifth_level;
   let resultText;
 
   if (passed) {
@@ -36,15 +36,18 @@ const LevelOne = () => {
         secondParagraph={quizText.preparation.second_paragraph}
       />
     );
-  } else if (status === "start") {
-    return (
-      <Question
-        question={quiz[index].question}
-        image={quiz[index].image}
-        options={quiz[index].options}
-      />
-    );
-  } else if (status === "finished") {
+  }
+
+  // else if (status === "start") {
+  //   return (
+  //     <Question
+  //       question={quiz[index].question}
+  //       image={quiz[index].image}
+  //       options={quiz[index].options}
+  //     />
+  //   );
+  // }
+  else if (status === "finished") {
     return (
       <QuizResult
         title={quizText.title}
@@ -61,4 +64,4 @@ const LevelOne = () => {
   }
 };
 
-export default LevelOne;
+export default LevelFive;

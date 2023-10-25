@@ -1,16 +1,14 @@
-import React from 'react'
+import React from "react";
 
-import quizStore from '../../../../store/quizStore'
+import quizStore from "../../../../store/quizStore";
+import formatOptionResponse from "../../../utils/formatOptionResponse";
 
-type QuestionProps =  {
-    question: string
-    imageOptionOne: string,
-    imageOptionTwo : string
+type QuestionProps = {
+  question: string;
+  option_answer: string;
+};
 
-}
-
-
-const Question: React.FC<QuestionProps> = ({question, imageOptionOne, imageOptionTwo}) => {
+const Question: React.FC<QuestionProps> = ({ question, option_answer }) => {
   const {
     nextQuestion,
     quiz,
@@ -20,13 +18,6 @@ const Question: React.FC<QuestionProps> = ({question, imageOptionOne, imageOptio
     setAnswer,
     answers,
   } = quizStore();
-
-  let button;
-
-  const onChooseAnswer = (choice: string) => {
-    setAnswer(choice);
-   
-  };
 
   const onSubmitAnswer = () => {
     // call post request to backend, to submit answer and retrive result
@@ -40,10 +31,71 @@ const Question: React.FC<QuestionProps> = ({question, imageOptionOne, imageOptio
     nextQuestion();
   };
 
+  // format answer
+  const [firstOption, secondOption] = formatOptionResponse(option_answer);
+
+  let optionContent;
+
+  if (firstOption === "BENAR") {
+    optionContent = (
+      <div className="flex gap-[40px]">
+        <div
+          className={`flex h-[200px] w-[178px] cursor-pointer items-center justify-center rounded-[20px] p-2 md:h-[400px] md:w-[359px] ${
+            answers[index] === firstOption ? "bg-[#4B4D88BF]" : "bg-[#2C9F4D]"
+          }`}
+          onClick={() => setAnswer(firstOption)}
+        >
+          <p className="font-poppins text-[40px] font-bold text-[##D9D9D9] text-[#D9D9D9]">
+            {firstOption}
+          </p>
+        </div>
+        <div
+          className={`flex h-[200px] w-[178px] cursor-pointer items-center justify-center rounded-[20px] p-2 md:h-[400px] md:w-[359px] ${
+            answers[index] === secondOption ? "bg-[#4B4D88BF]" : "bg-[#D45A5A]"
+          }`}
+          onClick={() => setAnswer(secondOption)}
+        >
+          <p className="font-poppins text-[40px] font-bold text-[##D9D9D9] text-[#D9D9D9]">
+            {secondOption}
+          </p>
+        </div>
+      </div>
+    );
+  } else {
+    optionContent = (
+      <div className="flex gap-[40px]">
+        <div
+          className={`cursor-pointer p-2 ${
+            answers[index] === firstOption ? "rounded-xl bg-red-400" : ""
+          } `}
+          onClick={() => setAnswer(firstOption)}
+        >
+          <img
+            src={firstOption}
+            className="h-[200px] w-[178px] md:h-[400px] md:w-[359px]"
+          />
+        </div>
+        <div
+          className={`cursor-pointer p-2  ${
+            answers[index] === secondOption ? "rounded-xl bg-red-400" : ""
+          } `}
+          onClick={() => setAnswer(secondOption)}
+        >
+          <img
+            src={secondOption}
+            className="h-[200px] w-[178px] md:h-[400px] md:w-[359px]"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  let button;
+
   if (index === quiz.length - 1) {
     button = (
       <button
-        className="bg-[#C0EEF2] drop-shadow-xl flex justify-center items-center rounded-full w-[150px] h-[40px]"
+        className="flex h-[40px] w-[150px] items-center justify-center rounded-full bg-[#C0EEF2] drop-shadow-xl"
         onClick={onSubmitAnswer}
       >
         <p className="font-inter text-black">Selesai</p>
@@ -52,7 +104,7 @@ const Question: React.FC<QuestionProps> = ({question, imageOptionOne, imageOptio
   } else {
     button = (
       <button
-        className="bg-[#C0EEF2] drop-shadow-xl flex justify-center items-center rounded-full w-[150px] h-[40px]"
+        className="flex h-[40px] w-[150px] items-center justify-center rounded-full bg-[#C0EEF2] drop-shadow-xl"
         onClick={onClickNext}
       >
         <p className="font-inter text-black">Selanjutnya</p>
@@ -61,23 +113,16 @@ const Question: React.FC<QuestionProps> = ({question, imageOptionOne, imageOptio
   }
 
   return (
-    <div className="bg-[#D9D9D9] px-[55px] py-[53px] rounded-[20px]">
-      <div className="flex flex-col items-center gap-14">
-        <p className="text-[20px] font-poppins font-bold text-black">
+    <div className="rounded-[20px] bg-[#D9D9D9]">
+      <div className="flex flex-col items-center gap-8 md:gap-14">
+        <p className="font-poppins text-[12px] font-bold text-black md:text-[20px]">
           {question}
         </p>
-        <div className='flex gap-[40px]'>
-          <div className={`p-2 cursor-pointer ${answers[index] === 'a' ? 'bg-red-400 rounded-xl' : ''} `} onClick={() => setAnswer('a')}>
-            <img src={imageOptionOne} className="w-[359px] h-[400px]" />
-          </div>
-          <div className={`p-2 cursor-pointer  ${answers[index] === 'b' ? 'bg-red-400 rounded-xl' : ''} `} onClick={() => setAnswer('b')}>
-            <img src={imageOptionTwo} className="w-[359px] h-[400px]" />
-          </div>
-        </div>
+        {optionContent}
       </div>
-      <div className="flex justify-end items-center mt-[19px]">{button}</div>
+      <div className="mt-[19px] flex items-center justify-end">{button}</div>
     </div>
-  )
-}
+  );
+};
 
-export default Question
+export default Question;

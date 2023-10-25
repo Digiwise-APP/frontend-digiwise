@@ -1,11 +1,15 @@
 import LevelOption from "../LevelOption";
 import modalStore from "../../../store/modalStore";
 
+import levelOptionText from "../../../data/levelOptionText";
+
 const Quiz = () => {
   const { openModal } = modalStore();
+  const userLevel = 5;
+
   return (
-    <div className="w-[846px] flex flex-col items-center gap-10">
-      <h1 className="text-[50px] font-rowdies font-bold text-black">
+    <div className="mb-20 flex w-[846px] flex-col items-center gap-5 px-4 text-justify md:mb-0 md:gap-10 md:px-7 md:text-left">
+      <h1 className="font-rowdies text-[40px] font-bold text-black md:text-[50px]">
         Hoax Quizzes
       </h1>
       <progress
@@ -24,20 +28,15 @@ const Quiz = () => {
         up for the challenge? Let's kickstart this learning journey together.
         Happy learning!
       </p>
-      <div className="flex flex-col gap-[20px] w-full">
-        <LevelOption
-          onClick={() => openModal(1)}
-          active={true}
-          text={"#1 - Be a Good Reader"}
-        />
-        <LevelOption
-          onClick={() => openModal(2)}
-          active={true}
-          text={"Level 2"}
-        />
-        <LevelOption active={false} text={"Level 3"} />
-        <LevelOption active={false} text={"Level 4"} />
-        <LevelOption active={false} text={"Level 5"} />
+      <div className="flex w-full flex-col gap-[20px]">
+        {levelOptionText.map((item) => (
+          <LevelOption
+            level={item.level}
+            onClick={() => openModal(item.level)}
+            active={userLevel >= item.level}
+            text={item.text}
+          />
+        ))}
       </div>
     </div>
   );

@@ -1,43 +1,22 @@
-import Quiz from "./components/Quiz";
-import Modal from "./components/Modal";
+import { BrowserRouter as Router } from "react-router-dom";
 
-// modalstore
-import modalStore from "../store/modalStore";
-import LevelOne from "./components/Level/LevelOne";
-import LevelTwo from "./components/Level/LevelTwo";
+import { Route, Routes } from "react-router-dom";
+import QuizPage from "./pages/QuizPage";
 import SidebarMenu from "./components/Sidebar/SidebarMenu";
 import SidebarProfile from "./components/Sidebar/SidebarProfile";
+import FakeNewsPage from "./pages/FakeNewsPage";
 
 function App() {
-  const { isOpened, level } = modalStore();
-
-  let content;
-
-  if (level === 1) {
-    content = (
-      <Modal>
-        <LevelOne />
-      </Modal>
-    );
-  } else if (level === 2) {
-    content = (
-      <Modal>
-        <LevelTwo />
-      </Modal>
-    );
-  }
-
   return (
     <>
       <SidebarMenu />
       <SidebarProfile />
-      <div
-        data-theme="light"
-        className="flex h-full items-center justify-center py-[54px]"
-      >
-        <Quiz />
-      </div>
-      {isOpened && content}
+      <Router>
+        <Routes>
+          <Route path="/quiz" element={<QuizPage />} />
+          <Route path="/fake-news-detection" element={<FakeNewsPage />} />
+        </Routes>
+      </Router>
     </>
   );
 }
