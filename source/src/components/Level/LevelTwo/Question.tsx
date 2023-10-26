@@ -3,7 +3,7 @@ import React from "react";
 import quizStore from "../../../../store/quizStore";
 import formatOptionResponse from "../../../utils/formatOptionResponse";
 
-import Option from "./Option";
+import { OptionTypeTwo } from "../../Options";
 
 type QuestionProps = {
   question: string;
@@ -57,7 +57,7 @@ const Question: React.FC<QuestionProps> = ({ question, option_answer }) => {
         <p className="font-poppins text-[12px] font-bold text-black md:text-[20px]">
           {question}
         </p>
-        <Option options={options} />
+        <OptionTypeTwo options={options} />
       </div>
       <div className="mt-[19px] flex items-center justify-end">{button}</div>
     </div>

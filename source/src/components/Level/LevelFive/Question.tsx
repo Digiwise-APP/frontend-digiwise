@@ -9,7 +9,7 @@ import {
   OptionTypeOne,
   OptionTypeThree,
   OptionTypeTwo,
-} from "./Options";
+} from "../../Options";
 
 type QuestionProps = {
   question: string;

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Option from "./Option";
+import React from "react";
+import { OptionTypeOne } from "../../Options";
 
 import quizStore from "../../../../store/quizStore";
 import formatOptionResponse from "../../../utils/formatOptionResponse";
@@ -63,7 +63,7 @@ const Question: React.FC<Question> = ({
         </p>
       </div>
       <div className="mt-[15px] md:mt-[20px]">
-        <Option url_image={url_image} options={options} />
+        <OptionTypeOne url_image={url_image} options={options} />
       </div>
       <div className="mt-[19px] flex items-center justify-end">{button}</div>
     </div>

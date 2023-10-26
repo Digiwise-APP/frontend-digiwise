@@ -1,6 +1,6 @@
 import React from "react";
 
-import quizStore from "../../../../../../store/quizStore";
+import quizStore from "../../../../store/quizStore";
 
 type OptionProps = {
   options: string[];

@@ -1,6 +1,6 @@
 import React from "react";
-import icon from "../../../../../assets/checklist_vector.png";
-import quizStore from "../../../../../../store/quizStore";
+import icon from "../../../assets/checklist_vector.png";
+import quizStore from "../../../../store/quizStore";
 
 type OptionProps = {
   options: string[];
