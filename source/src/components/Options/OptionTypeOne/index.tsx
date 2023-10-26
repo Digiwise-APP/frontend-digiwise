@@ -21,14 +21,14 @@ const OptionTypeOne: React.FC<Option> = ({ url_image, options }) => {
         {options.map((option, index) => (
           <button
             key={index}
-            className={`flex h-[38px] w-full max-w-[443px] items-center justify-center rounded-[20px] border-2 border-dashed border-[#232686] px-[10px] py-[8px]  md:h-[65px] ${
+            className={`flex h-[38px] w-full max-w-[443px] items-center justify-center rounded-[20px] border-2 border-dashed border-[#232686] px-[10px] py-[8px] md:h-[65px] ${
               answers[questionIndex] === option
                 ? "bg-red-400"
                 : "bg-transparent"
             }`}
             onClick={() => setAnswer(option)}
           >
-            <p className="font-inter text-black">
+            <p className="font-poppins text-[12px] text-black">
               {alphabets[index]}. {option}
             </p>
           </button>

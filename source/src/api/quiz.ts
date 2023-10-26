@@ -13,7 +13,7 @@ type SubmitQuizResponse = {
 };
 
 const TEMP_TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUyOTA1M2IzMjIzODJiM2VhMDEwNWYxIiwiZW1haWwiOiJjb250b2hAZ21haWwuY29tIiwidXNlcm5hbWUiOiJuaXNhIiwiaWF0IjoxNjk4MjQ4OTAxLCJleHAiOjE2OTgyNTI1MDF9.r-N-ISCrQHvl-EK4wpwXejrwZ9ZyNUfLNM8-sjq8qaQ";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUyOTA1M2IzMjIzODJiM2VhMDEwNWYxIiwiZW1haWwiOiJjb250b2hAZ21haWwuY29tIiwidXNlcm5hbWUiOiJuaXNhIiwiaWF0IjoxNjk4MzM2MzA3LCJleHAiOjE2OTgzMzk5MDd9.km2j_bjQI89-nXxoAf3eN_3fL0dMkTo37i_qUs_w3Ug";
 
 export const getQuizByLevel = async (
   level: number,

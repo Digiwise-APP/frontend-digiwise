@@ -70,6 +70,7 @@ const Level = () => {
         title={quizText.title}
         salutation={resultText.salutation}
         firstParagraph={resultText.first_paragraph}
+        secondParagraph={resultText.second_paragraph}
       />
     );
   } else {

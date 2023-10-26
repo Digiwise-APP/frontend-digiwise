@@ -34,6 +34,7 @@ const QuizResult: React.FC<ResultProps> = ({
         {secondParagraph && (
           <>
             <br />
+            <br />
             {secondParagraph}
           </>
         )}
