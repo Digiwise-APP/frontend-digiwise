@@ -7,7 +7,7 @@ const Loading = () => {
       baseColor="#D3D3D3"
       highlightColor="#f5f5f5"
       borderRadius="0.5rem"
-      duration={3}
+      duration={2}
     >
       <div className="rounded-[20px] bg-[#D9D9D9]">
         <p className="text-center text-[20px] ">
