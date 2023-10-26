@@ -1,27 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 // store
-import quizStore from "../../../../store/quizStore";
-import modalStore from "../../../../store/modalStore";
+import modalStore from "../../../store/modalStore";
+import quizStore from "../../../store/quizStore";
 
 // components
-import Question from "./Question";
-import QuizPreparation from "../../QuizPreparation";
-import QuizResult from "../../QuizResult";
-import Loading from "../../Loading";
+import Loading from "../Loading";
+import Question from "../Question";
+import QuizPreparation from "../QuizPreparation";
+import QuizResult from "../QuizResult";
 
 // data
-import questions from "../../../../data/dummy/levelOne";
-import text from "../../../../data/quizText";
+import text from "../../../data/quizText";
 
 // api function
-import { getQuizByLevel } from "../../../api/quiz";
+import { getQuizByLevel } from "../../api/quiz";
 
-const LevelFive = () => {
+const Level = () => {
   const { addQuiz, status, index, quiz, passed, setStatus } = quizStore();
   const { level } = modalStore();
 
-  const quizText = text[0].fifth_level;
+  const quizText = text[level - 1].text;
   let resultText;
 
   if (passed) {
@@ -62,6 +61,7 @@ const LevelFive = () => {
         question={quiz[index].question}
         url_image={quiz[index].url_image}
         option_answer={quiz[index].option_answer}
+        level={level}
       />
     );
   } else if (status === "finished") {
@@ -81,4 +81,4 @@ const LevelFive = () => {
   }
 };
 
-export default LevelFive;
+export default Level;

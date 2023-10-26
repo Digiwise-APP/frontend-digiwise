@@ -1,6 +1,6 @@
 const text = [
   {
-    first_level: {
+    text: {
       title: "#1 - BBB: Bukan Baca Biasa",
       preparation: {
         salutation: "Selamat datang di level 'BBB: Bukan Baca Biasa!'",
@@ -22,7 +22,9 @@ const text = [
           "Tampaknya kamu belum mencapai skor minimum 70 di level 'BBB: Bukan Baca Biasa'. Tidak masalah! 🌟 Ini hanya awal dari perjalananmu, dan pembelajaran memerlukan waktu. Jangan berkecil hati; sebaliknya, gunakan ini sebagai kesempatan untuk memperkuat keterampilanmu. Kamu selalu bisa kembali ketika kamu siap untuk mencoba lagi. Kami percaya pada potensimu untuk menjadi pembaca yang kritis dan cerdas di era digital ini. Luangkan waktu untuk beristirahat sejenak, dan ketika kamu merasa siap, klik 'Ulangi Kuis' untuk mencoba lagi. Kemajuanmu penting bagi kami, jadi teruslah maju, dan kamu akan berhasil membuktikan bahwa kamu salah satu dari si bijak digital. Semangat, dan sampai jumpa di level berikutnya!",
       },
     },
-    second_level: {
+  },
+  {
+    text: {
       title: "#2 - Mengungkap Manipulasi Konten",
       preparation: {
         salutation: "Selamat datang di level 'Mengungkap Manipulasi Konten'",
@@ -44,7 +46,9 @@ const text = [
           "Kamu selalu bisa kembali dan mencoba lagi ketika kamu merasa siap. Kami yakin kamu akan berhasil menjadi ahli dalam mengungkap manipulasi konten dan melindungi dirimu dari hoaks visual di masa depan. Tetap semangat, dan sampai jumpa di level berikutnya!. Semoga Good Ending dan Sad Ending ini sesuai dengan apa yang Anda inginkan untuk Level 2 kuis Anda!",
       },
     },
-    third_level: {
+  },
+  {
+    text: {
       title: "#3 - Duet Maut: Phishing dan Scam",
       preparation: {
         salutation: "Selamat datang di level 'Duet Maut: Phishing dan Scam'",
@@ -66,7 +70,9 @@ const text = [
           "Istirahat sejenak, dan saat kamu merasa siap, klik 'Ulangi Kuis' untuk melanjutkan perjalananmu. Kami percaya kamu bisa melakukannya! Semangat, dan sampai jumpa di level berikutnya!",
       },
     },
-    fourth_level: {
+  },
+  {
+    text: {
       title: "#4 - Membongkar Taktik Perusak Reputasi",
       preparation: {
         salutation:
@@ -91,7 +97,9 @@ const text = [
           "Kami sangat menghargai kemajuanmu, jadi teruslah maju, dan kamu akan berhasil membuktikan bahwa kamu salah satu dari yang bijak digital. Semangat, dan sampai jumpa di level berikutnya!",
       },
     },
-    fifth_level: {
+  },
+  {
+    text: {
       title: "#5 - Tantangan Utama Ahli Literasi Digital",
       preparation: {
         salutation:

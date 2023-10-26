@@ -1,7 +1,7 @@
 import React from "react";
 
-import quizStore from "../../../../store/quizStore";
-import formatOptionResponse from "../../../utils/formatOptionResponse";
+import quizStore from "../../../store/quizStore";
+import formatOptionResponse from "../../utils/formatOptionResponse";
 
 // options
 import {
@@ -9,18 +9,20 @@ import {
   OptionTypeOne,
   OptionTypeThree,
   OptionTypeTwo,
-} from "../../Options";
+} from "../Options";
 
 type QuestionProps = {
   question: string;
   option_answer: string;
   url_image?: string;
+  level: number;
 };
 
 const Question: React.FC<QuestionProps> = ({
   question,
   option_answer,
   url_image,
+  level,
 }) => {
   const { nextQuestion, quiz, index, setPassedResult, submitQuiz } =
     quizStore();
@@ -41,25 +43,34 @@ const Question: React.FC<QuestionProps> = ({
   const options = formatOptionResponse(option_answer);
 
   let optionContent;
-  // render different options based on option_answer props
-  if (question.includes("Kamu menerima email yang mengklaim bahwa")) {
+  if (level === 1) {
     optionContent = <OptionTypeOne url_image={url_image} options={options} />;
-  } else if (question.includes("Mengonsumsi dua gelas air")) {
+  } else if (level === 2) {
     optionContent = <OptionTypeTwo options={options} />;
-  } else if (
-    question.includes(
-      "apakah kamu dapat mengidentifikasi tanda-tanda manipulasi",
-    )
-  ) {
-    optionContent = <OptionTypeOne url_image={url_image} options={options} />;
-  } else if (
-    question.includes(
-      "Penelitian terbaru menunjukkan bahwa minum setidaknya satu",
-    )
-  ) {
+  } else if (level === 3) {
     optionContent = <OptionTypeThree options={options} />;
-  } else {
+  } else if (level === 4) {
     optionContent = <OptionTypeFour options={options} />;
+  } else if (level === 5) {
+    if (question.includes("Kamu menerima email yang mengklaim bahwa")) {
+      optionContent = <OptionTypeOne url_image={url_image} options={options} />;
+    } else if (question.includes("Mengonsumsi dua gelas air")) {
+      optionContent = <OptionTypeTwo options={options} />;
+    } else if (
+      question.includes(
+        "apakah kamu dapat mengidentifikasi tanda-tanda manipulasi",
+      )
+    ) {
+      optionContent = <OptionTypeOne url_image={url_image} options={options} />;
+    } else if (
+      question.includes(
+        "Penelitian terbaru menunjukkan bahwa minum setidaknya satu",
+      )
+    ) {
+      optionContent = <OptionTypeThree options={options} />;
+    } else {
+      optionContent = <OptionTypeFour options={options} />;
+    }
   }
 
   let button;
