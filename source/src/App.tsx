@@ -16,7 +16,10 @@ function App() {
         <Routes>
           <Route path="/quiz" element={<QuizPage />} />
           <Route path="/fake-news-detection" element={<FakeNewsPage />} />
-          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/auth">
+            <Route index element={<AuthPage />} />
+            <Route path=":process" element={<AuthPage />} />
+          </Route>
         </Routes>
       </Router>
     </>
