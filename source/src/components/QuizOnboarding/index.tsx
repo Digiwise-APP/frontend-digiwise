@@ -3,7 +3,7 @@ import modalStore from "../../../store/modalStore";
 
 import levelOptionText from "../../../data/levelOptionText";
 
-const Quiz = () => {
+const QuizOnboarding = () => {
   const { openModal } = modalStore();
   const userLevel = 5;
 
@@ -42,4 +42,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz;
+export default QuizOnboarding;

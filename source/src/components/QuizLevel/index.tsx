@@ -16,7 +16,7 @@ import text from "../../../data/quizText";
 // api function
 import { getQuizByLevel } from "../../api/quiz";
 
-const Level = () => {
+const QuizLevel = () => {
   const { addQuiz, status, index, quiz, passed, setStatus } = quizStore();
   const { level } = modalStore();
 
@@ -82,4 +82,4 @@ const Level = () => {
   }
 };
 
-export default Level;
+export default QuizLevel;

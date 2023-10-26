@@ -1,21 +1,21 @@
 import React from "react";
 
-import Quiz from "../components/Quiz";
+import QuizOnboarding from "../components/QuizOnboarding";
 import Modal from "../components/Modal";
 
-import Level from "../components/Level";
+import QuizLevel from "../components/QuizLevel";
 
 const QuizPage = () => {
   return (
     <>
       <div
         data-theme="light"
-        className="flex h-full items-center justify-center py-[54px]"
+        className="flex min-h-screen items-center justify-center py-[54px]"
       >
-        <Quiz />
+        <QuizOnboarding />
       </div>
       <Modal>
-        <Level />
+        <QuizLevel />
       </Modal>
     </>
   );
