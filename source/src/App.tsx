@@ -5,6 +5,7 @@ import QuizPage from "./pages/QuizPage";
 import SidebarMenu from "./components/Sidebar/SidebarMenu";
 import SidebarProfile from "./components/Sidebar/SidebarProfile";
 import FakeNewsPage from "./pages/FakeNewsPage";
+import AuthPage from "./pages/AuthPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/quiz" element={<QuizPage />} />
           <Route path="/fake-news-detection" element={<FakeNewsPage />} />
+          <Route path="/auth" element={<AuthPage />} />
         </Routes>
       </Router>
     </>
