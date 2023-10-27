@@ -15,6 +15,7 @@ type Inputs = {
 };
 const SignUp = () => {
   const [errorServer, setErrorServer] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { storeUser } = userStore();
   const {
     register,
@@ -24,10 +25,12 @@ const SignUp = () => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    setIsLoading(true);
     const response = await signUp(data);
     console.log(response);
     if (response.code === 400) {
       setErrorServer("email sudah terdaftar");
+      setIsLoading(false);
       return;
     }
 
@@ -37,6 +40,7 @@ const SignUp = () => {
       level: response.level,
     };
 
+    setIsLoading(false);
     storeUser(userData);
   };
   return (
@@ -137,10 +141,15 @@ const SignUp = () => {
           </div>
           <div>
             <button
+              disabled={isLoading}
               type="submit"
-              className="mt-9 flex w-full cursor-pointer justify-center  rounded-full bg-[#2CC6F6] p-3  font-semibold tracking-wide text-gray-100  shadow-lg transition duration-500 ease-in hover:bg-green-500"
+              className="mt-9 flex min-h-[50px] w-full cursor-pointer  justify-center rounded-full bg-[#2CC6F6] p-3 font-semibold tracking-wide text-gray-100  shadow-lg transition duration-200 ease-in hover:bg-green-500 disabled:cursor-default disabled:bg-slate-400"
             >
-              Buat akun
+              {isLoading ? (
+                <span className="loading loading-dots loading-md"></span>
+              ) : (
+                "Daftar"
+              )}
             </button>
           </div>
         </form>
