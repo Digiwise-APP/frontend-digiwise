@@ -1,26 +1,61 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosResponse, AxiosError } from "axios";
 import { BASE_URL } from "./config";
 
 import { LoginData, RegisterData, AuthResponse } from "../types/User";
 
-export const signIn = async (loginData: LoginData): Promise<string> => {
-  const { data } = await axios.post<LoginData, AxiosResponse<AuthResponse>>(
-    `${BASE_URL}/users/register`,
-    loginData,
-  );
-
-  const { token } = data;
-
-  return token;
+type ResponseOutput = {
+  code?: number;
+  level: number;
+  token: string;
 };
 
-export const signUp = async (registerData: RegisterData): Promise<string> => {
-  const { data } = await axios.post<RegisterData, AxiosResponse<AuthResponse>>(
-    `${BASE_URL}/users/register`,
-    registerData,
-  );
+export const signIn = async (loginData: LoginData): Promise<ResponseOutput> => {
+  try {
+    const { data } = await axios.post<LoginData, AxiosResponse<AuthResponse>>(
+      `${BASE_URL}/users/login`,
+      loginData,
+    );
 
-  const { token } = data;
+    const response = {
+      code: data.code,
+      level: data.data.level,
+      token: data.data.token,
+    };
+    return response;
+  } catch (error) {
+    const err = error as AxiosError;
+    const response = {
+      code: err.response?.status,
+      level: 0,
+      token: "",
+    };
+    return response;
+  }
+};
 
-  return token;
+export const signUp = async (
+  registerData: RegisterData,
+): Promise<ResponseOutput> => {
+  try {
+    const { data } = await axios.post<
+      RegisterData,
+      AxiosResponse<AuthResponse>
+    >(`${BASE_URL}/users/register`, registerData);
+
+    const response = {
+      code: data.code,
+      level: data.data.level,
+      token: data.data.token,
+    };
+    return response;
+  } catch (error) {
+    const err = error as AxiosError;
+
+    const response = {
+      code: err.response?.status,
+      level: 0,
+      token: "",
+    };
+    return response;
+  }
 };
