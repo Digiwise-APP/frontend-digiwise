@@ -1,12 +1,9 @@
 import { useState } from "react";
 import validator from "validator";
-
 import { Link } from "react-router-dom";
-
-import { signIn } from "../../api/user";
-
 import { useForm, SubmitHandler } from "react-hook-form";
 
+import { signIn } from "../../api/user";
 import userStore from "../../../store/userStore";
 
 type Inputs = {
@@ -20,7 +17,6 @@ const SignIn = () => {
   const {
     register,
     handleSubmit,
-    watch,
     clearErrors,
     formState: { errors },
   } = useForm<Inputs>();
@@ -36,6 +32,7 @@ const SignIn = () => {
     const userData = {
       email: data.email,
       token: response.token,
+      level: response.level,
     };
 
     storeUser(userData);

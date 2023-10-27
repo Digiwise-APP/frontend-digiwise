@@ -5,19 +5,20 @@ export type LoginData = {
 
 export type RegisterData = LoginData & {
   username: string;
-  img_profile: string;
+  img_profile?: string;
 };
 
 export type AuthResponse = {
-  code: number,
-  data : {
-    token: string,
-    level: number
-  }
+  code: number;
+  data: {
+    token: string;
+    level: number;
+  };
 };
 
 export type userData = {
-  username?: string,
-  email: string,
-  token: string 
-}
+  username?: string;
+  email: string;
+  token: string;
+  level: number;
+};

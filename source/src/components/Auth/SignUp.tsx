@@ -1,9 +1,12 @@
-import React from "react";
+import { useState } from "react";
 import validator from "validator";
 
 import { Link } from "react-router-dom";
 
 import { useForm, SubmitHandler } from "react-hook-form";
+
+import { signUp } from "../../api/user";
+import userStore from "../../../store/userStore";
 
 type Inputs = {
   username: string;
@@ -11,15 +14,31 @@ type Inputs = {
   password: string;
 };
 const SignUp = () => {
+  const [errorServer, setErrorServer] = useState<string | null>(null);
+  const { storeUser } = userStore();
   const {
     register,
     handleSubmit,
-    watch,
     clearErrors,
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const response = await signUp(data);
+    console.log(response);
+    if (response.code === 400) {
+      setErrorServer("email sudah terdaftar");
+      return;
+    }
+
+    const userData = {
+      email: data.email,
+      token: response.token,
+      level: response.level,
+    };
+
+    storeUser(userData);
+  };
   return (
     <div className="z-10 flex justify-center self-center">
       <div className="w-100 mx-auto rounded-2xl bg-white p-12 ">
@@ -36,15 +55,18 @@ const SignUp = () => {
               <input
                 className=" w-full rounded-lg border border-gray-300 px-4  py-2 text-base focus:border-green-400 focus:outline-none"
                 type=""
-                placeholder="mail@gmail.com"
+                placeholder="exampleusername"
                 {...register("username", {
                   required: "field username harus di isi",
                   minLength: {
                     value: 5,
-                    message: "username harus lebih dari 5 karakter",
+                    message: "harus lebih dari 5 karakter",
                   },
                 })}
-                onChange={() => clearErrors("username")}
+                onChange={() => {
+                  setErrorServer(null);
+                  clearErrors("username");
+                }}
               />
               {errors.username && (
                 <span className="absolute -bottom-5 left-0 font-poppins text-xs font-bold text-red-600">
@@ -73,7 +95,10 @@ const SignUp = () => {
                       validator.isEmail(value) || "Mohon isi email yg valid",
                   },
                 })}
-                onChange={() => clearErrors("email")}
+                onChange={() => {
+                  setErrorServer(null);
+                  clearErrors("email");
+                }}
               />
               {errors.email && (
                 <span className="absolute -bottom-5 left-0 font-poppins text-xs font-bold text-red-600">
@@ -89,7 +114,7 @@ const SignUp = () => {
             <div className="relative">
               <input
                 className="w-full content-center rounded-lg border border-gray-300 px-4  py-2 text-base focus:border-green-400 focus:outline-none"
-                type=""
+                type="password"
                 placeholder="Enter your password"
                 {...register("password", {
                   required: "field password harus di isi",
@@ -98,7 +123,10 @@ const SignUp = () => {
                     message: "pass harus lebih dari 5 karakter",
                   },
                 })}
-                onChange={() => clearErrors("password")}
+                onChange={() => {
+                  setErrorServer(null);
+                  clearErrors("password");
+                }}
               />
               {errors.password && (
                 <span className="absolute -bottom-5 left-0 font-poppins text-xs font-bold text-red-600">
@@ -117,7 +145,12 @@ const SignUp = () => {
           </div>
         </form>
 
-        <div className="pt-5 text-center text-xs text-gray-400">
+        <div className="relative flex justify-center pt-5 text-center text-xs text-gray-400">
+          {errorServer && (
+            <span className="absolute -top-2 text-center font-poppins text-xs font-bold text-red-600">
+              {errorServer}
+            </span>
+          )}
           <span>
             Sudah Punya Akun ?, silahkan
             <Link to="/auth/signIn">
