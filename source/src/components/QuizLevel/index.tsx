@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 
+import { AxiosError } from "axios";
+
 // store
 import modalStore from "../../../store/modalStore";
 import quizStore from "../../../store/quizStore";
@@ -18,7 +20,7 @@ import { getQuizByLevel } from "../../api/quiz";
 
 const QuizLevel = () => {
   const { addQuiz, status, index, quiz, passed, setStatus } = quizStore();
-  const { level } = modalStore();
+  const { level, closeModal } = modalStore();
 
   const quizText = text[level - 1].text;
   let resultText;
@@ -30,15 +32,23 @@ const QuizLevel = () => {
   }
 
   const getQuizData = async () => {
-    setStatus("loading");
-    const response = await getQuizByLevel(level);
-    if (response.code === 401) {
-      setStatus("error");
-      return;
+    try {
+      setStatus("loading");
+      const response = await getQuizByLevel(level);
+      if (response.code === 401) {
+        setStatus("error");
+        return;
+      }
+      // console.log(data);
+      addQuiz(response.data);
+      setStatus("steady");
+    } catch (e) {
+      const err = e as AxiosError;
+      if (err.response?.status === 401) {
+        closeModal();
+        window.location.replace("http://localhost:8000/auth");
+      }
     }
-    // console.log(data);
-    addQuiz(response.data);
-    setStatus("steady");
   };
   useEffect(() => {
     getQuizData();
