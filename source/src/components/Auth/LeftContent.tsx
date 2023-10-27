@@ -2,7 +2,7 @@ import React from "react";
 
 const LeftContent = () => {
   return (
-    <div className="z-10 hidden flex-col self-center p-10 sm:flex  md:max-w-5xl">
+    <div className="z-10 hidden flex-none flex-col self-center p-10  sm:flex sm:max-w-xl md:max-w-3xl 2xl:max-w-5xl">
       <div className="hidden flex-col self-start text-white  lg:flex">
         <img src="" className="mb-3" />
         <h1 className="mb-3 text-xl font-bold md:text-5xl lg:text-6xl">
