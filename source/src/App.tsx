@@ -7,11 +7,19 @@ import SidebarProfile from "./components/Sidebar/SidebarProfile";
 import FakeNewsPage from "./pages/FakeNewsPage";
 import LandingPage from "./pages/LandingPage";
 
+function getCurrentPath() {
+  const currentURL = new URL(window.location.href);
+
+  return currentURL.pathname;
+}
+
 function App() {
+  const currentPath = getCurrentPath();
+
   return (
     <>
+      {currentPath !== "/login" ? <SidebarProfile /> : null}
       <SidebarMenu />
-      <SidebarProfile />
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
