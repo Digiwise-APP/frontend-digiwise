@@ -9,5 +9,15 @@ export type RegisterData = LoginData & {
 };
 
 export type AuthResponse = {
-  token: string;
+  code: number,
+  data : {
+    token: string,
+    level: number
+  }
 };
+
+export type userData = {
+  username?: string,
+  email: string,
+  token: string 
+}
