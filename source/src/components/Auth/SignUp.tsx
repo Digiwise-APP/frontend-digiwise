@@ -32,6 +32,10 @@ const SignUp = () => {
       setErrorServer("email sudah terdaftar");
       setIsLoading(false);
       return;
+    } else if (response.code === 500) {
+      setErrorServer("terdapat kesalahan pada server");
+      setIsLoading(false);
+      return;
     }
 
     const userData = {

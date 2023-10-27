@@ -26,8 +26,12 @@ const SignIn = () => {
     setIsLoading(true);
     const response = await signIn(data);
 
-    if (response.code === 404) {
+    if (response.code === 404 || response.code === 400) {
       setErrorServer("email atau password salah");
+      setIsLoading(false);
+      return;
+    } else if (response.code === 500) {
+      setErrorServer("terdapat kesalahan pada server");
       setIsLoading(false);
       return;
     }
