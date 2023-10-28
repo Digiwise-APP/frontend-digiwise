@@ -32,21 +32,25 @@ const menus = [
 ];
 
 const SidebarProfile = () => {
-  return (
-    <SidebarContainer className="right-10 top-5 hidden md:inline">
-      {menus.map((menu) => {
-        return (
-          <div className="my-2">
-            <SidebarIcon
-              icon={menu.iconComponent}
-              text={menu.text}
-              position="left"
-            />
-          </div>
-        );
-      })}
-    </SidebarContainer>
-  );
+  const pathname = window.location.pathname;
+  if (pathname !== "/auth")
+    return (
+      <SidebarContainer className="right-10 top-5 hidden md:inline">
+        {menus.map((menu) => {
+          return (
+            <div className="my-2">
+              <SidebarIcon
+                icon={menu.iconComponent}
+                text={menu.text}
+                position="left"
+              />
+            </div>
+          );
+        })}
+      </SidebarContainer>
+    );
+
+  return <></>;
 };
 
 export default SidebarProfile;
