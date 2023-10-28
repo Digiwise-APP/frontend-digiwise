@@ -6,6 +6,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { signIn } from "../../api/user";
 import userStore from "../../../store/userStore";
 
+import { redirect, useNavigate } from "react-router-dom";
+
 type Inputs = {
   email: string;
   password: string;
@@ -15,6 +17,7 @@ const SignIn = () => {
   const [errorServer, setErrorServer] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { storeUser } = userStore();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -43,6 +46,7 @@ const SignIn = () => {
     };
     setIsLoading(false);
     storeUser(userData);
+    return navigate("/quiz");
   };
   return (
     <div className="z-10 flex justify-center self-center">

@@ -2,9 +2,12 @@ import { useEffect } from "react";
 
 import { AxiosError } from "axios";
 
+import { useNavigate } from "react-router-dom";
+
 // store
 import modalStore from "../../../store/modalStore";
 import quizStore from "../../../store/quizStore";
+import userStore from "../../../store/userStore";
 
 // components
 import Loading from "../Loading";
@@ -21,6 +24,8 @@ import { getQuizByLevel } from "../../api/quiz";
 const QuizLevel = () => {
   const { addQuiz, status, index, quiz, passed, setStatus } = quizStore();
   const { level, closeModal } = modalStore();
+  const { token } = userStore();
+  const navigate = useNavigate();
 
   const quizText = text[level - 1].text;
   let resultText;
@@ -32,6 +37,13 @@ const QuizLevel = () => {
   }
 
   const getQuizData = async () => {
+    if (token === "" || !token) {
+      closeModal();
+      navigate("/auth", {
+        replace: true,
+      });
+      return;
+    }
     try {
       setStatus("loading");
       const response = await getQuizByLevel(level);
@@ -46,7 +58,10 @@ const QuizLevel = () => {
       const err = e as AxiosError;
       if (err.response?.status === 401) {
         closeModal();
-        window.location.replace("http://localhost:8000/auth");
+        navigate("/auth", {
+          replace: true,
+        });
+        return;
       }
     }
   };

@@ -3,9 +3,11 @@ import modalStore from "../../../store/modalStore";
 
 import levelOptionText from "../../../data/levelOptionText";
 
+import userStore from "../../../store/userStore";
+
 const QuizOnboarding = () => {
   const { openModal } = modalStore();
-  const userLevel = 3;
+  const { userLevel } = userStore();
 
   return (
     <div className="mb-20 flex w-[846px] flex-col items-center gap-5 px-4 text-justify md:mb-0 md:gap-10 md:px-7 md:text-left">
