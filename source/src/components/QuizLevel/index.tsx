@@ -21,10 +21,13 @@ import text from "../../../data/quizText";
 // api function
 import { getQuizByLevel } from "../../api/quiz";
 
+import getToken from "../../utils/getToken";
+
 const QuizLevel = () => {
   const { addQuiz, status, index, quiz, passed, setStatus } = quizStore();
   const { level, closeModal } = modalStore();
-  const { token } = userStore();
+  const { clearUser } = userStore();
+
   const navigate = useNavigate();
 
   const quizText = text[level - 1].text;
@@ -37,6 +40,8 @@ const QuizLevel = () => {
   }
 
   const getQuizData = async () => {
+    const token = getToken();
+    console.log(token);
     if (token === "" || !token) {
       closeModal();
       navigate("/auth", {
@@ -56,7 +61,9 @@ const QuizLevel = () => {
       setStatus("steady");
     } catch (e) {
       const err = e as AxiosError;
+      console.log(err);
       if (err.response?.status === 401) {
+        clearUser();
         closeModal();
         navigate("/auth", {
           replace: true,

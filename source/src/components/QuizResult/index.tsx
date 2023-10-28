@@ -16,7 +16,7 @@ const QuizResult: React.FC<ResultProps> = ({
   firstParagraph,
   secondParagraph,
 }) => {
-  const { restartQuiz } = quizStore();
+  const { restartQuiz, score } = quizStore();
   const { closeModal } = modalStore();
 
   const onCloseModal = () => {
@@ -29,6 +29,7 @@ const QuizResult: React.FC<ResultProps> = ({
         {title}
       </p>
       <p className="mt-[20px] text-left font-poppins text-[12px] leading-[30px] text-black md:mt-[46px]">
+        skormu : <span className="font-bold">{score}</span> <br></br>
         {salutation} <br></br>
         {firstParagraph}
         {secondParagraph && (

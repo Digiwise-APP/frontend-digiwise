@@ -1,10 +1,9 @@
 import axios, { AxiosResponse } from "axios";
 import { BASE_URL } from "./config";
 
-import { QuestionData, FormattedAnswer } from "../types/quiz";
-import {  userData } from "../types/User";
+import { QuestionData, FormattedAnswer } from "../types/Quiz";
 
-
+import getToken from "../utils/getToken";
 
 type GetQuizResponse = {
   code: number;
@@ -12,22 +11,15 @@ type GetQuizResponse = {
 };
 
 type SubmitQuizResponse = {
-  score: number;
+  data: {
+    score: number;
+  };
 };
-
-type UserDataLocalStorage = {
-  state: userData
-}
-
-const userStore = JSON.parse(localStorage.getItem('user') || '') as UserDataLocalStorage
-const token = userStore.state.token
-
-
 
 export const getQuizByLevel = async (
   level: number,
 ): Promise<GetQuizResponse> => {
-  console.log(token)
+  const token = getToken();
   const { data } = await axios.get<GetQuizResponse>(
     `${BASE_URL}/users/questions`,
     {
@@ -46,7 +38,8 @@ export const getQuizByLevel = async (
 
 export const sentUserAnswer = async (
   userAnswer: FormattedAnswer,
-): Promise<any> => {
+): Promise<SubmitQuizResponse> => {
+  const token = getToken();
   const { data } = await axios.post<
     FormattedAnswer,
     AxiosResponse<SubmitQuizResponse>
@@ -56,5 +49,5 @@ export const sentUserAnswer = async (
     },
   });
 
- return data
+  return data;
 };

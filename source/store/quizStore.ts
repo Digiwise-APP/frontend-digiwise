@@ -1,12 +1,13 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-import { QuestionData } from "../src/types/quiz";
+import { QuestionData } from "../src/types/Quiz";
 
 type Store = {
   quiz: QuestionData[];
   status: string;
   index: number;
+  score: number;
   passed: boolean;
   answers: string[] | [string[]];
   setStatus: (status: string) => void;
@@ -25,16 +26,17 @@ const quizStore = create<Store>()(
       quiz: [],
       status: "steady",
       index: 0,
+      score: 0,
       passed: false,
       answers: [],
       setStatus: (status) => set({ status: status }),
       addQuiz: (quiz) => set({ quiz: quiz }),
       startQuiz: () => set({ status: "start" }),
       setPassedResult: (score) => {
-        if (score >= 80){
-          set({ passed : true })
-        } else{
-          set({ passed: false })
+        set({ score: score });
+
+        if (score >= 80) {
+          set({ passed: true });
         }
       },
       nextQuestion: () =>
@@ -66,7 +68,14 @@ const quizStore = create<Store>()(
 
         set({ answers: dataAnswer });
       },
-      restartQuiz: () => set({ index: 0, status: "steady", answers: [] }),
+      restartQuiz: () =>
+        set({
+          index: 0,
+          status: "steady",
+          answers: [],
+          passed: false,
+          score: 0,
+        }),
     }),
     {
       name: "quiz",

@@ -1,8 +1,8 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import userStore from "../../../store/userStore";
+import getToken from "../../utils/getToken";
 
 const RequireAuth = () => {
-  const { token } = userStore();
+  const token = getToken();
   const location = useLocation();
 
   if (token === "" || !token || token === null) {

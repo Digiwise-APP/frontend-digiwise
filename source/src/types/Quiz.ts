@@ -12,6 +12,6 @@ export type FormattedAnswer = {
   question_type: string;
   answers: Array<{
     question_id: string;
-    answer: string | string[];
+    user_answer: string | string[];
   }>;
 };

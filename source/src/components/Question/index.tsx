@@ -1,10 +1,19 @@
 import React from "react";
 
-import quizStore from "../../../store/quizStore";
 import formatOptionResponse from "../../utils/formatOptionResponse";
 import formatUserAnswer from "../../utils/formatUserAnswer";
 
 import { sentUserAnswer } from "../../api/quiz";
+
+import { useNavigate } from "react-router-dom";
+
+import { AxiosError } from "axios";
+
+import quizStore from "../../../store/quizStore";
+import userStore from "../../../store/userStore";
+import modalStore from "../../../store/modalStore";
+
+import getToken from "../../utils/getToken";
 
 // options
 import {
@@ -27,10 +36,21 @@ const Question: React.FC<QuestionProps> = ({
   url_image,
   level,
 }) => {
-  const { nextQuestion, quiz, index, setPassedResult, answers, setStatus } =
+  const { nextQuestion, quiz, index, answers, setStatus, setPassedResult } =
     quizStore();
+  const { increaseLevel, clearUser } = userStore();
+  const { closeModal } = modalStore();
+  const navigate = useNavigate();
 
   const onSubmitAnswer = async () => {
+    const token = getToken();
+    if (token === "" || !token) {
+      closeModal();
+      navigate("/auth", {
+        replace: true,
+      });
+      return;
+    }
     setStatus("loading");
 
     try {
@@ -38,14 +58,25 @@ const Question: React.FC<QuestionProps> = ({
       const formattedAnswer = formatUserAnswer(quiz, answers);
       console.log(formattedAnswer);
       const response = await sentUserAnswer(formattedAnswer);
-      console.log(response);
-      // setPassedResult(true);
-      setPassedResult(false);
+      const score = response.data.score;
+      setPassedResult(score);
+      if (score >= 80) {
+        increaseLevel();
+      }
+      setStatus("finished");
     } catch (e) {
-      console.log(e);
+      const err = e as AxiosError;
+      if (err.response?.status === 401) {
+        clearUser();
+        closeModal();
+        navigate("/auth", {
+          replace: true,
+        });
+        return;
+      } else {
+        setStatus("error");
+      }
     }
-
-    setStatus("finished");
   };
 
   const onClickNext = () => {
