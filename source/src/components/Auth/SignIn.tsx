@@ -6,11 +6,15 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { signIn } from "../../api/user";
 import userStore from "../../../store/userStore";
 
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 type Inputs = {
   email: string;
   password: string;
+};
+
+type LocationState = {
+  isSignUp: boolean | null | undefined;
 };
 
 const SignIn = () => {
@@ -18,12 +22,18 @@ const SignIn = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { storeUser } = userStore();
   const navigate = useNavigate();
+  const location = useLocation();
+
   const {
     register,
     handleSubmit,
     clearErrors,
     formState: { errors },
   } = useForm<Inputs>();
+
+  const state = location.state as LocationState;
+
+  console.log(state?.isSignUp || "");
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     setIsLoading(true);
@@ -38,7 +48,7 @@ const SignIn = () => {
       setIsLoading(false);
       return;
     }
-
+    state?.isSignUp;
     const userData = {
       email: data.email,
       token: response.token,
@@ -48,9 +58,23 @@ const SignIn = () => {
     storeUser(userData);
     return navigate("/quiz");
   };
+
+  // clear useLocation state on refresh
+  window.history.replaceState({ state: null }, document.title);
+
   return (
-    <div className="z-10 flex justify-center self-center">
-      <div className="w-100 mx-auto rounded-2xl bg-white p-12 ">
+    <div className="relative z-10 flex justify-center self-center">
+      {state?.isSignUp && (
+        <div className="absolute top-2 flex w-full flex-col items-center justify-center gap-[1px]">
+          <p className="font-poppins text-xs font-bold text-green-500">
+            Akun Berhasil dibuat
+          </p>
+          <p className="font-poppins text-xs font-bold text-green-500">
+            Silahkan Login
+          </p>
+        </div>
+      )}
+      <div className="w-100 mx-auto rounded-2xl bg-white p-12">
         <div className="mb-4">
           <h3 className="text-2xl font-semibold text-gray-800">Masuk</h3>
         </div>

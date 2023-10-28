@@ -10,6 +10,7 @@ type Store = {
   userLevel: number;
   isLoggedIn: boolean;
   storeUser: (userData: userData) => void;
+  increaseLevel: () => void;
   logout: () => void;
 };
 
@@ -29,6 +30,11 @@ const userStore = create<Store>()(
           userLevel: userData.level,
           isLoggedIn: true,
         });
+      },
+      increaseLevel: () => {
+        set((state) => ({
+          userLevel: state.userLevel === 5 ? state.userLevel : state.userLevel + 1
+        }))
       },
       logout() {
         set({

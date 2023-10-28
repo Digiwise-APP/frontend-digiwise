@@ -1,5 +1,5 @@
 export type QuestionData = {
-  id: string;
+  _id: string;
   question: string;
   level: number;
   question_type: string;
@@ -9,9 +9,9 @@ export type QuestionData = {
 
 export type FormattedAnswer = {
   level: number;
-  type: string;
+  question_type: string;
   answers: Array<{
-    question_id: number;
+    question_id: string;
     answer: string | string[];
   }>;
 };

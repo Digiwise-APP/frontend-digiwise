@@ -26,7 +26,7 @@ const AuthPage = () => {
     >
       <div className="absolute inset-0 z-0 bg-[#232b2b] opacity-[80%]"></div>
       <div className="mx-0 flex min-h-screen items-center justify-center p-5 sm:flex-row">
-        <LeftContent />
+        <LeftContent process={authProcess} />
         {authProcess === "signIn" ? <SignIn /> : <SignUp />}
       </div>
     </div>

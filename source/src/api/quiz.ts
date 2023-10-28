@@ -27,6 +27,7 @@ const token = userStore.state.token
 export const getQuizByLevel = async (
   level: number,
 ): Promise<GetQuizResponse> => {
+  console.log(token)
   const { data } = await axios.get<GetQuizResponse>(
     `${BASE_URL}/users/questions`,
     {
@@ -45,7 +46,7 @@ export const getQuizByLevel = async (
 
 export const sentUserAnswer = async (
   userAnswer: FormattedAnswer,
-): Promise<number> => {
+): Promise<any> => {
   const { data } = await axios.post<
     FormattedAnswer,
     AxiosResponse<SubmitQuizResponse>
@@ -55,7 +56,5 @@ export const sentUserAnswer = async (
     },
   });
 
-  const { score } = data;
-
-  return score;
+ return data
 };

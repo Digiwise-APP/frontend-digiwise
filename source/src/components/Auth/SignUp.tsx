@@ -1,12 +1,10 @@
 import { useState } from "react";
 import validator from "validator";
-
 import { Link } from "react-router-dom";
-
 import { useForm, SubmitHandler } from "react-hook-form";
-
 import { signUp } from "../../api/user";
 import userStore from "../../../store/userStore";
+import { useNavigate } from "react-router-dom";
 
 type Inputs = {
   username: string;
@@ -17,6 +15,7 @@ const SignUp = () => {
   const [errorServer, setErrorServer] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { storeUser } = userStore();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -38,15 +37,11 @@ const SignUp = () => {
       return;
     }
 
-    const userData = {
-      email: data.email,
-      token: response.token,
-      level: response.level,
-    };
-
-    setIsLoading(false);
-    storeUser(userData);
+    return navigate("/auth/signIn", {
+      state: { isSignUp: true },
+    });
   };
+
   return (
     <div className="z-10 flex justify-center self-center">
       <div className="w-100 mx-auto rounded-2xl bg-white p-12 ">

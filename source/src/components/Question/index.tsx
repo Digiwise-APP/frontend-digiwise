@@ -2,6 +2,9 @@ import React from "react";
 
 import quizStore from "../../../store/quizStore";
 import formatOptionResponse from "../../utils/formatOptionResponse";
+import formatUserAnswer from "../../utils/formatUserAnswer";
+
+import { sentUserAnswer } from "../../api/quiz";
 
 // options
 import {
@@ -24,15 +27,25 @@ const Question: React.FC<QuestionProps> = ({
   url_image,
   level,
 }) => {
-  const { nextQuestion, quiz, index, setPassedResult, submitQuiz } =
+  const { nextQuestion, quiz, index, setPassedResult, answers, setStatus } =
     quizStore();
 
-  const onSubmitAnswer = () => {
-    // call post request to backend, to submit answer and retrive result
+  const onSubmitAnswer = async () => {
+    setStatus("loading");
 
-    // setPassedResult(true);
-    setPassedResult(false);
-    submitQuiz();
+    try {
+      // format data
+      const formattedAnswer = formatUserAnswer(quiz, answers);
+      console.log(formattedAnswer);
+      const response = await sentUserAnswer(formattedAnswer);
+      console.log(response);
+      // setPassedResult(true);
+      setPassedResult(false);
+    } catch (e) {
+      console.log(e);
+    }
+
+    setStatus("finished");
   };
 
   const onClickNext = () => {
