@@ -54,7 +54,7 @@ const SignUp = () => {
           <h3 className="text-2xl font-semibold text-gray-800">Daftar</h3>
         </div>
 
-        <form className="mb-6 space-y-7" onSubmit={handleSubmit(onSubmit)}>
+        <form className="mb-6 space-y-6" onSubmit={handleSubmit(onSubmit)}>
           <div className="space-y-1">
             <label className="text-sm font-medium tracking-wide text-gray-700">
               Username

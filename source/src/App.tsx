@@ -7,6 +7,8 @@ import SidebarProfile from "./components/Sidebar/SidebarProfile";
 import FakeNewsPage from "./pages/FakeNewsPage";
 import AuthPage from "./pages/AuthPage";
 
+import RequireAuth from "./components/Auth/RequireAuth";
+
 function App() {
   return (
     <>
@@ -14,8 +16,10 @@ function App() {
       <SidebarProfile />
       <Router>
         <Routes>
-          <Route path="/quiz" element={<QuizPage />} />
-          <Route path="/fake-news-detection" element={<FakeNewsPage />} />
+          <Route element={<RequireAuth />}>
+            <Route path="/quiz" element={<QuizPage />} />
+            <Route path="/fake-news-detection" element={<FakeNewsPage />} />
+          </Route>
           <Route path="/auth">
             <Route index element={<AuthPage />} />
             <Route path=":process" element={<AuthPage />} />
