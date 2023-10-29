@@ -69,28 +69,31 @@ const LandingPage = () => {
           </div>
         </Fade>
       </div>
-      <div className="h-screen">
-        <div className="px-10 md:px-32">
-          <fieldset className="border-t-4 border-bgSidebarButton">
-            <legend className="mx-auto px-4 font-poppins text-2xl font-bold text-bgSidebar md:text-5xl">
-              Program Digiwise
-            </legend>
-          </fieldset>
-        </div>
+      <Fade triggerOnce delay={100} direction="up" damping={0.1}>
+        <div className="-mt-28 h-screen md:mt-0">
+          <div className="px-10 md:px-32">
+            <fieldset className="border-t-4 border-bgSidebarButton">
+              <legend className="mx-auto px-4 font-poppins text-2xl font-bold text-bgSidebar md:text-5xl">
+                Program Digiwise
+              </legend>
+            </fieldset>
+          </div>
 
-        <div className="mx-10 mt-10 flex h-screen justify-evenly">
-          <FeatureCard
-            backgroundImage={QuizCardBackground}
-            cardText="Hoax Quizzes"
-            urlDest="/quiz"
-          />
-          <FeatureCard
-            backgroundImage={FNDCardBackground}
-            cardText="Fake News Detection"
-            urlDest="/fake-news-detection"
-          />
+          <div className="mt-10 flex h-screen flex-col md:mx-10 md:flex-row md:justify-evenly">
+            <FeatureCard
+              backgroundImage={QuizCardBackground}
+              cardText="Hoax Quizzes"
+              urlDest="/quiz"
+              className="mb-10"
+            />
+            <FeatureCard
+              backgroundImage={FNDCardBackground}
+              cardText="Fake News Detection"
+              urlDest="/fake-news-detection"
+            />
+          </div>
         </div>
-      </div>
+      </Fade>
       <div className="h-96 w-full"></div>
       <div className="h-96 w-full"></div>
       <div className="h-96 w-full"></div>
