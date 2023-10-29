@@ -7,7 +7,7 @@ type Option = {
   options: string[];
 };
 
-const Option: React.FC<Option> = ({ url_image, options }) => {
+const OptionTypeOne: React.FC<Option> = ({ url_image, options }) => {
   const { answers, setAnswer, index } = quizStore();
   const questionIndex = index;
   const alphabets = ["A", "B", "C", "D"];
@@ -20,14 +20,15 @@ const Option: React.FC<Option> = ({ url_image, options }) => {
       <div className="grid grid-cols-1 justify-items-center gap-4 md:grid-cols-2">
         {options.map((option, index) => (
           <button
-            className={`flex h-[38px] w-full max-w-[443px] items-center justify-center rounded-[20px] border-2 border-dashed border-[#232686]  md:h-[65px] ${
+            key={index}
+            className={`flex h-[38px] w-full max-w-[443px] items-center justify-center rounded-[20px] border-2 border-dashed border-[#232686] px-[10px] py-[8px] md:h-[65px] ${
               answers[questionIndex] === option
                 ? "bg-red-400"
                 : "bg-transparent"
             }`}
             onClick={() => setAnswer(option)}
           >
-            <p className="font-inter text-black">
+            <p className="font-poppins text-[12px] text-black">
               {alphabets[index]}. {option}
             </p>
           </button>
@@ -37,4 +38,4 @@ const Option: React.FC<Option> = ({ url_image, options }) => {
   );
 };
 
-export default Option;
+export default OptionTypeOne;

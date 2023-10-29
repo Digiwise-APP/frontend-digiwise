@@ -4,10 +4,17 @@ type props = {
   level: number;
   active: boolean;
   text: string;
+  isPassed: boolean;
   onClick?: () => void;
 };
 
-const LevelOption: React.FC<props> = ({ level, active, text, onClick }) => {
+const LevelOption: React.FC<props> = ({
+  level,
+  active,
+  text,
+  onClick,
+  isPassed,
+}) => {
   return (
     <button
       disabled={!active}
@@ -21,7 +28,7 @@ const LevelOption: React.FC<props> = ({ level, active, text, onClick }) => {
           active ? "text-black" : "text-[#9D9D9D]"
         }`}
       >
-        {active ? text : `Level ${level}`}
+        {isPassed ? text : `Level ${level}`}
       </p>
     </button>
   );

@@ -1,4 +1,4 @@
-import { QuestionData, FormattedAnswer } from "../types/quiz";
+import { QuestionData, FormattedAnswer } from "../types/Quiz";
 
 type Answers = string[] | [string[]];
 
@@ -8,14 +8,14 @@ const formatUserAnswer = (
 ): FormattedAnswer => {
   const data: FormattedAnswer = {
     level: questions[0].level,
-    type: questions[0].question_type,
+    question_type: questions[0].question_type,
     answers: [],
   };
 
   for (let i = 0; i < questions.length; i++) {
     data.answers.push({
-      question_id: questions[i].id,
-      answer: answers[i],
+      question_id: questions[i]._id,
+      user_answer: answers[i],
     });
   }
 

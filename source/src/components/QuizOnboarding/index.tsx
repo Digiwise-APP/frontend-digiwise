@@ -3,9 +3,14 @@ import modalStore from "../../../store/modalStore";
 
 import levelOptionText from "../../../data/levelOptionText";
 
-const Quiz = () => {
+import userStore from "../../../store/userStore";
+
+const QuizOnboarding = () => {
   const { openModal } = modalStore();
-  const userLevel = 5;
+  const { userLevel } = userStore();
+
+  const progressCalculate = userLevel * 20;
+  const progress = progressCalculate.toString();
 
   return (
     <div className="mb-20 flex w-[846px] flex-col items-center gap-5 px-4 text-justify md:mb-0 md:gap-10 md:px-7 md:text-left">
@@ -14,11 +19,11 @@ const Quiz = () => {
       </h1>
       <progress
         className="progress progress-accent w-full"
-        value="50"
+        value={progress}
         max="100"
       ></progress>
       <p className="font-poppins text-[12px] leading-[30px]">
-        Welcome to Hoax Quizzes, Zie! <br></br> Ready to dive into the world of
+        Welcome to Hoax Quizzes <br></br> Ready to dive into the world of
         digital deception? Let's challenge your digital savvy. 🚀 In today's
         digital age, the ability to spot a hoax is a superpower! Over here,
         you'll test and boost your skills in identifying hoaxes, understanding
@@ -33,7 +38,8 @@ const Quiz = () => {
           <LevelOption
             level={item.level}
             onClick={() => openModal(item.level)}
-            active={userLevel >= item.level}
+            active={userLevel === item.level}
+            isPassed={userLevel >= item.level}
             text={item.text}
           />
         ))}
@@ -42,4 +48,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz;
+export default QuizOnboarding;

@@ -1,6 +1,6 @@
 import React from "react";
 
-import quizStore from "../../../../../../store/quizStore";
+import quizStore from "../../../../store/quizStore";
 
 type OptionProps = {
   options: string[];
@@ -14,7 +14,7 @@ const OptionTypeTwo: React.FC<OptionProps> = ({ options }) => {
 
   if (firstOption === "BENAR") {
     optionContent = (
-      <div className="flex gap-[40px]">
+      <div className="flex flex-col gap-[20px] md:flex-row md:gap-[40px]">
         <div
           className={`flex h-[200px] w-[178px] cursor-pointer items-center justify-center rounded-[20px] p-2 md:h-[400px] md:w-[359px] ${
             answers[index] === firstOption ? "bg-[#4B4D88BF]" : "bg-[#2C9F4D]"
@@ -39,7 +39,7 @@ const OptionTypeTwo: React.FC<OptionProps> = ({ options }) => {
     );
   } else {
     optionContent = (
-      <div className="flex gap-[40px]">
+      <div className="flex flex-col gap-[20px] md:flex-row md:gap-[40px]">
         <div
           className={`cursor-pointer p-2 ${
             answers[index] === firstOption ? "rounded-xl bg-red-400" : ""
