@@ -4,12 +4,12 @@ import Background from "../assets/landing_page_bg3.png";
 import TiledBackground from "../assets/background-div.webp";
 import LogoDigiwise from "../assets/logo_digiwise.png";
 import Paper from "../components/LandingPage/HeaderImage/Paper";
-import { Fade, Flip } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 
 const LandingPage = () => {
   return (
     <div style={{ backgroundImage: `url(${Background})` }}>
-      <Flip duration={1000} triggerOnce>
+      <Fade duration={1000} triggerOnce>
         <div className="h-screen w-full object-cover">
           <div className="relative flex h-full w-full items-center justify-center">
             <Paper className="-skew-y-1 skew-x-3" />
@@ -34,7 +34,7 @@ const LandingPage = () => {
             </Paper>
           </div>
         </div>
-      </Flip>
+      </Fade>
 
       <div className="mt-10 flex h-screen w-full md:mt-20">
         <Fade triggerOnce delay={100} direction="up" damping={0.1}>
@@ -65,6 +65,15 @@ const LandingPage = () => {
             </div>
           </div>
         </Fade>
+      </div>
+      <div>
+        <div className="px-10 md:px-40">
+          <fieldset className="border-t-4 border-bgSidebarButton">
+            <legend className="mx-auto px-4 font-poppins text-2xl font-bold text-bgSidebar md:text-5xl">
+              Program Digiwise
+            </legend>
+          </fieldset>
+        </div>
       </div>
       <div className="h-96 w-full"></div>
       <div className="h-96 w-full"></div>
