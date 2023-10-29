@@ -3,8 +3,11 @@ import React from "react";
 import Background from "../assets/landing_page_bg3.png";
 import TiledBackground from "../assets/background-div.webp";
 import LogoDigiwise from "../assets/logo_digiwise.png";
+import QuizCardBackground from "../assets/quiz_card_landing_page.png";
+import FNDCardBackground from "../assets/fnd_card_landing_page.png";
 import Paper from "../components/LandingPage/HeaderImage/Paper";
 import { Fade } from "react-awesome-reveal";
+import FeatureCard from "../components/LandingPage/FeatureCard";
 
 const LandingPage = () => {
   return (
@@ -66,13 +69,26 @@ const LandingPage = () => {
           </div>
         </Fade>
       </div>
-      <div>
-        <div className="px-10 md:px-40">
+      <div className="h-screen">
+        <div className="px-10 md:px-32">
           <fieldset className="border-t-4 border-bgSidebarButton">
             <legend className="mx-auto px-4 font-poppins text-2xl font-bold text-bgSidebar md:text-5xl">
               Program Digiwise
             </legend>
           </fieldset>
+        </div>
+
+        <div className="mx-10 mt-10 flex h-screen justify-evenly">
+          <FeatureCard
+            backgroundImage={QuizCardBackground}
+            cardText="Hoax Quizzes"
+            urlDest="/quiz"
+          />
+          <FeatureCard
+            backgroundImage={FNDCardBackground}
+            cardText="Fake News Detection"
+            urlDest="/fake-news-detection"
+          />
         </div>
       </div>
       <div className="h-96 w-full"></div>
@@ -84,7 +100,7 @@ const LandingPage = () => {
       <div className="h-96 w-full"></div>
       <div className="h-96 w-full"></div>
       <div className="h-96 w-full bg-black"></div>
-      <div className="h-96 w-full bg-black"></div>
+      <div className="h-95 w-full bg-black"></div>
     </div>
   );
 };
