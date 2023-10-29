@@ -17,6 +17,7 @@ const menus = [
     iconComponent: <IoHomeSharp className="text-[25px] md:text-[20px]" />,
     text: "Home",
     position: "right",
+    url: "/",
   },
   {
     iconComponent: (
@@ -24,16 +25,19 @@ const menus = [
     ),
     text: "Games",
     position: "right",
+    url: "/quiz",
   },
   {
     iconComponent: <IoGlasses className="text-[25px] md:text-[20px]" />,
     text: "About",
     position: "right",
+    url: "/about",
   },
   {
     iconComponent: <IoNewspaper className="text-[25px] md:text-[20px]" />,
     text: "Fake News Detection",
     position: "right",
+    url: "/fake-news-detection",
   },
 ];
 
@@ -50,6 +54,7 @@ const SidebarMenu = () => {
                 icon={menu.iconComponent}
                 text={menu.text}
                 position="right"
+                url={menu.url}
               />
             </li>
           );
@@ -76,7 +81,12 @@ const SidebarMenu = () => {
             }}
           >
             <div className="group relative m-auto flex h-14 w-14 items-center justify-center rounded-full bg-bgSidebarButton py-5 hover:cursor-pointer hover:bg-gray-400 focus:bg-red-600 md:h-16 md:w-16">
-              <IoLogOut className="mx-auto text-[30px]" />
+              <IoLogOut
+                className="mx-auto text-[30px]"
+                onClick={() => {
+                  window.location.href = "/logout";
+                }}
+              />
             </div>
           </div>
         </div>
