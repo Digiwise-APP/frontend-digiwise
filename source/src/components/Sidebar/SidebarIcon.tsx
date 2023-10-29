@@ -1,4 +1,5 @@
 import React, { SyntheticEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 type TextPosition = "left" | "right" | "top";
 
@@ -22,10 +23,11 @@ const SidebarIcon: React.FC<SidebarIconProps> = ({
     none: "",
   };
 
+  const navigate = useNavigate();
   function navigateMenu(e: SyntheticEvent) {
     e.preventDefault();
 
-    window.location.href = url;
+    navigate(url);
   }
 
   return (
