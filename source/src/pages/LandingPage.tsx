@@ -23,7 +23,7 @@ const LandingPage = () => {
                     WebkitUserSelect: "none",
                   }}
                 />
-                <div className="font mb-4 font-poppins text-3xl font-bold tracking-widest md:text-7xl">
+                <div className="font mb-4 font-poppins text-3xl font-bold tracking-widest text-bgSidebarButton md:text-7xl">
                   DIGIWISE
                 </div>
                 <hr className="w-3/4 border-4 border-black text-sm text-black" />
@@ -36,10 +36,10 @@ const LandingPage = () => {
         </div>
       </Flip>
 
-      <div className="mt-20 flex h-screen w-full">
+      <div className="mt-10 flex h-screen w-full md:mt-20">
         <Fade triggerOnce delay={100} direction="up" damping={0.1}>
           <div
-            className="mx-auto my-auto h-2/3 w-5/6 rounded-3xl border-4 border-bgSidebar shadow-2xl"
+            className="mx-auto my-auto h-3/4 w-5/6 rounded-3xl border-4 border-bgSidebar bg-sky-50 shadow-2xl"
             style={{ backgroundImage: `url(${TiledBackground})` }}
           >
             <div className="ml-12 mt-20">
@@ -49,13 +49,14 @@ const LandingPage = () => {
                   className="pointer-events-none w-14 md:w-24"
                 />
                 <hr className="mx-6 h-auto border-2 border-l-2 border-bgSidebar" />
-                <div className="flex items-center justify-center font-poppins text-2xl tracking-widest text-bgSidebar md:text-4xl">
+                <h2 className="flex items-center justify-center font-poppins text-2xl font-bold tracking-widest text-bgSidebar md:text-5xl">
                   DIGIWISE
-                </div>
+                </h2>
               </div>
             </div>
-            <div className="mx-10 my-10">
-              <div className="text-poppins text-bold text-xl leading-5 text-gray-900 md:text-3xl md:leading-loose">
+            <div className="my-10 px-10">
+              <div className="text-poppins text-center text-xl text-gray-950 md:text-justify md:text-2xl ">
+                <span className="font-bold">Introducing Digiwise</span> -
                 Digiwise adalah sebuah platform yang dirancang untuk membantu
                 pengguna mengidentifikasi dan menghindari HOAX atau berita palsu
                 serta informasi yang menyesatkan. Platform ini menggunakan alat
