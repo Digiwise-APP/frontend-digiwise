@@ -56,7 +56,9 @@ const SignIn = () => {
     };
     setIsLoading(false);
     storeUser(userData);
-    return navigate("/quiz");
+    return navigate("/quiz", {
+      replace: true,
+    });
   };
 
   // clear useLocation state on refresh

@@ -43,6 +43,7 @@ const userStore = create<Store>()(
           email: "",
           token: "",
           isLoggedIn: false,
+          userLevel: 0
         });
       },
     }),

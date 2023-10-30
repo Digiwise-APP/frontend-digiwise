@@ -7,6 +7,7 @@ import LandingPage from "./pages/LandingPage";
 import SidebarLayout from "./pages/SidebarLayout";
 import AuthPage from "./pages/AuthPage";
 import RequireAuth from "./components/Auth/RequireAuth";
+import Logout from "./components/Logout";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route index element={<AuthPage />} />
               <Route path=":process" element={<AuthPage />} />
             </Route>
+            <Route path="/logout" element={<Logout />} />
           </Route>
         </Routes>
       </Router>
