@@ -9,6 +9,7 @@ import LandingPage from "./pages/LandingPage";
 import SidebarLayout from "./pages/SidebarLayout";
 import AuthPage from "./pages/AuthPage";
 import ArticlePage from "./pages/ArticlePage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 // component
 import Logout from "./components/Logout";
@@ -33,6 +34,7 @@ function App() {
             </Route>
             <Route path="/logout" element={<Logout />} />
           </Route>
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Router>
     </>
