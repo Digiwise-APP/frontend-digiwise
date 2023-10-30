@@ -34,7 +34,7 @@ const userStore = create<Store>()(
       increaseLevel: () => {
         set((state) => ({
           userLevel:
-            state.userLevel === 5 ? state.userLevel : state.userLevel + 1,
+           state.userLevel + 1,
         }));
       },
       clearUser() {

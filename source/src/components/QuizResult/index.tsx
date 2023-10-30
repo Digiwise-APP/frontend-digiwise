@@ -42,8 +42,9 @@ const QuizResult: React.FC<ResultProps> = ({
       </p>
       <div className="mt-[40px] flex items-center justify-between md:mt-[93px]">
         <button
-          className="flex h-[40px] w-[150px] items-center justify-center rounded-full bg-white drop-shadow-xl"
+          className="flex h-[40px] w-[150px] items-center justify-center rounded-full bg-white drop-shadow-xl disabled:bg-gray-500 disabled:opacity-40"
           onClick={() => restartQuiz()}
+          disabled={score >= 80}
         >
           <p className="font-inter text-black">Ulangi Quiz</p>
         </button>
