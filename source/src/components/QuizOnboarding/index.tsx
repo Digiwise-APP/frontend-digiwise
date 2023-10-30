@@ -13,8 +13,8 @@ const QuizOnboarding = () => {
   const progress = progressCalculate.toString();
 
   return (
-    <div className="mb-20 flex w-[846px] flex-col items-center gap-5 px-4 text-justify md:mb-0 md:gap-10 md:px-7 md:text-left">
-      <h1 className="font-rowdies text-[40px] font-bold text-black md:text-[50px]">
+    <div className="mb-20 flex max-w-[1000px] flex-col items-center gap-5 px-4 text-justify md:mb-0 md:gap-10 md:px-7 md:text-left">
+      <h1 className="font-rowdies text-[30px] font-bold text-black md:text-[50px]">
         Hoax Quizzes
       </h1>
       <progress
