@@ -14,6 +14,7 @@ import Loading from "../Loading";
 import Question from "../Question";
 import QuizPreparation from "../QuizPreparation";
 import QuizResult from "../QuizResult";
+import ServerError from "../ServerError";
 
 // data
 import text from "../../../data/quizText";
@@ -52,10 +53,7 @@ const QuizLevel = () => {
     try {
       setStatus("loading");
       const response = await getQuizByLevel(level);
-      if (response.code === 401) {
-        setStatus("error");
-        return;
-      }
+
       // console.log(data);
       addQuiz(response.data);
       setStatus("steady");
@@ -70,6 +68,7 @@ const QuizLevel = () => {
         });
         return;
       }
+      setStatus("error");
     }
   };
   useEffect(() => {
@@ -106,11 +105,7 @@ const QuizLevel = () => {
       />
     );
   } else {
-    return (
-      <div className="flex items-center justify-center">
-        <p className="font-poppins text-lg">something wrong</p>
-      </div>
-    );
+    return <ServerError />;
   }
 };
 

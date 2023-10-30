@@ -73,9 +73,8 @@ const Question: React.FC<QuestionProps> = ({
           replace: true,
         });
         return;
-      } else {
-        setStatus("error");
       }
+      setStatus("error");
     }
   };
 

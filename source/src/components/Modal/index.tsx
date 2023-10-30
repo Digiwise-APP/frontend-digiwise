@@ -4,6 +4,8 @@ import { Dialog, Transition } from "@headlessui/react";
 import modalStore from "../../../store/modalStore";
 import quizStore from "../../../store/quizStore";
 
+import ServerError from "../ServerError";
+
 type Props = {
   children?: JSX.Element | JSX.Element[];
 };
