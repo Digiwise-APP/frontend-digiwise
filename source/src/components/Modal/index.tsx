@@ -42,7 +42,7 @@ const Modal: React.FC<Props> = ({ children }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="md:min-w-xl w-full max-w-4xl transform overflow-hidden rounded-2xl bg-[#D9D9D9] pb-8 pt-3 shadow-xl transition-all">
+              <Dialog.Panel className="min-h-[659px] w-full max-w-[995px] transform overflow-hidden rounded-2xl bg-[#D9D9D9] pb-8 pt-3 shadow-xl transition-all md:min-h-[659px] md:min-w-[995px]">
                 <div className="flex w-full justify-end pr-3">
                   <button
                     className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white drop-shadow-xl"
