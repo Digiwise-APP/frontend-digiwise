@@ -14,7 +14,7 @@ const ArticleCard = () => {
             <p className="text-center font-rowdies text-xl font-bold leading-normal text-gray-300 md:text-5xl">
               Triwulan Pertama 2023, Kominfo Identifikasi 425 Isu Hoaks
             </p>
-            <button className="my-10 h-14 w-full rounded-full bg-blue-300 text-black hover:bg-blue-400 md:w-1/3 md:text-xl">
+            <button className="my-10 h-14 w-full rounded-3xl bg-blue-300 text-sm text-black hover:bg-blue-400 md:w-1/3 md:rounded-full md:text-xl">
               Baca Selengkapnya
             </button>
           </div>

@@ -1,17 +1,17 @@
 import React from "react";
 
-import Carousel from "nuka-carousel";
-
 import Background from "../assets/landing_page_bg3.png";
 import TiledBackground from "../assets/background-div.webp";
 import LogoDigiwise from "../assets/logo_digiwise.png";
 import QuizCardBackground from "../assets/quiz_card_landing_page.png";
 import FNDCardBackground from "../assets/fnd_card_landing_page.png";
+import ProfilePicture from "../assets/team_picture.png";
+import LinkedinQR from "../assets/linkedin_qr.png";
 import Paper from "../components/LandingPage/HeaderImage/Paper";
 import { Fade } from "react-awesome-reveal";
 import FeatureCard from "../components/LandingPage/FeatureCard";
-import ArticleCard from "../components/LandingPage/ArticleCard";
 import ArticleCarousel from "../components/LandingPage/ArticleCarousel";
+import MemberCard from "../components/LandingPage/MemberCard";
 
 const LandingPage = () => {
   return (
@@ -100,47 +100,39 @@ const LandingPage = () => {
         </div>
       </Fade>
 
-      <div className="px-4 md:mx-32">
-        <ArticleCarousel />
+      <Fade triggerOnce delay={100} direction="up" damping={0.1}>
+        <div className="px-9 md:mx-28 md:px-3">
+          <ArticleCarousel />
+        </div>
+      </Fade>
+
+      <div className="mx-20 my-32 flex justify-evenly">
+        <MemberCard
+          name="Nisa"
+          profilePicture={ProfilePicture}
+          linkedinQR={LinkedinQR}
+        />
+        <MemberCard
+          name="Zie"
+          profilePicture={ProfilePicture}
+          linkedinQR={LinkedinQR}
+        />
+        <MemberCard
+          name="Dhika"
+          profilePicture={ProfilePicture}
+          linkedinQR={LinkedinQR}
+        />
+        <MemberCard
+          name="Rifqi"
+          profilePicture={ProfilePicture}
+          linkedinQR={LinkedinQR}
+        />
+        <MemberCard
+          name="Fariz"
+          profilePicture={ProfilePicture}
+          linkedinQR={LinkedinQR}
+        />
       </div>
-
-      {/* <div className="flex h-screen items-center justify-center">
-        <div className="relative h-[90%] max-h-screen w-5/6 rounded-3xl bg-black bg-cover bg-center bg-no-repeat">
-          <img
-            src={Article1}
-            className="absolute h-full w-full rounded-3xl object-cover brightness-50"
-          />
-          <div className="absolute h-full w-full rounded-3xl ">
-            <div className="flex h-full w-full flex-col items-center justify-center px-32">
-              <p className="text-center font-rowdies text-5xl font-bold leading-normal text-gray-300">
-                Triwulan Pertama 2023, Kominfo Identifikasi 425 Isu Hoaks
-              </p>
-              <button className="my-10 flex h-14 w-1/3 items-center justify-center rounded-full bg-blue-300 text-xl text-black hover:bg-blue-400">
-                Baca Selengkapnya
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      {/* <div className="flex h-screen items-center justify-center">
-        <div
-          className="relative h-[90%] max-h-screen w-5/6 rounded-3xl bg-black bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${Article1})` }}
-        >
-          <div className="absolute h-full w-full rounded-3xl bg-black opacity-40"></div>
-          <div className="absolute z-50 h-full w-full text-center ">
-            <div className="my-auto flex h-full w-full flex-col items-center justify-center px-32">
-              <p className="font-rowdies text-5xl font-bold leading-normal text-gray-300 ">
-                Triwulan Pertama 2023, Kominfo Identifikasi 425 Isu Hoaks
-              </p>
-              <button className="my-10 flex h-14 w-1/3 items-center justify-center rounded-full bg-blue-300 text-xl text-black hover:bg-blue-400">
-                Baca Selengkapnya
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */}
 
       <div className="h-96 w-full"></div>
       <div className="h-96 w-full"></div>
