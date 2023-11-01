@@ -1,10 +1,9 @@
-import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import React, { Fragment } from "react";
 
 import modalStore from "../../../store/modalStore";
 import quizStore from "../../../store/quizStore";
 
-import ServerError from "../ServerError";
 
 type Props = {
   children?: JSX.Element | JSX.Element[];

@@ -16,7 +16,7 @@ type Store = {
 
 const userStore = create<Store>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       username: null,
       email: "",
       token: "",
@@ -33,8 +33,7 @@ const userStore = create<Store>()(
       },
       increaseLevel: () => {
         set((state) => ({
-          userLevel:
-           state.userLevel + 1,
+          userLevel: state.userLevel + 1,
         }));
       },
       clearUser() {
@@ -43,7 +42,7 @@ const userStore = create<Store>()(
           email: "",
           token: "",
           isLoggedIn: false,
-          userLevel: 0
+          userLevel: 0,
         });
       },
     }),

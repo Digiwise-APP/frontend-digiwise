@@ -7,7 +7,7 @@ const NotFoundPage = () => {
       <h1 className="text-9xl font-extrabold tracking-widest text-white">
         404
       </h1>
-      <div className="absolute rotate-12 rounded bg-[#FF6A3D] px-2 text-sm font-bold">
+      <div className="absolute rotate-12 rounded bg-[#FF6A3D] px-2 text-sm font-bold text-white">
         Halaman tidak ditemukan
       </div>
       <Link to="/">

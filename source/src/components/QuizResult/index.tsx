@@ -2,6 +2,7 @@ import React from "react";
 
 import quizStore from "../../../store/quizStore";
 import modalStore from "../../../store/modalStore";
+import userStore from "../../../store/userStore";
 
 type ResultProps = {
   title: string;
@@ -18,6 +19,7 @@ const QuizResult: React.FC<ResultProps> = ({
 }) => {
   const { restartQuiz, score } = quizStore();
   const { closeModal } = modalStore();
+  const { username } = userStore();
 
   const onCloseModal = () => {
     restartQuiz();
@@ -30,7 +32,8 @@ const QuizResult: React.FC<ResultProps> = ({
       </p>
       <p className="mt-[20px] text-left font-poppins text-[12px] leading-[30px] text-black md:mt-[46px]">
         skormu : <span className="font-bold">{score}</span> <br></br>
-        {salutation} <br></br>
+        <span className="text-[#F94C10]">{salutation}</span>, {username}!
+        <br></br>
         {firstParagraph}
         {secondParagraph && (
           <>

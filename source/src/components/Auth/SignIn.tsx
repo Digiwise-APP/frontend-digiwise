@@ -33,8 +33,6 @@ const SignIn = () => {
 
   const state = location.state as LocationState;
 
-  console.log(state?.isSignUp || "");
-
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     setIsLoading(true);
     const response = await signIn(data);
@@ -53,6 +51,7 @@ const SignIn = () => {
       email: data.email,
       token: response.token,
       level: response.level,
+      username: response.username,
     };
     setIsLoading(false);
     storeUser(userData);

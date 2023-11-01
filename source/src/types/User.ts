@@ -13,6 +13,7 @@ export type AuthResponse = {
   data: {
     token: string;
     level: number;
+    username: string;
   };
 };
 

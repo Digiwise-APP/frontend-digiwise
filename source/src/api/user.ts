@@ -7,6 +7,7 @@ type ResponseOutput = {
   code?: number;
   level: number;
   token: string;
+  username: string;
 };
 
 export const signIn = async (loginData: LoginData): Promise<ResponseOutput> => {
@@ -20,6 +21,7 @@ export const signIn = async (loginData: LoginData): Promise<ResponseOutput> => {
       code: data.code,
       level: data.data.level,
       token: data.data.token,
+      username: data.data.username,
     };
     return response;
   } catch (error) {
@@ -28,6 +30,7 @@ export const signIn = async (loginData: LoginData): Promise<ResponseOutput> => {
       code: err.response?.status,
       level: 0,
       token: "",
+      username: "",
     };
     return response;
   }
@@ -46,6 +49,7 @@ export const signUp = async (
       code: data.code,
       level: data.data.level,
       token: data.data.token,
+      username: data.data.username,
     };
     return response;
   } catch (error) {
@@ -55,6 +59,7 @@ export const signUp = async (
       code: err.response?.status,
       level: 0,
       token: "",
+      username: "",
     };
     return response;
   }

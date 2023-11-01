@@ -1,10 +1,8 @@
 import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import validator from "validator";
-import { Link } from "react-router-dom";
-import { useForm, SubmitHandler } from "react-hook-form";
 import { signUp } from "../../api/user";
-import userStore from "../../../store/userStore";
-import { useNavigate } from "react-router-dom";
 
 type Inputs = {
   username: string;
@@ -14,7 +12,7 @@ type Inputs = {
 const SignUp = () => {
   const [errorServer, setErrorServer] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { storeUser } = userStore();
+
   const navigate = useNavigate();
   const {
     register,
@@ -26,7 +24,6 @@ const SignUp = () => {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     setIsLoading(true);
     const response = await signUp(data);
-    console.log(response);
     if (response.code === 400) {
       setErrorServer("email sudah terdaftar");
       setIsLoading(false);
