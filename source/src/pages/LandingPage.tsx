@@ -100,7 +100,7 @@ const LandingPage = () => {
         </div>
       </Fade>
 
-      <div className="mx-32">
+      <div className="px-4 md:mx-32">
         <ArticleCarousel />
       </div>
 
