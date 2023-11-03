@@ -19,12 +19,15 @@ const OptionTypeThree: React.FC<OptionProps> = ({ options }) => {
           onClick={() => setAnswerMultiple(option)}
         >
           <div
-            className={`flex h-[20px] w-[40px] items-center justify-center  rounded-[2px] border-[1px] border-solid border-[#232686] p-[1px] md:h-[40px] md:w-[40px] ${
+            className={`relative flex min-h-[20px] min-w-[20px] items-center justify-center  rounded-[2px] border-[1px] border-solid border-[#232686] p-[1px] md:h-[40px] md:w-[40px] ${
               answers[indexNumber]?.includes(option) ? "bg-[#8D8EBA]" : ""
             }`}
           >
             {answers[indexNumber]?.includes(option) && (
-              <img src={icon} className=" h-[19px] w-[27px]" />
+              <img
+                src={icon}
+                className="absolute bottom-0 left-0 right-0 top-0 m-auto h-[19px] w-[27px]"
+              />
             )}
           </div>
           <p className="text-left font-poppins text-[9px] text-black md:text-[12px]">
