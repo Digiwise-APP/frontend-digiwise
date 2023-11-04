@@ -14,7 +14,7 @@ const MemberCard: React.FC<MemberCardProps> = ({
   linkedinQR,
 }) => {
   return (
-    <div className="mx-5 h-[435px] w-[200px] rounded-t-full border-4 border-bgSidebarButton bg-white pt-2">
+    <div className="mx-5 my-4 h-[435px] w-[200px] rounded-t-full border-4 border-bgSidebarButton bg-white pt-2">
       <div
         className="relative mx-auto mt-5 h-[170px] w-[170px] rounded-[50%] border-8 border-blue-200 bg-white bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${profilePicture})` }}

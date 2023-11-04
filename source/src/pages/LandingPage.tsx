@@ -43,7 +43,7 @@ const LandingPage = () => {
         </div>
       </Fade>
 
-      <div className="mt-10 flex h-screen w-full md:mt-20">
+      <div className="-mb-20 mt-10 flex h-screen w-full md:mt-20">
         <Fade triggerOnce delay={100} direction="up" damping={0.1}>
           <div
             className="mx-auto my-auto h-3/4 w-5/6 rounded-3xl border-4 border-bgSidebar bg-sky-50 shadow-2xl"
@@ -75,7 +75,7 @@ const LandingPage = () => {
       </div>
 
       <Fade triggerOnce delay={100} direction="up" damping={0.1}>
-        <div className="-mt-28 h-screen md:mt-0">
+        <div className="-mb-20 -mt-28 h-screen md:mt-0">
           <div className="px-10 md:px-32">
             <fieldset className="border-t-4 border-bgSidebarButton">
               <legend className="mx-auto px-4 font-poppins text-2xl font-bold text-bgSidebar md:text-5xl">
@@ -101,12 +101,26 @@ const LandingPage = () => {
       </Fade>
 
       <Fade triggerOnce delay={100} direction="up" damping={0.1}>
+        <div className="my-10 px-10 md:px-32">
+          <fieldset className="border-t-4 border-bgSidebarButton">
+            <legend className="mx-auto px-4 font-poppins text-2xl font-bold text-bgSidebar md:text-5xl">
+              Relevant Articles
+            </legend>
+          </fieldset>
+        </div>
         <div className="px-9 md:mx-28 md:px-3">
           <ArticleCarousel />
         </div>
       </Fade>
 
-      <div className="mx-20 my-32 flex justify-evenly">
+      <div className="mt-16 px-10 md:px-32">
+        <fieldset className="border-t-4 border-bgSidebarButton">
+          <legend className="mx-auto px-4 font-poppins text-2xl font-bold text-bgSidebar md:text-5xl">
+            Our Members
+          </legend>
+        </fieldset>
+      </div>
+      <div className="mx-20 mt-10 flex flex-col items-center justify-center sm:flex-wrap md:flex-row md:justify-evenly">
         <MemberCard
           name="Nisa"
           profilePicture={ProfilePicture}
@@ -134,16 +148,7 @@ const LandingPage = () => {
         />
       </div>
 
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full bg-black"></div>
-      <div className="h-95 w-full bg-black"></div>
+      <div className="h-20 w-full"></div>
     </div>
   );
 };
