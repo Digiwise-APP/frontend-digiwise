@@ -148,7 +148,7 @@ const LandingPage = () => {
         />
       </div>
 
-      <div className="h-20 w-full"></div>
+      <div className="h-36 w-full"></div>
     </div>
   );
 };
