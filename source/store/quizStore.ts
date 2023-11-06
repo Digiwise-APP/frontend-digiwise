@@ -1,28 +1,22 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-type Question = {
-  id: number;
-  type: string;
-  level: number;
-  question: string;
-  option: string[];
-  image?: string;
-};
+import { QuestionData } from "../src/types/Quiz";
 
 type Store = {
-  quiz: Question[];
+  quiz: QuestionData[];
   status: string;
   index: number;
-  passed: boolean | null;
-  answers: string[] | Array<string[]>;
-  addQuiz: (quiz: Question[]) => void;
+  score: number;
+  passed: boolean;
+  answers: string[] | [string[]];
+  setStatus: (status: string) => void;
+  addQuiz: (quiz: QuestionData[]) => void;
   startQuiz: () => void;
-  setPassedResult: (result: boolean) => void;
+  setPassedResult: (score: number) => void;
   nextQuestion: () => void;
   setAnswer: (answer: string) => void;
   setAnswerMultiple: (answer: string) => void;
-  submitQuiz: () => void;
   restartQuiz: () => void;
 };
 
@@ -32,11 +26,19 @@ const quizStore = create<Store>()(
       quiz: [],
       status: "steady",
       index: 0,
-      passed: null,
+      score: 0,
+      passed: false,
       answers: [],
+      setStatus: (status) => set({ status: status }),
       addQuiz: (quiz) => set({ quiz: quiz }),
       startQuiz: () => set({ status: "start" }),
-      setPassedResult: (result: boolean) => set({ passed: result }),
+      setPassedResult: (score) => {
+        set({ score: score });
+
+        if (score >= 80) {
+          set({ passed: true });
+        }
+      },
       nextQuestion: () =>
         set((state) => ({
           index: state.index + 1,
@@ -66,8 +68,14 @@ const quizStore = create<Store>()(
 
         set({ answers: dataAnswer });
       },
-      submitQuiz: () => set({ status: "finished" }),
-      restartQuiz: () => set({ index: 0, status: "steady", answers: [] }),
+      restartQuiz: () =>
+        set({
+          index: 0,
+          status: "steady",
+          answers: [],
+          passed: false,
+          score: 0,
+        }),
     }),
     {
       name: "quiz",

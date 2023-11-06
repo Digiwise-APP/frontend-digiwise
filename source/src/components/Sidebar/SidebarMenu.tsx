@@ -17,6 +17,7 @@ const menus = [
     iconComponent: <IoHomeSharp className="text-[25px] md:text-[20px]" />,
     text: "Home",
     position: "right",
+    url: "/",
   },
   {
     iconComponent: (
@@ -24,21 +25,25 @@ const menus = [
     ),
     text: "Games",
     position: "right",
+    url: "/quiz",
   },
   {
     iconComponent: <IoGlasses className="text-[25px] md:text-[20px]" />,
     text: "About",
     position: "right",
+    url: "/about",
   },
   {
     iconComponent: <IoNewspaper className="text-[25px] md:text-[20px]" />,
     text: "Fake News Detection",
     position: "right",
+    url: "/fake-news-detection",
   },
 ];
 
 const SidebarMenu = () => {
   const [profileClicked, setProfileClicked] = useState<boolean>(false);
+
   return (
     <div className="fixed bottom-0 z-10 my-4 flex h-24 w-full items-center justify-evenly text-white md:bottom-5 md:left-10 md:m-0 md:my-0 md:flex md:h-64 md:w-16  md:rounded-full md:bg-bgSidebar">
       <ul className="flex h-20 w-2/3 items-center justify-evenly rounded-full bg-bgSidebar px-5 md:h-full md:max-h-full md:w-full md:flex-col md:justify-evenly md:bg-transparent">
@@ -49,6 +54,7 @@ const SidebarMenu = () => {
                 icon={menu.iconComponent}
                 text={menu.text}
                 position="right"
+                url={menu.url}
               />
             </li>
           );
@@ -75,7 +81,12 @@ const SidebarMenu = () => {
             }}
           >
             <div className="group relative m-auto flex h-14 w-14 items-center justify-center rounded-full bg-bgSidebarButton py-5 hover:cursor-pointer hover:bg-gray-400 focus:bg-red-600 md:h-16 md:w-16">
-              <IoLogOut className="mx-auto text-[30px]" />
+              <IoLogOut
+                className="mx-auto text-[30px]"
+                onClick={() => {
+                  window.location.href = "/logout";
+                }}
+              />
             </div>
           </div>
         </div>

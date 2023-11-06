@@ -2,6 +2,7 @@ import React from "react";
 
 import quizStore from "../../../store/quizStore";
 import modalStore from "../../../store/modalStore";
+import userStore from "../../../store/userStore";
 
 type ResultProps = {
   title: string;
@@ -18,14 +19,15 @@ const QuizPreparation: React.FC<ResultProps> = ({
 }) => {
   const { startQuiz } = quizStore();
   const { closeModal } = modalStore();
+  const { username } = userStore();
 
   return (
     <div className="rounded-[20px] bg-[#D9D9D9]">
-      <p className="text-center font-poppins text-[20px] font-bold text-black">
+      <p className="text-center font-poppins text-[17px] font-bold text-black md:text-[20px]">
         {title}
       </p>
-      <p className="mt-[20px] text-left font-poppins text-[12px] leading-[30px] text-black md:mt-[46px]">
-        {salutation} <br></br>
+      <p className="mt-[20px] text-justify font-poppins text-[12px] leading-[30px] text-black md:mt-[46px] md:text-left">
+        {salutation}, {username}! <br></br>
         {firstParagraph}
         {secondParagraph && (
           <>
