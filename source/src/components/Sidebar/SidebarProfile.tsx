@@ -2,15 +2,11 @@ import React from "react";
 import { IoGameControllerSharp, IoGlasses, IoNewspaper } from "react-icons/io5";
 import SidebarIcon from "./SidebarIcon";
 import SidebarContainer from "./SidebarContainer";
+import userIcon from "../../assets/user_icon.jpg";
 
 const menus = [
   {
-    iconComponent: (
-      <img
-        className="h-12 w-12 rounded-full"
-        src="https://lh3.googleusercontent.com/a/ACg8ocJltB6v-fBJfCZyDPesBzhFLJ0cJcipzuRc4fok4h3hCZ4=s576-c-no"
-      />
-    ),
+    iconComponent: <img className="h-12 w-12 rounded-full" src={userIcon} />,
     text: "Home",
     position: "left",
   },
