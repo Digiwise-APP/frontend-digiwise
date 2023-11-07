@@ -3,11 +3,12 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import SidebarProfile from "../components/Sidebar/SidebarProfile";
 import SidebarMenu from "../components/Sidebar/SidebarMenu";
+import { useLocation } from "react-router-dom";
 
 function getCurrentPath() {
-  const currentURL = new URL(window.location.href);
+  let location = useLocation();
 
-  return currentURL.pathname;
+  return location.pathname;
 }
 
 const SidebarLayout = () => {
@@ -15,10 +16,9 @@ const SidebarLayout = () => {
 
   return (
     <>
-      <SidebarProfile />
-      <Outlet />
       <SidebarMenu />
-      {currentPath !== "/login" ? <SidebarProfile /> : null}
+      <Outlet />
+      {currentPath !== "/auth/signIn" ? <SidebarProfile /> : null}
     </>
   );
 };

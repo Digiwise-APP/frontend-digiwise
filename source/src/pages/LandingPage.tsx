@@ -3,13 +3,20 @@ import React from "react";
 import Background from "../assets/landing_page_bg3.png";
 import TiledBackground from "../assets/background-div.webp";
 import LogoDigiwise from "../assets/logo_digiwise.png";
+import QuizCardBackground from "../assets/quiz_card_landing_page.png";
+import FNDCardBackground from "../assets/fnd_card_landing_page.png";
+import ProfilePicture from "../assets/team_picture.png";
+import LinkedinQR from "../assets/linkedin_qr.png";
 import Paper from "../components/LandingPage/HeaderImage/Paper";
-import { Fade, Flip } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
+import FeatureCard from "../components/LandingPage/FeatureCard";
+import ArticleCarousel from "../components/LandingPage/ArticleCarousel";
+import MemberCard from "../components/LandingPage/MemberCard";
 
 const LandingPage = () => {
   return (
     <div style={{ backgroundImage: `url(${Background})` }}>
-      <Flip duration={1000} triggerOnce>
+      <Fade duration={1000} triggerOnce>
         <div className="h-screen w-full object-cover">
           <div className="relative flex h-full w-full items-center justify-center">
             <Paper className="-skew-y-1 skew-x-3" />
@@ -34,9 +41,9 @@ const LandingPage = () => {
             </Paper>
           </div>
         </div>
-      </Flip>
+      </Fade>
 
-      <div className="mt-10 flex h-screen w-full md:mt-20">
+      <div id="about" className="-mb-20 mt-10 flex h-screen w-full md:mt-20">
         <Fade triggerOnce delay={100} direction="up" damping={0.1}>
           <div
             className="mx-auto my-auto h-3/4 w-5/6 rounded-3xl border-4 border-bgSidebar bg-sky-50 shadow-2xl"
@@ -66,16 +73,82 @@ const LandingPage = () => {
           </div>
         </Fade>
       </div>
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full"></div>
-      <div className="h-96 w-full bg-black"></div>
-      <div className="h-96 w-full bg-black"></div>
+
+      <Fade triggerOnce delay={100} direction="up" damping={0.1}>
+        <div className="-mb-20 -mt-28 h-screen md:mt-0">
+          <div className="px-10 md:px-32">
+            <fieldset className="border-t-4 border-bgSidebarButton">
+              <legend className="mx-auto px-4 font-poppins text-2xl font-bold text-bgSidebar md:text-5xl">
+                Digiwise Programs
+              </legend>
+            </fieldset>
+          </div>
+
+          <div className="mt-10 flex h-screen flex-col md:mx-10 md:flex-row md:justify-evenly">
+            <FeatureCard
+              backgroundImage={QuizCardBackground}
+              cardText="Hoax Quizzes"
+              urlDest="/quiz"
+              className="mb-10"
+            />
+            <FeatureCard
+              backgroundImage={FNDCardBackground}
+              cardText="Fake News Detection"
+              urlDest="/fake-news-detection"
+            />
+          </div>
+        </div>
+      </Fade>
+
+      <Fade triggerOnce delay={100} direction="up" damping={0.1}>
+        <div className="my-10 px-10 md:px-32">
+          <fieldset className="border-t-4 border-bgSidebarButton">
+            <legend className="mx-auto px-4 font-poppins text-2xl font-bold text-bgSidebar md:text-5xl">
+              Relevant Articles
+            </legend>
+          </fieldset>
+        </div>
+        <div className="px-9 md:mx-28 md:px-3">
+          <ArticleCarousel />
+        </div>
+      </Fade>
+
+      <div className="mt-16 px-10 md:px-32">
+        <fieldset className="border-t-4 border-bgSidebarButton">
+          <legend className="mx-auto px-4 font-poppins text-2xl font-bold text-bgSidebar md:text-5xl">
+            Our Members
+          </legend>
+        </fieldset>
+      </div>
+      <div className="mx-20 mt-10 flex flex-col items-center justify-center sm:flex-wrap md:flex-row md:justify-evenly">
+        <MemberCard
+          name="Nisa"
+          profilePicture={ProfilePicture}
+          linkedinQR={LinkedinQR}
+        />
+        <MemberCard
+          name="Zie"
+          profilePicture={ProfilePicture}
+          linkedinQR={LinkedinQR}
+        />
+        <MemberCard
+          name="Dhika"
+          profilePicture={ProfilePicture}
+          linkedinQR={LinkedinQR}
+        />
+        <MemberCard
+          name="Rifqi"
+          profilePicture={ProfilePicture}
+          linkedinQR={LinkedinQR}
+        />
+        <MemberCard
+          name="Fariz"
+          profilePicture={ProfilePicture}
+          linkedinQR={LinkedinQR}
+        />
+      </div>
+
+      <div className="h-36 w-full"></div>
     </div>
   );
 };
