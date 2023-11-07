@@ -73,9 +73,8 @@ const Question: React.FC<QuestionProps> = ({
           replace: true,
         });
         return;
-      } else {
-        setStatus("error");
       }
+      setStatus("error");
     }
   };
 
@@ -142,7 +141,7 @@ const Question: React.FC<QuestionProps> = ({
   return (
     <div className="rounded-[20px] bg-[#D9D9D9]">
       <div className="flex flex-col items-center gap-8 md:gap-14">
-        <p className="font-poppins text-[12px] font-bold text-black md:text-[20px]">
+        <p className="text-justify font-poppins text-[12px] font-bold text-black md:text-[20px]">
           {question}
         </p>
         {optionContent}

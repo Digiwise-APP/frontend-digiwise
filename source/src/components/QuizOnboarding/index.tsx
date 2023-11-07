@@ -7,14 +7,14 @@ import userStore from "../../../store/userStore";
 
 const QuizOnboarding = () => {
   const { openModal } = modalStore();
-  const { userLevel } = userStore();
+  const { userLevel, username } = userStore();
 
   const progressCalculate = userLevel * 20;
   const progress = progressCalculate.toString();
 
   return (
-    <div className="mb-20 flex w-[846px] flex-col items-center gap-5 px-4 text-justify md:mb-0 md:gap-10 md:px-7 md:text-left">
-      <h1 className="font-rowdies text-[40px] font-bold text-black md:text-[50px]">
+    <div className="mb-20 flex max-w-[1000px] flex-col items-center gap-5 px-4 text-justify md:mb-0 md:gap-10 md:px-7 md:text-left">
+      <h1 className="font-rowdies text-[30px] font-bold text-black md:text-[50px]">
         Hoax Quizzes
       </h1>
       <progress
@@ -23,15 +23,16 @@ const QuizOnboarding = () => {
         max="100"
       ></progress>
       <p className="font-poppins text-[12px] leading-[30px]">
-        Welcome to Hoax Quizzes <br></br> Ready to dive into the world of
-        digital deception? Let's challenge your digital savvy. 🚀 In today's
-        digital age, the ability to spot a hoax is a superpower! Over here,
-        you'll test and boost your skills in identifying hoaxes, understanding
-        online scams, and securing your personal data. Get ready to become a
-        digital whiz! Through this course, you'll emerge as a smarter internet
-        user. Remember, knowledge is the key to staying hoax-resistant. Are you
-        up for the challenge? Let's kickstart this learning journey together.
-        Happy learning!
+        Selamat datang di <span className="text-[#F94C10]">Hoax Quizzes</span>,{" "}
+        {username} <br></br> Sudah siap menjelajahi dunia tipuan digital? Mari
+        uji kemahiran digitalmu. 🚀 Di era digital saat ini, kemampuan untuk
+        mengenali hoaks adalah sebuah kekuatan super! Di sini, kamu akan menguji
+        dan meningkatkan kemampuanmu dalam mengidentifikasi hoaks, memahami
+        penipuan online, dan menjaga keamanan data pribadi milikmu. Bersiaplah
+        untuk menjadi salah satu dari ahli digital lainnya! Ingatlah,
+        pengetahuan adalah kunci untuk bertahan terhadap hoaks. Apakah kamu siap
+        untuk tantangan ini? Mari kita mulai perjalanan ini bersama-sama.
+        Selamat belajar!
       </p>
       <div className="flex w-full flex-col gap-[20px]">
         {levelOptionText.map((item) => (

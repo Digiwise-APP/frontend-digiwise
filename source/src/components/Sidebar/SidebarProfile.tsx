@@ -3,10 +3,11 @@ import { IoLogOut, IoLogIn } from "react-icons/io5";
 import { BsFillPersonFill } from "react-icons/bs";
 import SidebarIcon from "./SidebarIcon";
 import getToken from "../../utils/getToken";
+import userIcon from "../../assets/user_icon_2.png";
 
 const menus = [
   {
-    iconComponent: <BsFillPersonFill size={20} />,
+    iconComponent: <img className="h-12 w-12 rounded-full" src={userIcon} />,
     text: "Home",
     position: "left",
     url: "",
