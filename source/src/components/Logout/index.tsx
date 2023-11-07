@@ -7,7 +7,7 @@ const Logout = () => {
   const { clearUser } = userStore();
 
   clearUser();
-  return <Navigate to="/auth" replace={true} />;
+  return <Navigate to="/auth/signIn" replace={true} />;
 };
 
 export default Logout;
