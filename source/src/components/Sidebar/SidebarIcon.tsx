@@ -8,6 +8,7 @@ type SidebarIconProps = {
   text?: string;
   position: TextPosition;
   url: string;
+  onClick?: (e: SyntheticEvent) => void;
 };
 
 const SidebarIcon: React.FC<SidebarIconProps> = ({
@@ -15,6 +16,7 @@ const SidebarIcon: React.FC<SidebarIconProps> = ({
   text,
   position,
   url = "",
+  onClick,
 }) => {
   let hoverPosition = {
     right: "md:left-14",
@@ -33,7 +35,7 @@ const SidebarIcon: React.FC<SidebarIconProps> = ({
   return (
     <div
       className="group relative mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-bgSidebarButton py-5 hover:cursor-pointer hover:bg-gray-400"
-      onClick={navigateMenu}
+      onClick={onClick ? onClick : navigateMenu}
     >
       {icon}
       <span

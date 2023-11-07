@@ -1,15 +1,12 @@
 import React from "react";
-import { IoLogOut } from "react-icons/io5";
+import { IoLogOut, IoLogIn } from "react-icons/io5";
+import { BsFillPersonFill } from "react-icons/bs";
 import SidebarIcon from "./SidebarIcon";
+import getToken from "../../utils/getToken";
 
 const menus = [
   {
-    iconComponent: (
-      <img
-        className="h-12 w-12 rounded-full"
-        src="https://lh3.googleusercontent.com/a/ACg8ocJltB6v-fBJfCZyDPesBzhFLJ0cJcipzuRc4fok4h3hCZ4=s576-c-no"
-      />
-    ),
+    iconComponent: <BsFillPersonFill size={20} />,
     text: "Home",
     position: "left",
     url: "",
@@ -23,23 +20,40 @@ const menus = [
 ];
 
 const SidebarProfile = () => {
+  const token = getToken();
+
+  const LogIcon =
+    token === "" || !token || token === null ? (
+      <SidebarIcon
+        icon={<IoLogIn size={20} />}
+        text="Login"
+        position="left"
+        url="/auth/signIn"
+      />
+    ) : (
+      <SidebarIcon
+        icon={<IoLogOut size={20} />}
+        text="Logout"
+        position="left"
+        url="/auth/signOut"
+      />
+    );
+
   return (
     <div
       className={`fixed right-10 top-5 z-10 my-4 hidden h-20 w-[90%] max-w-lg rounded-full bg-bgSidebar text-white shadow-lg md:m-0 md:flex md:h-36 md:w-16 md:flex-col md:justify-evenly`}
     >
       <div>
-        {menus.map((menu) => {
-          return (
-            <div className="my-2">
-              <SidebarIcon
-                icon={menu.iconComponent}
-                text={menu.text}
-                position="left"
-                url={menu.url}
-              />
-            </div>
-          );
-        })}
+        <div className="my-2">
+          <SidebarIcon
+            icon={<BsFillPersonFill size={20} />}
+            text="Home"
+            position="left"
+            url=""
+          />
+        </div>
+
+        <div className="my-2">{LogIcon}</div>
       </div>
     </div>
   );

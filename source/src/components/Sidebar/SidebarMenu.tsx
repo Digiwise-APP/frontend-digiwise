@@ -8,9 +8,7 @@ import {
   IoPersonSharp,
 } from "react-icons/io5";
 import SidebarIcon from "./SidebarIcon";
-import SidebarContainer from "./SidebarContainer";
-
-type menuOptions = "home" | "games" | "about" | "fake-news";
+import { useNavigate } from "react-router-dom";
 
 const menus = [
   {
@@ -31,7 +29,8 @@ const menus = [
     iconComponent: <IoGlasses className="text-[25px] md:text-[20px]" />,
     text: "About",
     position: "right",
-    url: "/about",
+    url: "/#about",
+    onClick: (e: SyntheticEvent) => {},
   },
   {
     iconComponent: <IoNewspaper className="text-[25px] md:text-[20px]" />,
@@ -43,6 +42,8 @@ const menus = [
 
 const SidebarMenu = () => {
   const [profileClicked, setProfileClicked] = useState<boolean>(false);
+
+  const navigate = useNavigate();
 
   return (
     <div className="fixed bottom-0 z-10 my-4 flex h-24 w-full items-center justify-evenly text-white md:bottom-5 md:left-10 md:m-0 md:my-0 md:flex md:h-64 md:w-16  md:rounded-full md:bg-bgSidebar">
@@ -83,8 +84,9 @@ const SidebarMenu = () => {
             <div className="group relative m-auto flex h-14 w-14 items-center justify-center rounded-full bg-bgSidebarButton py-5 hover:cursor-pointer hover:bg-gray-400 focus:bg-red-600 md:h-16 md:w-16">
               <IoLogOut
                 className="mx-auto text-[30px]"
-                onClick={() => {
-                  window.location.href = "/logout";
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/logout");
                 }}
               />
             </div>

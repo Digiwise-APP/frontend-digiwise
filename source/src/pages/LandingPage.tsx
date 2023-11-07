@@ -43,7 +43,7 @@ const LandingPage = () => {
         </div>
       </Fade>
 
-      <div className="-mb-20 mt-10 flex h-screen w-full md:mt-20">
+      <div id="about" className="-mb-20 mt-10 flex h-screen w-full md:mt-20">
         <Fade triggerOnce delay={100} direction="up" damping={0.1}>
           <div
             className="mx-auto my-auto h-3/4 w-5/6 rounded-3xl border-4 border-bgSidebar bg-sky-50 shadow-2xl"
@@ -79,7 +79,7 @@ const LandingPage = () => {
           <div className="px-10 md:px-32">
             <fieldset className="border-t-4 border-bgSidebarButton">
               <legend className="mx-auto px-4 font-poppins text-2xl font-bold text-bgSidebar md:text-5xl">
-                Program Digiwise
+                Digiwise Programs
               </legend>
             </fieldset>
           </div>
