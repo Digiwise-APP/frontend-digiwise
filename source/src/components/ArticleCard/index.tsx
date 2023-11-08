@@ -15,7 +15,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   url,
 }) => {
   return (
-    <Link to={url}>
+    <Link to={url} target="_blank" rel="noopener noreferrer">
       <div className="card rounded-[13px] border-[1px] border-solid border-[#9D9D9D] bg-base-100  shadow-[0px_4px_4px_0px_rgb(0,0,0,0.25)] lg:card-side">
         <figure className="md:min-w-[300px] md:max-w-[300px]">
           <img src={image} className="min-h-full w-full " />
