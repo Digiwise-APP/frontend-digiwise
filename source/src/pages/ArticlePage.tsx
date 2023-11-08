@@ -1,7 +1,10 @@
 import React from "react";
 
 // dummy
-import articles from "../../data/dummy/article";
+// import articles from "../../data/dummy/article";
+
+// article content
+import articleContent from "../../data/articleContent";
 
 import ArticleCard from "../components/ArticleCard";
 
@@ -16,8 +19,9 @@ const ArticlePage = () => {
           For Your Literature
         </h1>
         <div className="flex flex-col gap-[16px]">
-          {articles.map((article) => (
+          {articleContent.map((article) => (
             <ArticleCard
+              url={article.url}
               image={article.image}
               heading={article.heading}
               paragraph={article.paragraph}

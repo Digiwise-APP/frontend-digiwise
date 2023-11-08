@@ -1,6 +1,6 @@
 import * as articleImage from '../src/utils/getArticleImage'
 
-const article = [
+const articleContent = [
     {
         image: articleImage.one,
         heading: "Jangan Mudah Termakan Hoax, Saring Sebelum Sharing",
@@ -93,4 +93,4 @@ const article = [
     },
 ]
 
-export default article
+export default articleContent
