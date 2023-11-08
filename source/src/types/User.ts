@@ -23,3 +23,16 @@ export type userData = {
   token: string;
   level: number;
 };
+
+export interface UserMedal {
+  code: number;
+  message: string;
+  data: UserDataMedal[];
+}
+
+interface UserDataMedal {
+  _id: string;
+  level: number;
+  medal: string;
+  description: string;
+}

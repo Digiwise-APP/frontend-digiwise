@@ -1,7 +1,13 @@
 import axios, { AxiosResponse, AxiosError } from "axios";
 import { BASE_URL } from "./config";
 
-import { LoginData, RegisterData, AuthResponse } from "../types/User";
+import {
+  LoginData,
+  RegisterData,
+  AuthResponse,
+  UserMedal,
+} from "../types/User";
+import getToken from "../utils/getToken";
 
 type ResponseOutput = {
   code?: number;
@@ -63,4 +69,16 @@ export const signUp = async (
     };
     return response;
   }
+};
+
+export const getUserMedal = async () => {
+  const token = getToken();
+  const { data } = await axios.get<UserMedal>(`${BASE_URL}/users/medal`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+  });
+
+  return data;
 };
