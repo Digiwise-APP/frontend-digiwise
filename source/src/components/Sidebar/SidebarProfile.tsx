@@ -36,7 +36,7 @@ const SidebarProfile = () => {
         icon={<IoLogOut size={20} />}
         text="Logout"
         position="left"
-        url="/auth/signOut"
+        url="/logout"
       />
     );
 

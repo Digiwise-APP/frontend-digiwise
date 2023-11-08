@@ -14,6 +14,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 // component
 import Logout from "./components/Logout";
 import RequireAuth from "./components/Auth/RequireAuth";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route element={<RequireAuth />}>
               <Route path="/quiz" element={<QuizPage />} />
               <Route path="/fake-news-detection" element={<FakeNewsPage />} />
+              <Route path="/dashboard" element={<Dashboard />} />
             </Route>
 
             <Route path="/auth">
