@@ -22,8 +22,10 @@ import RifqiQR from "../assets/members/rifqi-qr.png";
 import FarizPP from "../assets/members/fariz-pict.jpeg";
 import FarizQR from "../assets/members/fariz-qr.png";
 
+import DhikaPP from "../assets/members/dhika-pict.jpeg";
 import DhikaQR from "../assets/members/dhika-qr.png";
 
+import ZiePP from "../assets/members/zie-pict.jpg";
 import ZieQR from "../assets/members/zie-qr.png";
 
 const LandingPage = () => {
@@ -142,13 +144,13 @@ const LandingPage = () => {
         />
         <MemberCard
           name="Zie"
-          profilePicture={ProfilePicture}
+          profilePicture={ZiePP}
           linkedinQR={ZieQR}
           linkedinURL="https://www.linkedin.com/in/fritzie-primananda/"
         />
         <MemberCard
           name="Dhika"
-          profilePicture={ProfilePicture}
+          profilePicture={DhikaPP}
           linkedinQR={DhikaQR}
           linkedinURL="https://www.linkedin.com/in/andhika-prasetya-nugraha-7a5734207/"
         />
