@@ -6,12 +6,14 @@ type MemberCardProps = {
   name: string;
   profilePicture: string;
   linkedinQR: string;
+  linkedinURL: string;
 };
 
 const MemberCard: React.FC<MemberCardProps> = ({
   name,
   profilePicture,
   linkedinQR,
+  linkedinURL,
 }) => {
   return (
     <div className="mx-5 my-4 h-[435px] w-[200px] rounded-t-full border-4 border-bgSidebarButton bg-white pt-2">
@@ -26,7 +28,7 @@ const MemberCard: React.FC<MemberCardProps> = ({
         src={linkedinQR}
         className="mx-auto mt-2 flex w-4/5 cursor-pointer hover:rounded-xl hover:border-2 hover:border-bgSidebar hover:shadow-2xl"
         onClick={() => {
-          window.open("https://linkedin.com/in/rifqoi", "_blank", "noreferrer");
+          window.open(linkedinURL, "_blank", "noreferrer");
         }}
       />
     </div>

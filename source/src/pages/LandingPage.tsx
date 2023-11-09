@@ -13,6 +13,19 @@ import FeatureCard from "../components/LandingPage/FeatureCard";
 import ArticleCarousel from "../components/LandingPage/ArticleCarousel";
 import MemberCard from "../components/LandingPage/MemberCard";
 
+import NisaPP from "../assets/members/nisa-pict.jpeg";
+import NisaQR from "../assets/members/nisa-qr.png";
+
+import RifqiPP from "../assets/members/rifqi-pict.jpeg";
+import RifqiQR from "../assets/members/rifqi-qr.png";
+
+import FarizPP from "../assets/members/fariz-pict.jpeg";
+import FarizQR from "../assets/members/fariz-qr.png";
+
+import DhikaQR from "../assets/members/dhika-qr.png";
+
+import ZieQR from "../assets/members/zie-qr.png";
+
 const LandingPage = () => {
   return (
     <div style={{ backgroundImage: `url(${Background})` }}>
@@ -25,7 +38,7 @@ const LandingPage = () => {
               <div className="flex flex-col items-center justify-center">
                 <img
                   src={LogoDigiwise}
-                  className="pointer-events-none mb-6 mt-16 w-1/4  md:mt-24"
+                  className="pointer-events-none mb-6 mt-16 w-1/4 sm:w-1/4  md:mt-24"
                   style={{
                     WebkitUserSelect: "none",
                   }}
@@ -34,7 +47,7 @@ const LandingPage = () => {
                   DIGIWISE
                 </div>
                 <hr className="w-3/4 border-4 border-black text-sm text-black" />
-                <div className="mb-4 mt-4 px-1 text-center font-poppins text-2xl font-bold leading-loose tracking-widest text-blue-950 md:mt-7 md:text-5xl">
+                <div className="mb-4 mt-4 px-1 text-center font-poppins text-xl font-bold leading-loose tracking-widest text-blue-950 sm:text-2xl md:mt-7 md:text-5xl">
                   Enhanced Literacy for Greater Wisdom in the Digital Era
                 </div>
               </div>
@@ -62,7 +75,7 @@ const LandingPage = () => {
               </div>
             </div>
             <div className="my-10 px-10">
-              <div className="text-poppins text-center text-xl text-gray-950 md:text-justify md:text-2xl ">
+              <div className="text-poppins text-md text-center text-gray-950 sm:text-xl md:text-justify md:text-2xl ">
                 <span className="font-bold">Introducing Digiwise</span> -
                 Digiwise adalah sebuah platform yang dirancang untuk membantu
                 pengguna mengidentifikasi dan menghindari HOAX atau berita palsu
@@ -123,28 +136,33 @@ const LandingPage = () => {
       <div className="mx-20 mt-10 flex flex-col items-center justify-center sm:flex-wrap md:flex-row md:justify-evenly">
         <MemberCard
           name="Nisa"
-          profilePicture={ProfilePicture}
-          linkedinQR={LinkedinQR}
+          profilePicture={NisaPP}
+          linkedinQR={NisaQR}
+          linkedinURL="https://www.linkedin.com/in/khairunnisaciptahapsari/"
         />
         <MemberCard
           name="Zie"
           profilePicture={ProfilePicture}
-          linkedinQR={LinkedinQR}
+          linkedinQR={ZieQR}
+          linkedinURL="https://www.linkedin.com/in/fritzie-primananda/"
         />
         <MemberCard
           name="Dhika"
           profilePicture={ProfilePicture}
-          linkedinQR={LinkedinQR}
+          linkedinQR={DhikaQR}
+          linkedinURL="https://www.linkedin.com/in/andhika-prasetya-nugraha-7a5734207/"
         />
         <MemberCard
           name="Rifqi"
-          profilePicture={ProfilePicture}
-          linkedinQR={LinkedinQR}
+          profilePicture={RifqiPP}
+          linkedinQR={RifqiQR}
+          linkedinURL="https://www.linkedin.com/in/rifqoi"
         />
         <MemberCard
           name="Fariz"
-          profilePicture={ProfilePicture}
-          linkedinQR={LinkedinQR}
+          profilePicture={FarizPP}
+          linkedinQR={FarizQR}
+          linkedinURL="https://www.linkedin.com/in/mfarizalpasha/"
         />
       </div>
 

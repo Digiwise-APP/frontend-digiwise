@@ -18,7 +18,7 @@ const SidebarLayout = () => {
     <>
       <SidebarMenu />
       <Outlet />
-      {currentPath !== "/auth/signIn" ? <SidebarProfile /> : null}
+      {!currentPath.startsWith("/auth") ? <SidebarProfile /> : null}
     </>
   );
 };
