@@ -6,7 +6,6 @@ import DashboardHeader from "../components/Dashboard/DashboardHeader";
 import DashboardSkeleton from "../components/Dashboard/DashboardSkeleton";
 import ArticleCarousel from "../components/LandingPage/ArticleCarousel";
 
-import { useNavigate } from "react-router-dom";
 import FakeNewsCard from "../components/Dashboard/FakeNewsCard";
 import Skeleton from "react-loading-skeleton";
 

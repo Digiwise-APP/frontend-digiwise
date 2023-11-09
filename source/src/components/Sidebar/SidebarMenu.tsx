@@ -7,6 +7,7 @@ import {
   IoNewspaper,
   IoPersonSharp,
 } from "react-icons/io5";
+import { PiListMagnifyingGlassDuotone } from "react-icons/pi";
 import SidebarIcon from "./SidebarIcon";
 import { useNavigate } from "react-router-dom";
 
@@ -21,19 +22,20 @@ const menus = [
     iconComponent: (
       <IoGameControllerSharp className="text-[25px] md:text-[20px]" />
     ),
-    text: "Games",
+    text: "Dashboard",
     position: "right",
-    url: "/quiz",
-  },
-  {
-    iconComponent: <IoGlasses className="text-[25px] md:text-[20px]" />,
-    text: "About",
-    position: "right",
-    url: "/#about",
-    onClick: (e: SyntheticEvent) => {},
+    url: "/dashboard",
   },
   {
     iconComponent: <IoNewspaper className="text-[25px] md:text-[20px]" />,
+    text: "Articles",
+    position: "right",
+    url: "/article",
+  },
+  {
+    iconComponent: (
+      <PiListMagnifyingGlassDuotone className="text-[25px] md:text-[20px]" />
+    ),
     text: "Fake News Detection",
     position: "right",
     url: "/fake-news-detection",
