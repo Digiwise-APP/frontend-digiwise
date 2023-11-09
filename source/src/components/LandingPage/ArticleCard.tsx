@@ -30,7 +30,7 @@ const ArticleCard: React.FC<ArticleCardType> = ({
               {heading}
             </p>
             <button
-              className="sm:text-md my-10 h-14 w-full rounded-2xl bg-blue-300 text-xs text-black hover:bg-blue-400  md:w-1/3 md:rounded-full md:text-xl"
+              className="sm:text-md my-3 h-14 w-full rounded-2xl bg-blue-300 text-xs text-black hover:bg-blue-400 md:my-10  md:w-1/3 md:rounded-full md:text-xl"
               onClick={goToArticlePage}
             >
               Baca Selengkapnya

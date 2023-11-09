@@ -76,13 +76,21 @@ const LandingPage = () => {
                 </h2>
               </div>
             </div>
-            <div className="my-10 px-10">
-              <div className="text-poppins text-md text-center text-gray-950 sm:text-xl md:text-justify md:text-2xl ">
+            <div className="my-3 px-10 md:my-10">
+              <div className="text-poppins sm:text-md text text-justify text-xs text-gray-950 md:text-justify md:text-xl lg:text-2xl">
                 <span className="font-bold">Introducing Digiwise</span> -
                 Digiwise adalah sebuah platform yang dirancang untuk membantu
                 pengguna mengidentifikasi dan menghindari HOAX atau berita palsu
                 serta informasi yang menyesatkan. Platform ini menggunakan alat
-                dan sumber daya berbasis ..
+                dan sumber daya berbasis Pembelajaran Mesin (Machine Learning)
+                yang didesain untuk membantu pengguna tetap terinformasi dan
+                membuat keputusan yang lebih baik dalam membedakan berita palsu
+                dan yang sebenarnya. Digiwise juga menyediakan kuis mini untuk
+                menguji tingkat literasi pengguna dalam mengenali dan
+                menghindari hoax dan penipuan online. Dengan moto "Better
+                literacy for a better world, so be wise in the digital era,"
+                Digiwise mendorong pengguna untuk menjadi bijak dalam menghadapi
+                tantangan informasi palsu di era digital.
               </div>
             </div>
           </div>
