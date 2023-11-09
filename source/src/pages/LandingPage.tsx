@@ -128,45 +128,47 @@ const LandingPage = () => {
         </div>
       </Fade>
 
-      <div className="mt-16 px-10 md:px-32">
-        <fieldset className="border-t-4 border-bgSidebarButton">
-          <legend className="mx-auto px-4 font-poppins text-2xl font-bold text-bgSidebar md:text-5xl">
-            Our Members
-          </legend>
-        </fieldset>
-      </div>
-      <div className="mx-20 mt-10 flex flex-col items-center justify-center sm:flex-wrap md:flex-row md:justify-evenly">
-        <MemberCard
-          name="Nisa"
-          profilePicture={NisaPP}
-          linkedinQR={NisaQR}
-          linkedinURL="https://www.linkedin.com/in/khairunnisaciptahapsari/"
-        />
-        <MemberCard
-          name="Zie"
-          profilePicture={ZiePP}
-          linkedinQR={ZieQR}
-          linkedinURL="https://www.linkedin.com/in/fritzie-primananda/"
-        />
-        <MemberCard
-          name="Dhika"
-          profilePicture={DhikaPP}
-          linkedinQR={DhikaQR}
-          linkedinURL="https://www.linkedin.com/in/andhika-prasetya-nugraha-7a5734207/"
-        />
-        <MemberCard
-          name="Rifqi"
-          profilePicture={RifqiPP}
-          linkedinQR={RifqiQR}
-          linkedinURL="https://www.linkedin.com/in/rifqoi"
-        />
-        <MemberCard
-          name="Fariz"
-          profilePicture={FarizPP}
-          linkedinQR={FarizQR}
-          linkedinURL="https://www.linkedin.com/in/mfarizalpasha/"
-        />
-      </div>
+      <Fade triggerOnce delay={100} direction="up" damping={0.1}>
+        <div className="mt-16 px-10 md:px-32">
+          <fieldset className="border-t-4 border-bgSidebarButton">
+            <legend className="mx-auto px-4 font-poppins text-2xl font-bold text-bgSidebar md:text-5xl">
+              Our Members
+            </legend>
+          </fieldset>
+        </div>
+        <div className="mx-20 mt-10 flex flex-col items-center justify-center sm:flex-wrap md:flex-row md:justify-evenly">
+          <MemberCard
+            name="Nisa"
+            profilePicture={NisaPP}
+            linkedinQR={NisaQR}
+            linkedinURL="https://www.linkedin.com/in/khairunnisaciptahapsari/"
+          />
+          <MemberCard
+            name="Zie"
+            profilePicture={ZiePP}
+            linkedinQR={ZieQR}
+            linkedinURL="https://www.linkedin.com/in/fritzie-primananda/"
+          />
+          <MemberCard
+            name="Dhika"
+            profilePicture={DhikaPP}
+            linkedinQR={DhikaQR}
+            linkedinURL="https://www.linkedin.com/in/andhika-prasetya-nugraha-7a5734207/"
+          />
+          <MemberCard
+            name="Rifqi"
+            profilePicture={RifqiPP}
+            linkedinQR={RifqiQR}
+            linkedinURL="https://www.linkedin.com/in/rifqoi"
+          />
+          <MemberCard
+            name="Fariz"
+            profilePicture={FarizPP}
+            linkedinQR={FarizQR}
+            linkedinURL="https://www.linkedin.com/in/mfarizalpasha/"
+          />
+        </div>
+      </Fade>
 
       <div className="h-36 w-full"></div>
     </div>
