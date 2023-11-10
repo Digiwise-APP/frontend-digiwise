@@ -1,35 +1,41 @@
 import React, { useState } from "react";
+import { Article } from "../../api/fake-news";
 
-const articles = [
-  {
-    url: "https://cekfakta.com",
-    title:
-      "We have launched Flowbite Blocks featuring over 330+ website sections! ",
-  },
-  {
-    url: "cekfakta.com",
-    title:
-      "We have launched Flowbite Blocks featuring over 330+ website sections! ",
-  },
-  {
-    url: "cekfakta.com",
-    title:
-      "We have launched Flowbite Blocks featuring over 330+ website sections! ",
-  },
-  {
-    url: "cekfakta.com",
-    title:
-      "We have launched Flowbite Blocks featuring over 330+ website sections! ",
-  },
-  {
-    url: "cekfakta.com",
-    title:
-      "We have launched Flowbite Blocks featuring over 330+ website sections! ",
-  },
-];
+// const articles = [
+//   {
+//     url: "https://cekfakta.com",
+//     title:
+//       "We have launched Flowbite Blocks featuring over 330+ website sections! ",
+//   },
+//   {
+//     url: "cekfakta.com",
+//     title:
+//       "We have launched Flowbite Blocks featuring over 330+ website sections! ",
+//   },
+//   {
+//     url: "cekfakta.com",
+//     title:
+//       "We have launched Flowbite Blocks featuring over 330+ website sections! ",
+//   },
+//   {
+//     url: "cekfakta.com",
+//     title:
+//       "We have launched Flowbite Blocks featuring over 330+ website sections! ",
+//   },
+//   {
+//     url: "cekfakta.com",
+//     title:
+//       "We have launched Flowbite Blocks featuring over 330+ website sections! ",
+//   },
+// ];
 
-const RelatedArticles = () => {
+type RelatedArticlesProps = {
+  articles: Article[];
+};
+
+const RelatedArticles: React.FC<RelatedArticlesProps> = ({ articles }) => {
   const [open, setOpen] = useState<boolean>(false);
+  console.log(articles);
   return (
     <div className="mb-12 w-2/3 md:w-1/2">
       <div className="collapse collapse-plus bg-base-200">
