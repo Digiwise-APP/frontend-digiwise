@@ -55,7 +55,7 @@ const SignIn = () => {
     };
     setIsLoading(false);
     storeUser(userData);
-    return navigate("/quiz", {
+    return navigate("/dashboard", {
       replace: true,
     });
   };
