@@ -1,6 +1,8 @@
 import React, { SyntheticEvent, useRef, useState } from "react";
 import { FakeNewsResponse, predictFakeNews } from "../../api/fake-news";
 
+import LoadingSpinner from "../../assets/loader.gif";
+
 type InputOptions = "url" | "plaintext";
 
 function isValidUrl(str: string) {
@@ -16,13 +18,10 @@ type TextAreaProps = {
   setFakeNewsResponse: React.Dispatch<
     React.SetStateAction<FakeNewsResponse | undefined>
   >;
-  setLoading: React.Dispatch<React.SetStateAction<boolean | undefined>>;
 };
 
-const TextArea: React.FC<TextAreaProps> = ({
-  setFakeNewsResponse,
-  setLoading,
-}) => {
+const TextArea: React.FC<TextAreaProps> = ({ setFakeNewsResponse }) => {
+  const [loading, setLoading] = useState<boolean | undefined>(undefined);
   const [inputMode, setInputMode] = useState<InputOptions>("plaintext");
   const [inputText, setInputText] = useState<string>("");
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -56,6 +55,15 @@ const TextArea: React.FC<TextAreaProps> = ({
   const detectFakeNews = (e: SyntheticEvent) => {
     e.preventDefault();
 
+    setFakeNewsResponse(undefined);
+    // Validate the text
+    validateText(e);
+
+    if (!textAreaRef.current || !textAreaRef.current.checkValidity()) {
+      // If the text is not valid, you can choose to handle the error here.
+      return;
+    }
+
     setLoading(true);
     predictFakeNews(inputMode, inputText).then((res) => {
       setFakeNewsResponse(res);
@@ -64,7 +72,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   };
 
   return (
-    <form className="w-2/3">
+    <form className="w-2/3" onSubmit={detectFakeNews}>
       <div className="mb-4 w-full rounded-lg border bg-gray-50 ">
         <div className="flex items-center justify-between border-b px-3 py-2 ">
           <div className="flex flex-wrap items-center divide-gray-200 ">
@@ -106,13 +114,26 @@ const TextArea: React.FC<TextAreaProps> = ({
           ></textarea>
         </div>
       </div>
-      <button
-        type="submit"
-        className="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-200"
-        onClick={detectFakeNews}
-      >
-        Detect News !
-      </button>
+      {loading ? (
+        <button
+          type="submit"
+          className="inline-flex items-center rounded-lg bg-sky-400 px-5 py-2.5 text-center text-sm font-medium text-gray-600 hover:brightness-95 focus:ring-4 focus:ring-blue-200"
+          disabled={loading}
+        >
+          <span className="p-auto w-5">
+            <img src={LoadingSpinner} />
+          </span>
+          &nbsp; Detecting News...
+        </button>
+      ) : (
+        <button
+          type="submit"
+          className="inline-flex items-center rounded-lg bg-sky-400 px-5 py-2.5 text-center text-sm font-medium text-gray-600 hover:brightness-95 focus:ring-4 focus:ring-blue-200"
+          disabled={loading}
+        >
+          Detect News !
+        </button>
+      )}
     </form>
   );
 };
