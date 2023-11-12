@@ -5,9 +5,12 @@ type UserDataLocalStorage = {
 };
 
 const getToken = () => {
-  const userStore = JSON.parse(
-    localStorage.getItem("user") || "",
-  ) as UserDataLocalStorage;
+  const userToken = localStorage.getItem("user");
+  if (!userToken) {
+    return null;
+  }
+
+  const userStore = JSON.parse(userToken || "") as UserDataLocalStorage;
   return userStore.state.token;
 };
 
