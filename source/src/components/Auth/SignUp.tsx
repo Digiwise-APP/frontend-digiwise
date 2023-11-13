@@ -19,7 +19,10 @@ const SignUp = () => {
     handleSubmit,
     clearErrors,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<Inputs>({
+    mode: "onSubmit",
+    reValidateMode: "onSubmit",
+  });
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     setIsLoading(true);
@@ -62,11 +65,11 @@ const SignUp = () => {
                     value: 5,
                     message: "harus lebih dari 5 karakter",
                   },
+                  onChange: () => {
+                    setErrorServer(null);
+                    clearErrors("username");
+                  },
                 })}
-                onChange={() => {
-                  setErrorServer(null);
-                  clearErrors("username");
-                }}
               />
               {errors.username && (
                 <span className="absolute -bottom-5 left-0 font-poppins text-xs font-bold text-red-600">
@@ -86,19 +89,15 @@ const SignUp = () => {
                 placeholder="mail@gmail.com"
                 {...register("email", {
                   required: "field email harus di isi",
-                  minLength: {
-                    value: 5,
-                    message: "email harus lebih dari 5 karakter",
-                  },
                   validate: {
                     isEmail: (value) =>
                       validator.isEmail(value) || "Mohon isi email yg valid",
                   },
+                  onChange: () => {
+                    setErrorServer(null);
+                    clearErrors("email");
+                  },
                 })}
-                onChange={() => {
-                  setErrorServer(null);
-                  clearErrors("email");
-                }}
               />
               {errors.email && (
                 <span className="absolute -bottom-5 left-0 font-poppins text-xs font-bold text-red-600">
@@ -122,11 +121,11 @@ const SignUp = () => {
                     value: 5,
                     message: "pass harus lebih dari 5 karakter",
                   },
+                  onChange: () => {
+                    setErrorServer(null);
+                    clearErrors("password");
+                  },
                 })}
-                onChange={() => {
-                  setErrorServer(null);
-                  clearErrors("password");
-                }}
               />
               {errors.password && (
                 <span className="absolute -bottom-5 left-0 font-poppins text-xs font-bold text-red-600">

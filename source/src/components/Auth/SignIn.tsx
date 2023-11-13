@@ -29,7 +29,10 @@ const SignIn = () => {
     handleSubmit,
     clearErrors,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<Inputs>({
+    mode: "onSubmit",
+    reValidateMode: "onSubmit",
+  });
 
   const state = location.state as LocationState;
 
@@ -88,23 +91,19 @@ const SignIn = () => {
             <div className="relative">
               <input
                 className=" w-full rounded-lg border border-gray-300 px-4  py-2 text-base focus:border-green-400 focus:outline-none"
-                type=""
+                type="text"
                 placeholder="mail@gmail.com"
                 {...register("email", {
                   required: "field email harus di isi",
-                  minLength: {
-                    value: 5,
-                    message: "email harus lebih dari 5 karakter",
-                  },
                   validate: {
                     isEmail: (value) =>
                       validator.isEmail(value) || "Mohon isi email yg valid",
                   },
+                  onChange: () => {
+                    setErrorServer(null);
+                    clearErrors("email");
+                  },
                 })}
-                onChange={() => {
-                  setErrorServer(null);
-                  clearErrors("email");
-                }}
               />
               {errors.email && (
                 <span className="absolute -bottom-5 left-0 font-poppins text-xs font-bold text-red-600">
@@ -124,15 +123,11 @@ const SignIn = () => {
                 placeholder="Enter your password"
                 {...register("password", {
                   required: "field password harus di isi",
-                  minLength: {
-                    value: 5,
-                    message: "pass harus lebih dari 5 karakter",
+                  onChange: () => {
+                    setErrorServer(null);
+                    clearErrors("password");
                   },
                 })}
-                onChange={() => {
-                  setErrorServer(null);
-                  clearErrors("password");
-                }}
               />
               {errors.password && (
                 <span className="absolute -bottom-5 left-0 font-poppins text-xs font-bold text-red-600">
