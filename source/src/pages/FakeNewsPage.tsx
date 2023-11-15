@@ -12,7 +12,13 @@ const FakeNewsPage = () => {
   }, [predictResponse]);
 
   return (
-    <div data-theme="light" className="flex flex-col items-center  py-[54px]">
+    <div
+      data-theme="light"
+      className="flex h-screen flex-col items-center  py-[54px]"
+    >
+      <h1 className="mb-[56px] text-center font-rowdies text-[30px] font-bold text-black md:text-[50px]">
+        Fake News Detection
+      </h1>
       <TextArea setFakeNewsResponse={setPredictResponse} />
       {predictResponse ? (
         <>
