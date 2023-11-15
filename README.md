@@ -8,7 +8,7 @@ Link to the website :  [Digiwise](https://digiwise.vercel.app/)
 ## **Tech Stack**
 <div align="left">
 
- <img src="https://skillicons.dev/icons?i=react,docker,typescript,docker&perline=5" alt="Tech Stack" /> 
+ <img src="https://skillicons.dev/icons?i=react,tailwind,typescript,docker&perline=5" alt="Tech Stack" /> 
  
 </div>
 
