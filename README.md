@@ -1,4 +1,4 @@
-# Digiwise ( Frontend )
+# Digiwise Frontend
 
 Final capstone project of Generasi Gigih 3.0 Fullstack Track
 
