@@ -10,3 +10,5 @@ services:
       - /app/digiwise/node_modules
     stdin_open: true
     tty: true
+    environment:
+      - VITE_BASE_API_URL=https://backend-digiwise.vercel.app
