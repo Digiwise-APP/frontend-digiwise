@@ -12,3 +12,4 @@ services:
     tty: true
     environment:
       - VITE_BASE_API_URL=https://backend-digiwise.vercel.app
+      - VITE_FAKE_NEWS_API_URL=https://random.ilhamhanifan.dev
